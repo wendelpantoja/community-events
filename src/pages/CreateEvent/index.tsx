@@ -1,7 +1,7 @@
 
 export function CreateEvent() {
     return (
-        <div className="container_content">
+        <div className="container_event">
             <h2>Criar evento</h2>
             <div className="container_inputs">
                 <input className='title' type="text" placeholder='Digite o título do evento'/>

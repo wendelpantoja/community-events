@@ -105,7 +105,7 @@ export const SectionServices = styled.section`
         }
     }
 
-    @media (max-width: 904px) {
+    @media (max-width: 950px) {
         height: auto;
 
         .container_cards {
@@ -167,8 +167,8 @@ export const SectionRectangle = styled.section<{
         padding-bottom: 60px;
 
         .image-rectangle {
-            width: 100%;
-            height: 100%;
+            width: 80%;
+            height: 80%;
 
             img {
                 width: 100%;

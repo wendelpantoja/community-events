@@ -43,7 +43,7 @@ export const ContainerDash = styled.div`
         gap: 20px;
     }
 
-    .container_content {
+    .container_event {
         position: absolute;
         top: 50%;
         left: 50%;
@@ -75,6 +75,7 @@ export const ContainerDash = styled.div`
             width: 100%;
             height: 100px;
             font-size: 18px;
+            resize: none;
             outline: none;
         }
 

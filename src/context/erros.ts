@@ -1,6 +1,11 @@
 export const errosCode = [
     {
         type: "error",
+        error: "auth/invalid-login-credentials",
+        message: "Usuário ou senha incorretos",
+    },
+    {
+        type: "error",
         error: "auth/user-not-found",
         message: "Usuário não possui uma conta",
     },

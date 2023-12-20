@@ -19,7 +19,6 @@ export function ContainerEvents({ event }: CardContainerProps) {
         slidesPerView: 4,
     }
 
-    
     return (
         <Container>
             <ContainerEventsComponet>
@@ -30,7 +29,7 @@ export function ContainerEvents({ event }: CardContainerProps) {
                     <Slider settings={settings}>
                         {eventsCards.map((cards) => (
                             <SwiperSlide>
-                                <Card key={cards.title}
+                                <Card key={cards.data}
                                 img={cards.img} 
                                 title={cards.title} 
                                 data={cards.data} 

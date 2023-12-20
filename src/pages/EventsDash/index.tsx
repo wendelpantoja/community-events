@@ -4,8 +4,8 @@ import { ContainerCardsDash } from "./styles";
 export function EventsDash() {
     return (
         <ContainerCardsDash>
-            <ContainerEvents />
-            <ContainerEvents />
+            <ContainerEvents event="online"/>
+            <ContainerEvents event="presencial"/>
         </ContainerCardsDash>
     )
 }

@@ -13,9 +13,9 @@ html, body {
     height: 100%;
 }
 
-body {
+/* body {
     background-color: #DCE9E2;
-}
+} */
 
 ul {
     list-style: none;
