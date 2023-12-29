@@ -1,7 +1,6 @@
 import { Header } from "../../components/Header";
 import { Container } from "../../styles/GlobalStyles";
 import { Button, SectionIntroduction, SectionRectangle, SectionServices } from "./styles";
-import { FaArrowRightLong } from "react-icons/fa6"
 import IconTicket from "../../assets/img/icon-ticket.svg"
 import ImgCollabOne from "../../assets/img/img-collab-pana.png"
 import { Footer } from "../../components/Footer";
@@ -20,7 +19,7 @@ export function Home() {
                             <p>Bem-vindo ao nosso portal de gerenciamento de eventos, dedicado a fortalecer comunidades e impulsionar a colaboração. Planeje, promova e gerencie eventos incríveis com facilidade. Faça parte dessa transformação comunitária!</p>
                             <Link to="/register">
                                 <Button $background="#00856F" $border="none" $color="white">
-                                    Criar Evento <FaArrowRightLong />
+                                    Criar Eventos <i className='bx bx-chevron-right'></i>
                                 </Button>
                             </Link>
                         </div>
@@ -35,17 +34,14 @@ export function Home() {
                         <div className="card">
                             <img src={IconTicket} alt="" />
                             <h3>Venda mais ingressos</h3>
-                            <p>Crie cupons de desconto. Categorias de inscrição. Colete dados. Vendas no cartão, boleto e PIX.</p>
                         </div>
                         <div className="card">
-                            <img src={IconTicket} alt="" />
-                            <h3>Venda mais ingressos</h3>
-                            <p>Crie cupons de desconto. Categorias de inscrição. Colete dados. Vendas no cartão, boleto e PIX.</p>
+                            <i className='bx bx-book-content' ></i>
+                            <h3>Conteduo interativo</h3>
                         </div>
                         <div className="card">
-                            <img src={IconTicket} alt="" />
-                            <h3>Venda mais ingressos</h3>
-                            <p>Crie cupons de desconto. Categorias de inscrição. Colete dados. Vendas no cartão, boleto e PIX.</p>
+                            <i className='bx bx-slideshow'></i>
+                            <h3>Eventos online</h3>
                         </div>
                     </div>
                 </SectionServices>
@@ -72,8 +68,10 @@ export function Home() {
                     $flex="column-reverse"
                 >
                     <div className="informations">
-                        <h2>Foco na facilidade de Uso</h2>
-                        <p>Não é necessário ser um expert! Nosso sistema é fácil de usar, com uma interface amigável que permite a você concentrar-se no conteúdo do evento, não nas complexidades do gerenciamento.</p>
+                        <h2>Tudo em um só lugar</h2>
+                        <p>Integre ferramentas, compartilhe seus dados.
+                        Acompanhe suas vendas. Veja relatórios, crie vendas em lotes e cupons de desconto. 
+                        Notifique participantes, envie e-mails.</p>
                     </div>
                     <div className="image-rectangle">
                         <img src={ImgCollabOne} alt="" />

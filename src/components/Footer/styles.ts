@@ -5,10 +5,10 @@ export const FooterComponent = styled.footer`
     align-items: center;
     justify-content: center;
     width: 100%;
-    height: 450px;
+    padding: 30px;
     background-color: #00856F;
 
-    .container_conteudo {
+    /* .container_conteudo {
         display: flex;
         align-items: center;
         justify-content: center;
@@ -71,11 +71,10 @@ export const FooterComponent = styled.footer`
                 font-weight: 400;
             }
         }
-    }
+    } */
     .cripto {
         color: white;
         text-align: center;
-        margin-top: 100px;
     }
 
     @media (max-width: 904px) {

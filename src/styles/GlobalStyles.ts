@@ -14,7 +14,7 @@ html, body {
 }
 
 body {
-    background-color: #DCE9E2;
+    background-color: white;
 }
 
 ul {
@@ -31,5 +31,5 @@ export const Container = styled.div`
     width: 100%;
     max-width: 1480px;
     margin: 0 auto;
-    padding: 0 15px; 
+    padding: 0 30px; 
 `

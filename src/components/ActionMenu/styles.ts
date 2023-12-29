@@ -2,13 +2,17 @@ import styled from "styled-components"
 
 export const ContainerMenu = styled.div<{$activeMenu: string | undefined}>`
     display: flex;
-    align-items: center;
     flex-direction: column;
     justify-content: center;
     gap: 20px;
     width: 60%;
+    max-width: 300px;
     height: 60vh;
     background-color: white;
+    border-radius: 0px 0px 0px 10px;
+    box-shadow: 0px 0px 2px 1px rgba(0,0,0,0.1),0px 10px 15px -3px rgba(0,0,0,0.1);
+
+    padding: 20px;
 
     position: absolute;
     top: 0;
@@ -23,10 +27,14 @@ export const ContainerMenu = styled.div<{$activeMenu: string | undefined}>`
 `
 export const ContainerButtons = styled.div`
     display: flex;
-    align-items: center;
+    align-items: end;
     flex-direction: column;
     justify-content: center;
     gap: 20px;
+
+    ul li:nth-child(1){
+        text-align: end;
+    }
 
     a > span {
         color: #FFCA28;

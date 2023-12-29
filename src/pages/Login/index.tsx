@@ -6,7 +6,6 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { FirebaseError } from "firebase/app"
 import { useAuth } from "../../context/useAuth";
 import { Link, Navigate, useNavigate } from "react-router-dom";
-import { FiLogIn } from "react-icons/fi"
 import { HandleSpin } from "../../components/Spin";
 
 export function Login() {
@@ -35,7 +34,7 @@ export function Login() {
         <ContainerForm>
             <div className="header_form">
                 <div className="text-login">
-                    <FiLogIn />
+                    <i className='bx bx-log-in-circle'></i>
                     <h2>Faça seu login</h2>
                 </div>
                 <p>Entre com suas informações de cadastro.</p>
@@ -63,6 +62,7 @@ export function Login() {
                 {auth.handleSpinState ? <HandleSpin /> : "Entrar"}
                 </Button>
                 <p>Ainda não tem uma conta? <Link to="/register">Registre-se</Link></p>
+                <Link to="/">voltar para home</Link>
             </Form>
         </ContainerForm>
     )

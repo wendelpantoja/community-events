@@ -20,7 +20,7 @@ export const ContainerForm = styled.div`
             display: flex;
             align-items: center;
             gap: 8px;
-            svg {
+            i {
                 font-size: 28px;
             }
         }

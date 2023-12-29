@@ -8,6 +8,7 @@ import { FirebaseError } from "firebase/app";
 import { Link, useNavigate } from "react-router-dom";
 import { HandleSpin } from "../../components/Spin";
 
+
 export function Register() {
     const { register, handleSubmit, reset, formState: { errors } } = useForm<CreateUserFormDataRegister>({
         resolver: zodResolver(createUserFormRegister)
@@ -16,6 +17,7 @@ export function Register() {
     const navigate = useNavigate()
 
     async function getUser(data: CreateUserFormDataRegister) {
+        console.log(data)
         if(data.password === data.passwordConfirme) {
             try {
                 await auth.createUser(data.email, data.password)
@@ -70,6 +72,7 @@ export function Register() {
                 {auth.handleSpinState ? <HandleSpin /> : "Cadastrar"}
                 </Button>
                 <p>Já tem uma conta? <Link to="/login">Faça login</Link></p>
+                <Link to="/">voltar para home</Link>
             </Form>
         </ContainerForm>
     )
