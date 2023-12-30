@@ -103,6 +103,11 @@ export const SectionServices = styled.section`
             font-weight: 400;
             text-align: center;
         }
+
+        i {
+            font-size: 75px;
+            color: #00856F;
+        }
     }
 
     @media (max-width: 950px) {
@@ -133,7 +138,9 @@ export const SectionRectangle = styled.section<{
     gap: ${(props) => props.$gap};
 
     border-radius: 50px;
+    margin-top: 70px;
     margin-bottom: 30px;
+    padding: 25px;
 
     .informations {
 
@@ -167,12 +174,23 @@ export const SectionRectangle = styled.section<{
         padding-bottom: 60px;
 
         .image-rectangle {
+<<<<<<< HEAD
+            width: 100%;
+            max-width: 400px;
+            height: 100%;
+=======
             width: 80%;
             height: 80%;
+>>>>>>> main
 
             img {
                 width: 100%;
             }
+        }
+
+        .informations {
+            align-items: center;
+            text-align: center;
         }
     }
 `
@@ -193,9 +211,13 @@ $color: string}>`
     align-items: center;
     justify-content: center;
 
-    gap: 10px;
+    gap: 5px;
 
-    svg {
-        margin-top: 1px;
+    font-size: 14px;
+    font-weight: 500;
+
+    i {
+        font-size: 20px;
+        margin-top: 3px;
     }
 `

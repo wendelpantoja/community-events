@@ -13,9 +13,9 @@ html, body {
     height: 100%;
 }
 
-/* body {
-    background-color: #DCE9E2;
-} */
+body {
+    background-color: white;
+}
 
 ul {
     list-style: none;
@@ -31,5 +31,5 @@ export const Container = styled.div`
     width: 100%;
     max-width: 1480px;
     margin: 0 auto;
-    padding: 0 15px; 
+    padding: 0 30px; 
 `

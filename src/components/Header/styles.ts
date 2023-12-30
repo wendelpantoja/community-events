@@ -22,6 +22,19 @@ export const HeaderComponent = styled.header`
 
     }
 
+    .list li a {
+        font-weight: 500;
+    }
+
+    .list li a:hover {
+        color: #00856F;
+    }
+
+    .logo h2, span {
+        font-size: 20px;
+        font-weight: 700;
+    }
+
     .logo span {
         color: #00856F;
     }
@@ -58,6 +71,7 @@ $background: string,
 $border: string,
 $color: string}>`
     font-size: 14px;
+    font-weight: 500;
     width: 130px;
     height: 40px;
     color: ${(props) => props.$color};

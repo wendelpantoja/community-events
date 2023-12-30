@@ -25,7 +25,7 @@ export const Form = styled.form`
     flex-direction: column;
     align-items: center;
     gap: 25px;
-
+    
     .container_inputs {
         width: 100%;
         display: flex;
@@ -44,6 +44,8 @@ export const Form = styled.form`
             font-weight: 700;
         }
     }
+
+    
 `
 
 export const Button = styled.button`

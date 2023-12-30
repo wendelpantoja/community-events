@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import { Container } from "../../styles/GlobalStyles";
 import { FooterComponent } from "./styles";
 
@@ -7,7 +7,7 @@ export function Footer() {
     return (
         <FooterComponent>
             <Container>
-                <div className="container_conteudo">
+                {/* <div className="container_conteudo">
                     <div className="eventos">
                         <h2>Eventos</h2>
                         <ul>
@@ -35,7 +35,7 @@ export function Footer() {
                             <li><Link to="#">Personalizados</Link></li>
                         </ul>
                     </div>
-                </div>
+                </div> */}
                 <div className="cripto">
                     <p>2023 © Community Events Reserved</p>
                 </div>

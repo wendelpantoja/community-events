@@ -6,7 +6,6 @@ export const SectionOne = styled.section`
     height: 452px;
     /* background-color: #DCE9E2; */
     position: relative;
-    margin-bottom: 169px;
 
     .container_text {
         width: 100%;
@@ -26,34 +25,37 @@ export const SectionOne = styled.section`
 `
 
 export const SearchEvents = styled.div`
-    position: absolute;
-    transform: translateX(-50%);
-    left: 50%;
-    bottom: -130px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
     width: 100%;
     max-width: 875px;
-    height: 200px;
+    height: 150px;
     border-radius: 10px;
     background-color: #00856F;
+    margin: 0 auto;
+    margin-bottom: 80px;
 
-    .container_search {
-        max-width: 699px;
-        margin: 0 auto;
-        padding-top: 29px;
-    }
+    padding: 0px 35px;
 
-    .container_search
+    /* .container_search {
+        position: relative;
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+    } */
     .search {
         display: flex;
         align-items: center;
         width: 100%;
-        height: 54px;
+        max-width: 450px;
+        height: 50px;
         background-color: #FFF;
         border-radius: 10px;
 
         svg {
-            width: 18px;
-            height: 18px;
+            width: 16px;
+            height: 16px;
             color: #00856F;
             margin-left: 21px;
         }
@@ -66,33 +68,21 @@ export const SearchEvents = styled.div`
             outline: none;
             padding-left: 15px;
         }
-    }
 
-    .container_search
-    .selecteds {
-        width: 100%;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-
-        select {
-            width: 271px;
-            height: 50px;
-            border-radius: 10px;
-            margin-top: 38px;
-            color: gray;
+        input::-webkit-input-placeholder {
+            color: #384633;
+            font-weight: 500;
+            font-size: 14px;
         }
     }
 
     @media (max-width: 904px) {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
         height: auto;
         width: 97%;
-        padding: 0px 20px;
+        padding: 30px 20px;
         bottom: -200px;
-
-        .selecteds {
-            flex-direction: column;
-            padding-bottom: 20px;
-        }
     }
 ` 
