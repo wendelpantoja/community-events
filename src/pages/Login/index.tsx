@@ -26,10 +26,12 @@ export function Login() {
             navigate("/dashboard/create-event")
         } catch (error) {
             if(error instanceof FirebaseError) {
-                await auth.fireBaseErrors(error.code)
+                auth.fireBaseErrors(error.code)
+                console.log(error.code)
             }
         }
     }
+
     return (
         <ContainerForm>
             <div className="header_form">

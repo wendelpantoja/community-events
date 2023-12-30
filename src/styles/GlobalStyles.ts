@@ -13,9 +13,15 @@ html, body {
     height: 100%;
 }
 
+<<<<<<< HEAD
 body {
     background-color: white;
 }
+=======
+/* body {
+    background-color: #DCE9E2;
+} */
+>>>>>>> main
 
 ul {
     list-style: none;
