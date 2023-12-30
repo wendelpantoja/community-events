@@ -12,7 +12,7 @@ export const ContainerMenu = styled.div<{$activeMenu: string | undefined}>`
     border-radius: 0px 0px 0px 10px;
     box-shadow: 0px 0px 2px 1px rgba(0,0,0,0.1),0px 10px 15px -3px rgba(0,0,0,0.1);
 
-    padding: 20px;
+    padding: 35px;
 
     position: absolute;
     top: 0;
@@ -21,7 +21,9 @@ export const ContainerMenu = styled.div<{$activeMenu: string | undefined}>`
         position: absolute;
         top: 20px;
         right: 15px;
-        font-size: 25px;
+        font-size: 20px;
+        padding-top: 10px;
+        padding-right: 15px;
     }
     z-index: 100;
 `

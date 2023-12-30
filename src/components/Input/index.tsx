@@ -1,7 +1,7 @@
 import { InputHTMLAttributes } from "react";
 import { ContainerInput } from "./styles";
 import { UseFormRegister } from "react-hook-form";
-import { MdEmail, MdLock } from "react-icons/md"
+
 
 interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
     textLabel: string;
@@ -18,7 +18,7 @@ export function Input({ textLabel, type, register, registerName, ...rest }: Inpu
             <ContainerInput>
                 <label htmlFor="">{textLabel}</label>
                 <div className="input">
-                    <MdEmail />
+                <i className='bx bxs-envelope'></i>
                     <input 
                         type={type}
                         {...register(registerName)} 
@@ -33,7 +33,7 @@ export function Input({ textLabel, type, register, registerName, ...rest }: Inpu
             <ContainerInput>
                 <label htmlFor="">{textLabel}</label>
                 <div className="input">
-                    <MdLock />
+                    <i className='bx bxs-lock-alt'></i>
                     <input 
                         type={type}
                         {...register(registerName)} 

@@ -35,6 +35,10 @@ export const Form = styled.form`
             font-size: 12px;
             color: red;
         }
+
+        i {
+            color: #ccc;
+        }
     }
     p {
         font-size: 15px;
