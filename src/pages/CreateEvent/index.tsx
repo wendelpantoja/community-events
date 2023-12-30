@@ -15,11 +15,7 @@ const categories = [
 
 export function CreateEvent() {
     return (
-<<<<<<< HEAD
         <ContainerContent>
-=======
-        <div className="container_event">
->>>>>>> main
             <h2>Criar evento</h2>
             <div className="container_inputs">
                 <UploadComponent />

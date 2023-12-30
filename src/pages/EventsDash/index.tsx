@@ -6,7 +6,6 @@ import { ContainerCardsDash } from "./styles";
 export function EventsDash() {
     return (
         <ContainerCardsDash>
-<<<<<<< HEAD
             <div className="text">
                 <h2>Eventos Criados</h2>
             </div>
@@ -23,10 +22,6 @@ export function EventsDash() {
                 />
                 ))}
             </div>
-=======
-            <ContainerEvents event="online"/>
-            <ContainerEvents event="presencial"/>
->>>>>>> main
         </ContainerCardsDash>
     )
 }

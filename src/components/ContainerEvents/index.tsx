@@ -14,8 +14,6 @@ import 'swiper/css/navigation';
 interface CardContainerProps {
     event?: string;
 }
-
-<<<<<<< HEAD
 export function ContainerEvents({event}: CardContainerProps) {
     
     return (
@@ -71,35 +69,6 @@ export function ContainerEvents({event}: CardContainerProps) {
                     ))}
                 </Swiper>
             </ContainerEventsComponent>
-=======
-export function ContainerEvents({ event }: CardContainerProps) {
-
-    const settings = {
-        spaceBetween: 120,
-        slidesPerView: 4,
-    }
-
-    return (
-        <Container>
-            <ContainerEventsComponet>
-                <div className="container_type_event">
-                    <h2>Eventos {event}</h2>
-                </div>
-                <div className="container_cards">
-                    <Slider settings={settings}>
-                        {eventsCards.map((cards) => (
-                            <SwiperSlide>
-                                <Card key={cards.data}
-                                img={cards.img} 
-                                title={cards.title} 
-                                data={cards.data} 
-                                cidade={cards.cidade}/>
-                            </SwiperSlide>
-                        ))}
-                    </Slider>
-                </div>
-            </ContainerEventsComponet>
->>>>>>> main
         </Container>
     )
 }

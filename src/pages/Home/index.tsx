@@ -19,11 +19,7 @@ export function Home() {
                             <p>Bem-vindo ao nosso portal de gerenciamento de eventos, dedicado a fortalecer comunidades e impulsionar a colaboração. Planeje, promova e gerencie eventos incríveis com facilidade. Faça parte dessa transformação comunitária!</p>
                             <Link to="/register">
                                 <Button $background="#00856F" $border="none" $color="white">
-<<<<<<< HEAD
                                     Criar Eventos <i className='bx bx-chevron-right'></i>
-=======
-                                    Criar Eventos <FaArrowRightLong />
->>>>>>> main
                                 </Button>
                             </Link>
                         </div>
