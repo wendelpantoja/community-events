@@ -53,9 +53,8 @@ export const SearchEvents = styled.div`
         background-color: #FFF;
         border-radius: 10px;
 
-        svg {
-            width: 16px;
-            height: 16px;
+        i {
+            font-size: 20px;
             color: #00856F;
             margin-left: 21px;
         }

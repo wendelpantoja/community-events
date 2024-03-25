@@ -58,7 +58,7 @@ export const HeaderComponent = styled.header`
             display: block;
             cursor: pointer;
 
-            svg{
+            i {
                 font-size: 25px;
                 cursor: pointer;
             }

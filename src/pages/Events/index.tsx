@@ -3,7 +3,7 @@ import { Footer } from "../../components/Footer";
 import { Header } from "../../components/Header";
 import { Selected } from "../../components/Selected";
 import { SearchEvents, SectionOne } from "./styles";
-import { FaSearch } from "react-icons/fa"
+
 
 export function Events() {
     return(
@@ -18,7 +18,7 @@ export function Events() {
             </SectionOne>
             <SearchEvents>
                 <div className="search">
-                    <FaSearch />
+                    <i className='bx bx-search-alt-2'></i>
                     <input type="text" placeholder="Pesquisar eventos"/>
                 </div>
                 <Selected />

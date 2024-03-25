@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { ContainerButtons, ContainerMenu } from "./styles";
 import { CloseOutlined } from "@ant-design/icons";
 import { Button } from "../Header/styles";
-import { BiUser } from "react-icons/bi";
+
 
 interface MenuProps {
     action?: string;
@@ -31,7 +31,7 @@ export function ActionMenu({action, handleMenu}: MenuProps) {
                 </Link>
                 <Link to="/login">
                     <Button $background="transparent" $border="2px solid #00856F" $color="#00856F">
-                        <BiUser /> Login
+                        <i className='bx bxs-user'></i> Login
                     </Button>
                 </Link>
             </ContainerButtons>

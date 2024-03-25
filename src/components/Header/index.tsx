@@ -1,7 +1,6 @@
 import { Link } from "react-router-dom";
 import { Container } from "../../styles/GlobalStyles";
 import { Button, HeaderComponent } from "./styles";
-import { RxHamburgerMenu } from "react-icons/rx"
 import { useState } from "react";
 import { ActionMenu } from "../ActionMenu";
 
@@ -38,7 +37,7 @@ export function Header() {
                         </Link>
                     </div>
                     <div className="menu">
-                        {actionMenu && <RxHamburgerMenu onClick={() => handleMenu(false)}/>}
+                        {actionMenu && <i className='bx bx-menu' onClick={() => handleMenu(false)}></i>}
                     </div>
                 </nav>
             </Container>

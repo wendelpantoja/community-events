@@ -174,14 +174,9 @@ export const SectionRectangle = styled.section<{
         padding-bottom: 60px;
 
         .image-rectangle {
-<<<<<<< HEAD
             width: 100%;
             max-width: 400px;
             height: 100%;
-=======
-            width: 80%;
-            height: 80%;
->>>>>>> main
 
             img {
                 width: 100%;
