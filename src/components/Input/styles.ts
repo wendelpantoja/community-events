@@ -18,11 +18,11 @@ export const ContainerInput = styled.div`
         align-items: center;
         width: 100%;
         height: 54px;
-        border: 1.5px solid lightgray;
+        border: 2px solid lightgray;
         border-radius: 8px;
         padding-left: 10px;
 
-        svg {
+        i {
             color: lightgray;
         }
 
@@ -35,4 +35,13 @@ export const ContainerInput = styled.div`
             outline: none;
         }
     }
+
+    .input:focus-within {
+        border-color: #00856F;
+
+        i {
+            color: #00856F;
+        }
+    }
+
 `

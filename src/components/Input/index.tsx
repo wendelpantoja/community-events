@@ -8,8 +8,7 @@ interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
     type: string;
     placeholder: string;
     register: UseFormRegister<any>;
-    registerName: "email" | "password" | "passwordConfirme";
-    // value?: string | undefined;
+    registerName: "nome" | "sobrenome" | "email" | "password" | "passwordConfirme";
 }
 
 export function Input({ textLabel, type, register, registerName, ...rest }: InputProps) {
@@ -18,7 +17,7 @@ export function Input({ textLabel, type, register, registerName, ...rest }: Inpu
             <ContainerInput>
                 <label htmlFor="">{textLabel}</label>
                 <div className="input">
-                <i className='bx bxs-envelope'></i>
+                    <i className='bx bxs-envelope'></i>
                     <input 
                         type={type}
                         {...register(registerName)} 
@@ -28,6 +27,7 @@ export function Input({ textLabel, type, register, registerName, ...rest }: Inpu
             </ContainerInput>
         )
     }
+
     if(registerName === "password" || registerName === "passwordConfirme") {
         return (
             <ContainerInput>
@@ -43,4 +43,18 @@ export function Input({ textLabel, type, register, registerName, ...rest }: Inpu
             </ContainerInput>
         )
     }
+
+    return (
+        <ContainerInput>
+            <label htmlFor="">{textLabel}</label>
+            <div className="input">
+                <i className='bx bxs-user'></i>
+                <input 
+                    type={type}
+                    {...register(registerName)} 
+                    {...rest}
+                />
+            </div>
+        </ContainerInput>
+    )
 }

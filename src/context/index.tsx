@@ -3,7 +3,8 @@ import { IAuthProvider, IContext } from "./types";
 import { User, onAuthStateChanged, signOut } from "firebase/auth";
 import { Notification } from "../components/Notification";
 import { createUserAcess, singInUserAcess } from "../services/authentications/authAuthentications";
-import { auth } from "../services/fireBaseConfig";
+import { auth, db } from "../services/fireBaseConfig";
+import { collection, addDoc } from "firebase/firestore";
 import { errosCode } from "./erros";
 
 export const AuthContext = createContext<IContext>({} as IContext)
@@ -43,10 +44,17 @@ export function AuthProvider({ children }: IAuthProvider) {
         }
     }
 
-    async function createUser(email: string, password: string) {
+    async function createUser(nome: string, sobrenome: string, email: string, password: string) {
         setHandleSpinState(true)
         try {
-            await createUserAcess(email, password);
+            const user = await createUserAcess(email, password);
+            await addDoc(collection(db, "Users"), {
+                id_user: user.user.uid,
+                email: user.user.email,
+                nome: nome,
+                sobrenome: sobrenome,
+                url_photo: ""
+            });
             notificationGlobal({
                 message: "Usuário criado com sucesso",
                 type: "success"

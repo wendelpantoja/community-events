@@ -5,6 +5,14 @@ export interface IUser {
     user: User | null;
 }
 
+export interface UserProps {
+    nome: string,
+    sobrenome: string,
+    email: string,
+    password: string,
+    passwordconfirm?: string
+}
+
 type NotificatioTypes = 'success' | 'info' | 'warning' | 'error'
 
 interface NotificationProps {
@@ -15,7 +23,7 @@ interface NotificationProps {
 
 export interface IContext extends IUser {
     authenticate: (email: string, senha: string) => Promise<void>;
-    createUser: (email: string, senha: string) => Promise<void>;
+    createUser: (nome: string, sobrenome: string, email: string, password: string) => Promise<void>;
     logout: () => void;
     fireBaseErrors: (error: string) => void;
     handleSpinState: boolean;

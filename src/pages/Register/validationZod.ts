@@ -1,8 +1,13 @@
 import { z } from "zod";
 
 export const createUserFormRegister = z.object({
+    nome: z.string()
+    .nonempty("Seu nome é obrigatório")
+    .toLowerCase(),
+    sobrenome: z.string()
+    .toLowerCase(),
     email: z.string()
-    .nonempty("O e-mail é obrigatorio")
+    .nonempty("O e-mail é obrigatório")
     .email("Formato de e-email inválido")
     .toLowerCase()
     .refine(email => {

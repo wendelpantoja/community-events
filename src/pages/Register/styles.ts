@@ -46,9 +46,16 @@ export const Form = styled.form`
         a {
             font-size: 15px;
             font-weight: 700;
+            text-decoration: blink;
         }
     }
 
+    a:hover {
+        color: #00856F;
+    }
+    a {
+        text-decoration: underline;
+    }
     
 `
 
@@ -64,4 +71,8 @@ export const Button = styled.button`
     border-radius: 8px;
     cursor: pointer;
     margin-top: 20px;
+
+    &&:hover {
+        background-color: #03C5A5;
+    }
 `
