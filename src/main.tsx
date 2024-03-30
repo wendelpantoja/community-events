@@ -6,7 +6,7 @@ import { AuthProvider } from './context/index.tsx'
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
-    <GlobalStyled />
+      <GlobalStyled />
       <AuthProvider>
           <App />
       </AuthProvider>

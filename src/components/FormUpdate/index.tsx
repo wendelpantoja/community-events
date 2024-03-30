@@ -4,8 +4,7 @@ import { addDoc, collection } from "firebase/firestore";
 import { db } from "../../services/fireBaseConfig";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
-import { TypeEvent, createEvent } from "./validationZod";
-import { useState } from "react";
+import { TypeUpdateEvent, updateEvent } from "./validationZod";
 import { UploadComponent } from "../../components/Upload";
 
 const typeEvent = [
@@ -20,27 +19,33 @@ const categories = [
     "Desenvolvimento",
 ]
 
-interface Event {
-    url_imagem: string;
-    titulo: string;
-    descricao: string;
-    data: string;
-    hora: string;
-    tipo_evento: string;
-    tipo_categoria: string
-}
+// interface UpdateEvent {
+//     url_imagem: string;
+//     titulo: string;
+//     descricao: string;
+//     data: string;
+//     hora: string;
+//     tipo_evento: string;
+//     tipo_categoria: string
+// }
 
-export function CreateEvent() {
+export function FormUpdate({ 
+    url_imagem, 
+    titulo, 
+    descricao, 
+    data, 
+    hora, 
+    tipo_evento, 
+    tipo_categoria
+}: TypeUpdateEvent) {
+
     const user = useAuth()
 
-    const { register, handleSubmit, reset, formState: { errors } } = useForm<TypeEvent>({
-        resolver: zodResolver(createEvent)
+    const { register, handleSubmit, reset, formState: { errors } } = useForm<TypeUpdateEvent>({
+        resolver: zodResolver(updateEvent)
     });
-    const [urlImagem, setUrlImagem] = useState({
-        url_imagem: "",
-    })
 
-    async function addEvent(event: Event) {
+    async function addEvent(event: TypeUpdateEvent) {
         console.log(event)
         if(user?.user) {
             try {
@@ -52,7 +57,7 @@ export function CreateEvent() {
                 reset()
                 console.log(docRef)
                 user.notificationGlobal({
-                    message: "Evento cadastrado com sucesso",
+                    message: "Evento Atualizado com sucesso",
                     type: "success",
                     description: "Veja seu evento na página eventos"
                 })   
@@ -62,16 +67,13 @@ export function CreateEvent() {
         }
     }
 
-    function handleEvent(data: TypeEvent) {
-        addEvent({
-            ...urlImagem,
-            ...data,
-        })
+    function handleEvent(data: TypeUpdateEvent) {
+        addEvent(data)
     }
 
     return (
         <ContainerContent>
-            <h2>Criar evento</h2>
+            <h2>Atualizar evento</h2>
             <form onSubmit={handleSubmit(handleEvent)}>
                 <div className="container_inputs">
                     <UploadComponent 
@@ -121,7 +123,7 @@ export function CreateEvent() {
 
                     </select>
                 </div>
-                <button type="submit">Criar Evento</button>
+                <button type="submit">Atualizar Evento</button>
             </form>
         </ContainerContent>
     )

@@ -12,10 +12,34 @@ export const CardComponent = styled.div`
     cursor: pointer;
 
     .container_img {
+        position: relative;
         width: 100%;
         height: 180px;
         border-radius: 10px 10px 0px 0px;
         background: #C9C9C9;
+
+        .container_icons {
+            width: 100%;
+            display: flex;
+            justify-content: right;
+            gap: 5px;
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            /* background-color: rgba(0, 0, 0, 0.3); */
+            z-index: 100;
+            margin-top: 10px;
+            padding-right: 10px;
+
+            i:nth-child(1) {
+                font-size: 20px;
+                color: #00856F;
+            }
+            i:nth-child(2) {
+                font-size: 20px;
+                color: red;
+            }
+        }
 
         img {
             width: 100%;

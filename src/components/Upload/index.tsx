@@ -1,28 +1,60 @@
-import { UploadOutlined } from '@ant-design/icons';
-import type { UploadProps } from 'antd';
-import { Button, message, Upload } from 'antd';
+import { getDownloadURL, ref, uploadBytesResumable } from "firebase/storage"
+import { ContainerFile, Label } from "./styles"
+import { storage } from "../../services/fireBaseConfig"
+import { useState } from "react"
 
-export function UploadComponent() {
-    const props: UploadProps = {
-        name: 'file',
-        action: 'https://run.mocky.io/v3/435e224c-44fb-4773-9faf-380c5e6a2188',
-        headers: {
-            authorization: 'authorization-text',
-        },
-        onChange(info) {
-            if (info.file.status !== 'uploading') {
-            console.log(info.file, info.fileList);
+interface Upload {
+    url_imagem: string,
+}
+
+type UploadProps = {
+    setUrlImagem: (urlImagem: Upload) => void
+}
+
+export function UploadComponent({ setUrlImagem }: UploadProps) {
+    const [preview, setPreview] = useState('')
+
+    function handleFile(event: React.ChangeEvent<HTMLInputElement>) {
+        const file = event.target.files
+
+        if(file) {
+            const storageRef = ref(storage, `images/${file[0].name}`)
+            const uploadTask = uploadBytesResumable(storageRef, file[0])
+
+            uploadTask.on('state_changed', 
+                (snapshot) => {
+                    const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100
+                    console.log('Upload is ' + progress + '% done')
+                },
+                (error) => {
+                    console.log(error)
+                },
+                () => {
+                    getDownloadURL(uploadTask.snapshot.ref)
+                    .then((downloadURL) => {
+                        console.log('File available at', downloadURL)
+                        setPreview(downloadURL)
+                        setUrlImagem({
+                            ["url_imagem"]: downloadURL
+                        })
+                    })
+                }
+            )
             }
-            if (info.file.status === 'done') {
-            message.success(`${info.file.name} file uploaded successfully`);
-            } else if (info.file.status === 'error') {
-            message.error(`${info.file.name} file upload failed.`);
-            }
-        },
-        };
-    return (
-        <Upload {...props}>
-            <Button icon={<UploadOutlined />}>Click to Upload</Button>
-        </Upload>
+    }
+
+    return (  
+        <ContainerFile>
+            <Label htmlFor="file">
+                {preview != '' && <img className="preview_image" src={preview} alt="" />}
+                {preview === '' && <i className='bx bx-cloud-upload'></i>}
+            </Label>
+            <input 
+                id="file"
+                type="file" 
+                name="url_imagem"
+                onChange={handleFile}
+            />
+        </ContainerFile> 
     )
 }
