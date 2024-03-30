@@ -1,12 +1,12 @@
 import { ContainerContent } from "./styles";
-import { useAuth } from "../../context/useAuth";
-import { addDoc, collection } from "firebase/firestore";
+import { useAuth } from "../../context/AuthProvider/useAuth";
 import { db } from "../../services/fireBaseConfig";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
-import { TypeEvent, createEvent } from "./validationZod";
+import { TypeEvent, createEventZod } from "./validationZod";
 import { useState } from "react";
 import { UploadComponent } from "../../components/Upload";
+import { useEvent } from "../../context/EventProvider/useEvent";
 
 const typeEvent = [
     "Online",
@@ -33,40 +33,39 @@ interface Event {
 export function CreateEvent() {
     const user = useAuth()
 
+    const { createEvent } = useEvent()
+
     const { register, handleSubmit, reset, formState: { errors } } = useForm<TypeEvent>({
-        resolver: zodResolver(createEvent)
+        resolver: zodResolver(createEventZod)
     });
+
     const [urlImagem, setUrlImagem] = useState({
         url_imagem: "",
     })
 
     async function addEvent(event: Event) {
-        console.log(event)
         if(user?.user) {
+
             try {
-                
-                const docRef = await addDoc(collection(db, "Events"), {
-                    user_id: user?.user.uid,
+                await createEvent(db, "Events", {
+                    user_id: user?.user?.uid, 
                     ...event
                 })
-                reset()
-                console.log(docRef)
-                user.notificationGlobal({
-                    message: "Evento cadastrado com sucesso",
-                    type: "success",
-                    description: "Veja seu evento na página eventos"
-                })   
+                reset()   
             } catch (error) {
                 console.log(error)
             }
+            
         }
     }
 
     function handleEvent(data: TypeEvent) {
+
         addEvent({
             ...urlImagem,
             ...data,
         })
+        
     }
 
     return (

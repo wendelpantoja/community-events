@@ -1,20 +1,21 @@
-
 import { useEffect, useState } from "react";
 import { Card } from "../../components/Card";
 import { ContainerCardsDash } from "./styles";
-import { QuerySnapshot, collection, getDocs } from "firebase/firestore";
+import { QuerySnapshot } from "firebase/firestore";
 import { db } from "../../services/fireBaseConfig";
-import { useAuth } from "../../context/useAuth";
+import { useAuth } from "../../context/AuthProvider/useAuth";
+import { useEvent } from "../../context/EventProvider/useEvent";
 
 export function EventsDash() {
     const user = useAuth()
+    const { getEvents } = useEvent()
     const [data, setData] = useState<QuerySnapshot | null>(null)
 
     useEffect(() => {
         async function handleEvents() {
             try {
-                const querySnapshot = await getDocs(collection(db, "Events"))
-                setData(querySnapshot)
+                const events = await getEvents(db, "Events")
+                setData(events)
             } catch (error) {   
                 console.log(error)
             }

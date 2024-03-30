@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Button, ContainerModal } from "./styles";
 import { useNavigate } from "react-router-dom";
-import { useAuth } from "../../context/useAuth";
+import { useAuth } from "../../context/AuthProvider/useAuth";
 import { FirebaseError } from "firebase/app";
 import { HandleSpin } from "../Spin";
 

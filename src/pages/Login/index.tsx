@@ -4,7 +4,7 @@ import { Button, ContainerForm, Form } from "./styles";
 import { CreateUserFormDataLogin, createUserFormLogin } from "./validationZod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { FirebaseError } from "firebase/app"
-import { useAuth } from "../../context/useAuth";
+import { useAuth } from "../../context/AuthProvider/useAuth";
 import { Link, Navigate, useNavigate } from "react-router-dom";
 import { HandleSpin } from "../../components/Spin";
 

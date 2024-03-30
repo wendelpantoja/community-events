@@ -1,6 +1,6 @@
 import { z } from "zod";
 
-export const createEvent = z.object({
+export const createEventZod = z.object({
     titulo: z.string()
     .nonempty("O title é obrigatório"),
     descricao: z.string(),
@@ -11,4 +11,4 @@ export const createEvent = z.object({
 })
 
 
-export type TypeEvent = z.infer<typeof createEvent>
+export type TypeEvent = z.infer<typeof createEventZod>

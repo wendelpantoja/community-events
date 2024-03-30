@@ -3,7 +3,7 @@ import { Input } from "../../components/Input";
 import { Button, ContainerForm, Form } from "./styles";
 import { CreateUserFormDataRegister, createUserFormRegister } from "./validationZod";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { useAuth } from "../../context/useAuth";
+import { useAuth } from "../../context/AuthProvider/useAuth";
 import { FirebaseError } from "firebase/app";
 import { Link, useNavigate } from "react-router-dom";
 import { HandleSpin } from "../../components/Spin";

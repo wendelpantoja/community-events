@@ -1,9 +1,9 @@
 import { createContext, useEffect, useState } from "react";
 import { IAuthProvider, IContext } from "./types";
 import { User, onAuthStateChanged, signOut } from "firebase/auth";
-import { Notification } from "../components/Notification";
-import { createUserAcess, singInUserAcess } from "../services/authentications/authAuthentications";
-import { auth, db } from "../services/fireBaseConfig";
+import { Notification } from "../../components/Notification";
+import { createUserAcess, singInUserAcess } from "../../services/authentications/authAuthentications";
+import { auth, db } from "../../services/fireBaseConfig";
 import { collection, addDoc } from "firebase/firestore";
 import { errosCode } from "./erros";
 
