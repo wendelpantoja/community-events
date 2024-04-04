@@ -1,37 +1,21 @@
-import { useEffect, useState } from "react";
 import { Card } from "../../components/Card";
 import { ContainerCardsDash } from "./styles";
-import { QuerySnapshot } from "firebase/firestore";
-import { db } from "../../services/fireBaseConfig";
-import { useAuth } from "../../context/AuthProvider/useAuth";
 import { useEvent } from "../../context/EventProvider/useEvent";
 
 export function EventsDash() {
-    const user = useAuth()
-    const { getEvents } = useEvent()
-    const [data, setData] = useState<QuerySnapshot | null>(null)
-
-    useEffect(() => {
-        async function handleEvents() {
-            try {
-                const events = await getEvents(db, "Events")
-                setData(events)
-            } catch (error) {   
-                console.log(error)
-            }
-        }
-        handleEvents()
-    }, [])
+    const events = useEvent()
 
     return (
-        <ContainerCardsDash>
-            <div className="text">
-                <h2>Eventos Criados</h2>
-            </div>
-            <div className="container_cards">
-                {data && <Card uid={user?.user?.uid} data={data} />}
-                {data?.docs.length === 0 && <h2>Nenhum evento cadastrado</h2> }
-            </div>
-        </ContainerCardsDash>
+        <>
+            <ContainerCardsDash>
+                <div className="text">
+                    <h2>Eventos Criados</h2>
+                </div>
+                <div className="container_cards">
+                    {events?.eventsUser && <Card dataUser={events?.eventsUser} />}
+                    {events?.events?.length === 0 && <h2>Nenhum evento cadastrado</h2> }
+                </div>
+            </ContainerCardsDash>
+        </>
     )
 }

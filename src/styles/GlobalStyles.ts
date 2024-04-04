@@ -14,6 +14,7 @@ html, body {
 }
 
 body {
+    position: relative;
     background-color: white;
 }
 

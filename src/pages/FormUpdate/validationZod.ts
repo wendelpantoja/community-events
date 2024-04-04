@@ -1,7 +1,7 @@
 import { z } from "zod";
 
 export const updateEvent = z.object({
-    url_imagem: z.string(),
+    // url_imagem: z.string(),
     titulo: z.string()
     .nonempty("O title é obrigatório"),
     descricao: z.string(),

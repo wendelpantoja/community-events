@@ -29,7 +29,6 @@ export const ContainerElemens = styled.div`
 `
 
 export const ContainerDash = styled.div`
-    position: relative;
     width: 95%;
     max-width: 1280px;
     height: 850px;

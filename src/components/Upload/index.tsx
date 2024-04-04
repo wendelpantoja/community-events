@@ -1,46 +1,46 @@
-import { getDownloadURL, ref, uploadBytesResumable } from "firebase/storage"
 import { ContainerFile, Label } from "./styles"
-import { storage } from "../../services/fireBaseConfig"
 import { useState } from "react"
 
-interface Upload {
-    url_imagem: string,
-}
-
 type UploadProps = {
-    setUrlImagem: (urlImagem: Upload) => void
+    url: string;
+    setUrlImagem: (urlImagem: string) => void;
 }
 
-export function UploadComponent({ setUrlImagem }: UploadProps) {
-    const [preview, setPreview] = useState('')
+export function UploadComponent({ url, setUrlImagem }: UploadProps) {
+    const [preview, setPreview] = useState(url)
 
     function handleFile(event: React.ChangeEvent<HTMLInputElement>) {
         const file = event.target.files
-
+        console.log(event.target.files)
         if(file) {
-            const storageRef = ref(storage, `images/${file[0].name}`)
-            const uploadTask = uploadBytesResumable(storageRef, file[0])
+            const url = URL.createObjectURL(file[0])
+            console.log(url)
+            setPreview(URL.createObjectURL(file[0]))
+        }
+        // if(file) {
+        //     const storageRef = ref(storage, `images/${file[0].name}`)
+        //     const uploadTask = uploadBytesResumable(storageRef, file[0])
 
-            uploadTask.on('state_changed', 
-                (snapshot) => {
-                    const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100
-                    console.log('Upload is ' + progress + '% done')
-                },
-                (error) => {
-                    console.log(error)
-                },
-                () => {
-                    getDownloadURL(uploadTask.snapshot.ref)
-                    .then((downloadURL) => {
-                        console.log('File available at', downloadURL)
-                        setPreview(downloadURL)
-                        setUrlImagem({
-                            ["url_imagem"]: downloadURL
-                        })
-                    })
-                }
-            )
-            }
+        //     uploadTask.on('state_changed', 
+        //         (snapshot) => {
+        //             const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100
+        //             console.log('Upload is ' + progress + '% done')
+        //         },
+        //         (error) => {
+        //             console.log(error)
+        //         },
+        //         () => {
+        //             getDownloadURL(uploadTask.snapshot.ref)
+        //             .then((downloadURL) => {
+        //                 console.log('File available at', downloadURL)
+        //                 setPreview(downloadURL)
+        //                 setUrlImagem({
+        //                     ["url_imagem"]: downloadURL
+        //                 })
+        //             })
+        //         }
+        //     )
+        // }
     }
 
     return (  

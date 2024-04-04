@@ -1,8 +1,8 @@
-import { Firestore, QuerySnapshot } from "firebase/firestore";
+import { DocumentData, Firestore, QuerySnapshot } from "firebase/firestore";
 
 export interface EventProps {
     user_id: string;
-    url_imagem: string;
+    url_imagem: unknown;
     titulo: string;
     descricao: string;
     data: string;
@@ -11,15 +11,24 @@ export interface EventProps {
     tipo_categoria: string
 }
 
-export interface IEvent {
-    event?: EventProps[],
+export interface EventUpdate {
+    idEvent?: string | null;
+}
+
+export interface IEvent extends EventUpdate {
+    events?: DocumentData[] | null,
+    eventsUser?: DocumentData[] | null,
 }
 
 export interface IcontextEvent extends IEvent {
+    handleSpin: boolean;
+    setHandleSpinEvent: (value: boolean) => void;
+    setHandleIdEvent: (uid: string) => void;
+    createUrlImage: (fileList: File) => Promise<unknown>;
     getEvents: (dataBase: Firestore, nameCollection: string) => Promise<QuerySnapshot>;
-    getEvent: (dataBase: Firestore, nameCollection: string, idDocument: string) => Promise<void>;
+    getEvent: (dataBase: Firestore, nameCollection: string, idDocument: string) => Promise<DocumentData | null>;
     createEvent: (dataBase: Firestore, nameCollection: string, event: EventProps) => Promise<void>;
-    updateEvent: (dataBase: Firestore, nameCollection: string, event: EventProps) => Promise<void>;
+    updateEvent: (dataBase: Firestore, nameCollection: string, idDocument: string, event: EventProps) => Promise<void>;
     deleteEvent: (dataBase: Firestore, nameCollection: string, idDocument: string) => Promise<void>;
 }
 

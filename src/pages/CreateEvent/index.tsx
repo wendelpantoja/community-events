@@ -1,12 +1,10 @@
-import { ContainerContent } from "./styles";
+import { ContainerContent, ContainerFile, Label } from "./styles";
 import { useAuth } from "../../context/AuthProvider/useAuth";
 import { db } from "../../services/fireBaseConfig";
-import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
-import { TypeEvent, createEventZod } from "./validationZod";
 import { useState } from "react";
-import { UploadComponent } from "../../components/Upload";
 import { useEvent } from "../../context/EventProvider/useEvent";
+import { HandleSpin } from "../../components/Spin";
 
 const typeEvent = [
     "Online",
@@ -21,7 +19,7 @@ const categories = [
 ]
 
 interface Event {
-    url_imagem: string;
+    url_imagem?: string;
     titulo: string;
     descricao: string;
     data: string;
@@ -32,40 +30,40 @@ interface Event {
 
 export function CreateEvent() {
     const user = useAuth()
+    const { handleSpin, createEvent, createUrlImage, setHandleSpinEvent } = useEvent()
 
-    const { createEvent } = useEvent()
+    const { register, handleSubmit, reset, formState: { errors } } = useForm<Event>();
+    const [preview, setPreview] = useState('')
+    const [nameImagem, setNameImagem] = useState<File>()
 
-    const { register, handleSubmit, reset, formState: { errors } } = useForm<TypeEvent>({
-        resolver: zodResolver(createEventZod)
-    });
-
-    const [urlImagem, setUrlImagem] = useState({
-        url_imagem: "",
-    })
-
-    async function addEvent(event: Event) {
-        if(user?.user) {
-
-            try {
-                await createEvent(db, "Events", {
-                    user_id: user?.user?.uid, 
-                    ...event
-                })
-                reset()   
-            } catch (error) {
-                console.log(error)
+    async function handleEvent(data: Event) {
+        if(nameImagem) {
+            if(user?.user) {
+                setHandleSpinEvent(true)
+                const urlImagem = await createUrlImage(nameImagem)
+                try {
+                    await createEvent(db, "Events", {
+                        user_id: user?.user?.uid, 
+                        url_imagem: urlImagem,
+                        ...data
+                    })
+                    setPreview('')
+                    reset()   
+                } catch (error) {
+                    console.log(error)
+                } finally {
+                    setHandleSpinEvent(false)
+                }
             }
-            
         }
     }
 
-    function handleEvent(data: TypeEvent) {
-
-        addEvent({
-            ...urlImagem,
-            ...data,
-        })
-        
+    function handleOnChange(event: React.ChangeEvent<HTMLInputElement>) {
+        const file = event.target.files
+        if(file) {
+            setPreview(URL.createObjectURL(file[0]))
+            setNameImagem(file[0])
+        }
     }
 
     return (
@@ -73,10 +71,17 @@ export function CreateEvent() {
             <h2>Criar evento</h2>
             <form onSubmit={handleSubmit(handleEvent)}>
                 <div className="container_inputs">
-                    <UploadComponent 
-                        setUrlImagem={setUrlImagem}
-                    /> 
-
+                <ContainerFile>
+                    <Label htmlFor="file">
+                        {preview != '' && <img className="preview_image" src={preview} alt="" />}
+                        {preview === '' && <i className='bx bx-cloud-upload'></i>}
+                    </Label>
+                    <input 
+                        id="file"
+                        type="file" 
+                        onChange={handleOnChange}
+                    />
+                </ContainerFile> 
                     <input 
                         className='title' 
                         type="text"
@@ -120,7 +125,10 @@ export function CreateEvent() {
 
                     </select>
                 </div>
-                <button type="submit">Criar Evento</button>
+                <button type="submit">
+                    {handleSpin && <HandleSpin />}
+                    {!handleSpin && <p>Criar evento</p> }
+                </button>
             </form>
         </ContainerContent>
     )
