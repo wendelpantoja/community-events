@@ -1,9 +1,27 @@
 import { Card } from "../../components/Card";
 import { ContainerCardsDash } from "./styles";
+import { useAuth } from "../../context/AuthProvider/useAuth";
+import { useEffect, useState } from "react";
+import { DocumentData } from "firebase/firestore";
 import { useEvent } from "../../context/EventProvider/useEvent";
+import { db } from "../../services/fireBaseConfig";
 
 export function EventsDash() {
-    const events = useEvent()
+    const { user } = useAuth()
+    const { getEvents } = useEvent() 
+    const [eventsUser, setEventsUser] = useState<DocumentData[] | null>(null)
+
+    useEffect(() => {
+        async function handleEvents() {
+            if(user) {
+                const events = await getEvents(db, "Events")
+                const eventsUser = events.docs.filter((event) => event.data().user_id === user?.uid)
+                setEventsUser(eventsUser)
+            }
+        }
+
+        handleEvents()
+    }, [])
 
     return (
         <>
@@ -12,8 +30,8 @@ export function EventsDash() {
                     <h2>Eventos Criados</h2>
                 </div>
                 <div className="container_cards">
-                    {events?.eventsUser && <Card dataUser={events?.eventsUser} />}
-                    {events?.events?.length === 0 && <h2>Nenhum evento cadastrado</h2> }
+                    {eventsUser && <Card dataUser={eventsUser} />}
+                    {eventsUser?.length === 0 && <h2>Nenhum evento cadastrado</h2> }
                 </div>
             </ContainerCardsDash>
         </>

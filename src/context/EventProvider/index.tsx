@@ -12,7 +12,6 @@ export function EventProvider({ children }: IEventProvider) {
     const [idEvent, setIdEvent] = useState("")
     const [handleSpin, setHandleSpin] = useState(false)
     const [events, setEvents] = useState<DocumentData[] | null>(null)
-    const [eventsUser, setEventsUser] = useState<DocumentData[] | null>(null)
 
     useEffect(() => {
         async function handleProducts() {
@@ -20,15 +19,10 @@ export function EventProvider({ children }: IEventProvider) {
                 const events = await getEvents(db, "Events")
                 setEvents(events.docs)
             }
-            if(user) {
-                const events = await getEvents(db, "Events")
-                const eventsUser = events.docs.filter((event) => event.data().user_id === user.uid)
-                setEventsUser(eventsUser)
-            }
         }
 
         handleProducts()
-    }, [user, !user])
+    }, [!user])
 
     function setHandleIdEvent(uid: string) {
         setIdEvent(uid)
@@ -127,7 +121,6 @@ export function EventProvider({ children }: IEventProvider) {
     return (
         <EventContext.Provider value={{
             events,
-            eventsUser,
             handleSpin,
             setHandleSpinEvent,
             createUrlImage,

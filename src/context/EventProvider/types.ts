@@ -17,7 +17,6 @@ export interface EventUpdate {
 
 export interface IEvent extends EventUpdate {
     events?: DocumentData[] | null,
-    eventsUser?: DocumentData[] | null,
 }
 
 export interface IcontextEvent extends IEvent {
