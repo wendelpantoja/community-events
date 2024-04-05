@@ -24,8 +24,8 @@ export function Events() {
                 <Selected />
             </SearchEvents>
             <ContainerEvents event="Online"/>
-            <ContainerEvents event="Presenciais"/>
-            <ContainerEvents event="Híbridos"/>
+            <ContainerEvents event="Presencial"/>
+            <ContainerEvents event="Híbrido"/>
             <Footer />
         </>
     )

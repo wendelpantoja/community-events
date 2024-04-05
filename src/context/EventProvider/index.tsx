@@ -22,7 +22,7 @@ export function EventProvider({ children }: IEventProvider) {
         }
 
         handleProducts()
-    }, [!user])
+    }, [user, !user])
 
     function setHandleIdEvent(uid: string) {
         setIdEvent(uid)

@@ -5,21 +5,24 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 
 import { ContainerEventsComponent } from "./styles";
-import { eventsCards } from "./events";
 
 import 'swiper/css';
 import 'swiper/css/navigation';
+import { useEvent } from "../../context/EventProvider/useEvent";
 
 
 interface CardContainerProps {
     event?: string;
 }
+
 export function ContainerEvents({event}: CardContainerProps) {
+
+    const { events } = useEvent()
     
     return (
         <Container>
             <ContainerEventsComponent>
-                <h1 className="">Eventos {event}</h1>
+                <h1 className="">Evento {event}</h1>
                 <Swiper 
                      slidesPerView={1.3}
                      spaceBetween={15}
@@ -54,16 +57,11 @@ export function ContainerEvents({event}: CardContainerProps) {
                         },
                      }}
                 >
-                    {eventsCards.filter(type => type.type.includes(`${event}`)).map((dados, index) => (
-                        <SwiperSlide key={index}>
+                    {events?.filter(type => type.data().tipo_evento.toLowerCase() === event?.toLowerCase())
+                    .map((event) => (
+                        <SwiperSlide key={event.id}>
                             <Card 
-                                img={dados.img} 
-                                title={dados.title}
-                                type={dados.type}
-                                description={dados.description} 
-                                data={dados.data} 
-                                cidade={dados.cidade} 
-                                categorie={dados.categorie}
+                                data={event}
                             />
                         </SwiperSlide>
                     ))}
