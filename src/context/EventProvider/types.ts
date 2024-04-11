@@ -20,6 +20,7 @@ export interface IEvent extends EventUpdate {
 }
 
 export interface IcontextEvent extends IEvent {
+    spinEvents: boolean;
     handleSpin: boolean;
     setHandleSpinEvent: (value: boolean) => void;
     setHandleIdEvent: (uid: string) => void;
@@ -29,6 +30,7 @@ export interface IcontextEvent extends IEvent {
     createEvent: (dataBase: Firestore, nameCollection: string, event: EventProps) => Promise<void>;
     updateEvent: (dataBase: Firestore, nameCollection: string, idDocument: string, event: EventProps) => Promise<void>;
     deleteEvent: (dataBase: Firestore, nameCollection: string, idDocument: string) => Promise<void>;
+    setSpinEvents: (value: boolean) => void;
 }
 
 export interface IEventProvider {

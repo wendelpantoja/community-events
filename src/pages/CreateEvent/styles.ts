@@ -26,6 +26,7 @@ export const Label = styled.label`
         min-width: 100%;
         min-height: 100%;
     }
+    
     i {
         font-size: 40px;
         color: lightgray;

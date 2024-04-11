@@ -26,11 +26,13 @@ export const SectionOne = styled.section`
 
 export const SearchEvents = styled.div`
     display: flex;
+    flex-direction: column;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
+    gap: 40px;
     width: 100%;
     max-width: 875px;
-    height: 150px;
+    height: 200px;
     border-radius: 10px;
     background-color: #00856F;
     margin: 0 auto;
@@ -38,17 +40,11 @@ export const SearchEvents = styled.div`
 
     padding: 0px 35px;
 
-    /* .container_search {
-        position: relative;
-        display: flex;
-        justify-content: space-between;
-        width: 100%;
-    } */
     .search {
         display: flex;
         align-items: center;
         width: 100%;
-        max-width: 450px;
+        
         height: 50px;
         background-color: #FFF;
         border-radius: 10px;
@@ -73,6 +69,13 @@ export const SearchEvents = styled.div`
             font-weight: 500;
             font-size: 14px;
         }
+    }
+
+    .container_select {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
     }
 
     @media (max-width: 904px) {

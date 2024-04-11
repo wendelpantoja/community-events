@@ -12,6 +12,7 @@ export function EventProvider({ children }: IEventProvider) {
     const [idEvent, setIdEvent] = useState("")
     const [handleSpin, setHandleSpin] = useState(false)
     const [events, setEvents] = useState<DocumentData[] | null>(null)
+    const [spinEvents, setSpinEvents] = useState(false)
 
     useEffect(() => {
         async function handleProducts() {
@@ -122,6 +123,8 @@ export function EventProvider({ children }: IEventProvider) {
         <EventContext.Provider value={{
             events,
             handleSpin,
+            spinEvents,
+            setSpinEvents,
             setHandleSpinEvent,
             createUrlImage,
             idEvent,
