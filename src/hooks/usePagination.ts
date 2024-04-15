@@ -27,9 +27,11 @@ export function usePagination() {
     }
 
     function getFirstSlice(data: DocumentData[], valueSearch: string, selectEvent: string, selectCategory: string) {
+        const newSelectEvent = selectEvent === "Tipo evento" ? "" : selectEvent;
+        const newSelectCategory = selectCategory === "Escolha uma categoria" ? "" : selectCategory;
         const newData = data?.filter(event => event.data().titulo.toLowerCase().includes(valueSearch))
-                .filter(event => event.data().tipo_evento.includes(selectEvent))
-                .filter(event => event.data().tipo_categoria.includes(selectCategory))
+                .filter(event => event.data().tipo_evento.includes(newSelectEvent))
+                .filter(event => event.data().tipo_categoria.includes(newSelectCategory))
                 .map((event) => {return event})
 
             return newData

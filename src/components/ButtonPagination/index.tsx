@@ -1,6 +1,5 @@
-import { DocumentData, collection, endBefore, getDocs, limit, limitToLast, orderBy, query, startAfter, where } from "firebase/firestore";
+import { DocumentData } from "firebase/firestore";
 import { ContainerButtons } from "./styles";
-import { db } from "../../services/fireBaseConfig";
 
 interface ButtonProps {
     somaSlice: number;
@@ -10,7 +9,6 @@ interface ButtonProps {
     coutPage: number;
     setCoutPage: (coutPage: number) => void;
     dataFilter: DocumentData[] | null;
-    setDataFilter: (dataFilter: DocumentData[] | null) => void;
 }
 const limitDoc = 8;
 
@@ -20,7 +18,6 @@ export function ButtonPagination({
     totalArray, 
     totalPage, 
     dataFilter, 
-    setDataFilter, 
     coutPage, 
     setCoutPage }: ButtonProps) {
     async function beforeDocuments() {

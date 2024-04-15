@@ -5,22 +5,17 @@ import { ContainerPagination } from "./styles";
 import { DocumentData } from "firebase/firestore";
 import { ButtonPagination } from "../../components/ButtonPagination";
 import { usePagination } from "../../hooks/usePagination";
+import { useFilter } from "../../context/FilterProvider/useFilter";
+
 
 interface EventsFilter {
     data: DocumentData[] | null;
-    valueSearch: string;
-    selectEvent: string;
-    selectCategory: string;
 }
 
 const limitDoc = 8
 
-export function EventsPagination({ 
-    data, 
-    valueSearch,
-    selectEvent, 
-    selectCategory 
-}: EventsFilter) {
+export function EventsPagination({ data }: EventsFilter) {
+    const { handleSearch, selectCategory, selectEvent } = useFilter()
     const [coutPage, setCoutPage] = useState(1)
     const [totalPage, setTotalPage] = useState<number | null>(null)
     const [dataFilter, setDataFilter] = useState<DocumentData[] | null>(null)
@@ -31,27 +26,24 @@ export function EventsPagination({
     useEffect(() => {
         function filter() {
             if(data) {
-                const newData = getFirstSlice(data, valueSearch, selectEvent, selectCategory)
-                // const totalData = totalFilter(data, valueSearch, selectEvent, selectCategory)
+                const newData = getFirstSlice(data, handleSearch, selectEvent, selectCategory)
 
                 if(newData) {
                     setTotalArray(newData.length)
                 }
+                
                 setTotalPage(Math.round(newData.length / limitDoc))
-
-                // const dataTeste = newData.slice(0).filter((_, index) => index < limitDoc)
-
                 setDataFilter(newData)
             }
         }
 
         filter()
-    }, [valueSearch, selectCategory, selectEvent])
+    }, [handleSearch, selectCategory, selectEvent])
 
     return (
         <Container>
             <ContainerPagination>
-                {dataFilter && dataFilter?.slice(somaSlice)
+                {dataFilter?.slice(somaSlice)
                 .filter((_, index) => index < limitDoc)
                 .map((event) => (
                     <Card key={event.id} data={event} />
@@ -64,7 +56,6 @@ export function EventsPagination({
                     totalArray={totalArray}
                     totalPage={totalPage}
                     dataFilter={dataFilter} 
-                    setDataFilter={setDataFilter}
                     coutPage={coutPage}
                     setCoutPage={setCoutPage}
                 />

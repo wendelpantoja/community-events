@@ -12,21 +12,23 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
+import { useFilter } from "../../context/FilterProvider/useFilter";
 
 interface CardContainerProps {
-    event?: string;
+    nameEvent: string;
 }
 
-export function ContainerEvents({event}: CardContainerProps) {
+export function ContainerEvents({ nameEvent }: CardContainerProps) {
 
     const { events } = useEvent()
+    const { setSelectEvent } = useFilter()
     const [indexSwiper, setIndexSwiper] = useState<number>(0)
     const [isEnd, setIsEnd] = useState<boolean>(false)
     
     return (
         <Container>
             <ContainerEventsComponent>
-                <h1 className="">Evento {event}</h1>
+                <h1 className="">Evento {nameEvent}</h1>
                 <Swiper 
                     className="container_swiper"
                     modules={[Navigation]}
@@ -71,12 +73,14 @@ export function ContainerEvents({event}: CardContainerProps) {
                         setIndexSwiper(swiper.activeIndex)
                     }}
                 >
-                    {events?.filter(type => type.data().tipo_evento.toLowerCase() === event?.toLowerCase())
+                    {events?.filter(type => type.data().tipo_evento.toLowerCase() === nameEvent?.toLowerCase())
                     .slice(0, 9)
                     .map((event, index) => (
                         <SwiperSlide className="swiper_slide" key={event.id}>
                             {index === 8 ? (
-                                <PlusEvents>
+                                <PlusEvents onClick={() => {
+                                    setSelectEvent(nameEvent)
+                                }}>
                                     <p>Ver mais</p>
                                 </PlusEvents>
                             ) : (

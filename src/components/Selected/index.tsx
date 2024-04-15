@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { ContainerSelected } from "./styles";
+import { useFilter } from "../../context/FilterProvider/useFilter";
 
 export interface SelectProps {
     tipo_evento?: string, 
@@ -7,38 +8,36 @@ export interface SelectProps {
 }
 
 interface SelectedPros {
-    nameSelect: string;
+    typeSelect: string;
     arrayOptions: string[];
-    setSelectEvent?: (selectEvent: string) => void;
-    setSelectCategory?: (selectCategory: string) => void;
 }
 
-export function Selected({ 
-    nameSelect,
-    arrayOptions, 
-    setSelectCategory,
-    setSelectEvent
-}: SelectedPros) {
+export function Selected({ typeSelect, arrayOptions }: SelectedPros) {
+    const { 
+        selectEvent, 
+        selectCategory, 
+        setSelectCategory, 
+        setSelectEvent, 
+    } = useFilter()
 
     const [isSelect, setIsSelect] = useState(false)
-    const [option, setOption] = useState(nameSelect)
+    
 
     function dataSelect(option: string, nameSelect: string) {
-        if(nameSelect === "Tipo evento") {
+        if(nameSelect === "event") {
             if(setSelectEvent)
             setSelectEvent(option)
         } else {
             if(setSelectCategory)
             setSelectCategory(option)
         }
-        setOption(option)
         setIsSelect(!isSelect)
     }
 
     return (
         <ContainerSelected>
             <div className="header_select" onClick={() => setIsSelect(!isSelect)}>
-                {option}              
+                {typeSelect === "event" ? selectEvent : selectCategory}  
                 <div className="box_icons">
                     {isSelect 
                         ? <i className='bx bx-chevron-up'></i> 
@@ -50,7 +49,7 @@ export function Selected({
             {isSelect && (
                 <div className="body_select">
                     {arrayOptions.map((option, index) => (
-                        <div key={index} className="option" onClick={() => dataSelect(option, nameSelect)}>
+                        <div key={index} className="option" onClick={() => dataSelect(option, typeSelect)}>
                             {option}
                         </div>
                     ))}

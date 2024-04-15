@@ -5,11 +5,10 @@ import { Selected } from "../../components/Selected";
 import { SearchEvents, SectionOne } from "./styles";
 import { EventsPagination } from "../EventsPagination";
 import { useEvent } from "../../context/EventProvider/useEvent";
-import { usePagination } from "../../hooks/usePagination";
 import { DocumentData } from "firebase/firestore";
 import { ContainerEvents } from "../../components/ContainerEvents";
-// import { ButtonPagination } from "../../components/ButtonPagination";
-// import { Container } from "../../styles/GlobalStyles";
+import { useFilter } from "../../context/FilterProvider/useFilter";
+
 
 const tipoEvento = [
     "Online",
@@ -26,28 +25,23 @@ const typeCategory = [
 
 
 export function Events() {
-    const { spinEvents } = useEvent()
-    const [handleSearch, setHandleSearch] = useState<string>("")
-    const [selectEvent, setSelectEvent] = useState<string>("")
-    const [selectCategory, setSelectCategory] = useState<string>("")
+    const { events, spinEvents } = useEvent()
+    const { handleSearch, selectEvent, selectCategory, setHandleSearch } = useFilter()
 
     const [data, setData] = useState<DocumentData[] | null>([])
-    const { totalDocuments } = usePagination()
 
     useEffect(() => {
         async function pagination() {
             try {
-                // const events = await getFirstDocument("Events", handleSearch)
-                const totalDoc = await totalDocuments("Events")
-                
-                setData(totalDoc.docs)
+                if(events)
+                setData(events)
             } catch (error) {
                 console.log(error)
             } 
         }
 
         pagination()
-    }, [])
+    }, [events])
 
     function handleChange(event: React.ChangeEvent<HTMLInputElement>) {
         setHandleSearch(event.target.value)
@@ -70,33 +64,27 @@ export function Events() {
                 </div>
 
                 <div className="container_select">
-                    <Selected   
-                        nameSelect="Escolha uma categoria"
+                    <Selected  
+                        typeSelect="category"
                         arrayOptions={typeCategory}
-                        setSelectCategory={setSelectCategory}
                     />
-                    <Selected 
-                        nameSelect="Tipo evento"
+                    <Selected
+                        typeSelect="event"
                         arrayOptions={tipoEvento}
-                        setSelectEvent={setSelectEvent}
                     />
                 </div>
             </SearchEvents>
 
             {spinEvents && <h2>Carregando</h2>}
-
-            {handleSearch != "" || selectCategory != "" || selectEvent != "" ? (
-                <EventsPagination 
-                    data={data}
-                    selectEvent={selectEvent}
-                    selectCategory={selectCategory}
-                    valueSearch={handleSearch}
-                />
+            {/* {handleSearch != "" && <EventsPagination data={data}/>} */}
+            
+            {handleSearch != "" || selectCategory != "Escolha uma categoria" || selectEvent != "Tipo evento" ? (
+                <EventsPagination data={data}/>
             ) : (
                 <>
-                    <ContainerEvents event="Online"/>
-                    <ContainerEvents event="Presencial"/>
-                    <ContainerEvents event="Híbrido"/>
+                    <ContainerEvents nameEvent="Online"/>
+                    <ContainerEvents nameEvent="Presencial"/>
+                    <ContainerEvents nameEvent="Híbrido"/>
                 </>
             )}
 
