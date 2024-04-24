@@ -1,4 +1,4 @@
-import { InputHTMLAttributes } from "react";
+import { InputHTMLAttributes, useState } from "react";
 import { ContainerInput } from "./styles";
 import { UseFormRegister } from "react-hook-form";
 
@@ -12,6 +12,9 @@ interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
 }
 
 export function Input({ textLabel, type, register, registerName, ...rest }: InputProps) {
+
+    const [isShow, setIsShow] = useState(false)
+    
     if(registerName === "email") {
         return (
             <ContainerInput>
@@ -35,10 +38,14 @@ export function Input({ textLabel, type, register, registerName, ...rest }: Inpu
                 <div className="input">
                     <i className='bx bxs-lock-alt'></i>
                     <input 
-                        type={type}
+                        type={isShow ? "text" : "password"}
                         {...register(registerName)} 
                         {...rest}
                     />
+                    { isShow 
+                        ? <i className='bx bxs-show' onClick={() => setIsShow(false)}></i> 
+                        : <i className='bx bxs-hide' onClick={() => setIsShow(true)}></i> 
+                    }
                 </div>
             </ContainerInput>
         )

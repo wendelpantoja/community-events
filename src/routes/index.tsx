@@ -7,6 +7,7 @@ import { Dashboard } from "../pages/Dash";
 import { CreateEvent } from "../pages/CreateEvent";
 import { EventsDash } from "../pages/EventsDash";
 import { FormUpdate } from "../pages/FormUpdate";
+import { Event } from "../pages/Event";
 
 export const router = createBrowserRouter([
     {
@@ -42,5 +43,9 @@ export const router = createBrowserRouter([
           element: <FormUpdate />
         }
       ]
-    },
+    }, 
+    {
+      path: "/event/:id",
+      element: <Event />
+    }
   ]);

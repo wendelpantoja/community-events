@@ -3,9 +3,12 @@ import { Container } from "../../styles/GlobalStyles";
 import { Button, HeaderComponent } from "./styles";
 import { useState } from "react";
 import { ActionMenu } from "../ActionMenu";
+import { useAuth } from "../../context/AuthProvider/useAuth";
 
 export function Header() {
     const [actionMenu, setActionMenu] = useState(true)
+    const { user } = useAuth()
+
     function handleMenu(value: boolean) {
         setActionMenu(value)
     }
@@ -25,11 +28,19 @@ export function Header() {
                     </div>
                         
                     <div className="buttons">
-                        <Link to="/login">
-                            <Button $background="transparent" $border="2px solid #00856F" $color="#00856F">
-                                <i className='bx bxs-user'></i> Conecte-se
-                            </Button>
-                        </Link>
+                        {user ? (
+                            <Link to={"/dashboard/create-event"}>
+                                <Button $background="transparent" $border="2px solid #00856F" $color="#00856F">
+                                    Dashboard
+                                </Button>
+                            </Link>
+                        ): (
+                            <Link to="/login">
+                                <Button $background="transparent" $border="2px solid #00856F" $color="#00856F">
+                                    Conecte-se
+                                </Button>
+                            </Link>
+                        )}
                         <Link to="/register">
                             <Button $background="#00856F" $border="none" $color="white">
                                 Criar Eventos
@@ -41,12 +52,13 @@ export function Header() {
                     </div>
                 </nav>
             </Container>
+
             {!actionMenu && 
-                    <ActionMenu 
-                        action={actionMenu ? "-100%" : "0"}
-                        handleMenu={handleMenu}
-                    />
-                }
+                <ActionMenu 
+                    action={actionMenu ? "-100%" : "0"}
+                    handleMenu={handleMenu}
+                />
+            }
         </HeaderComponent>
     )
 }

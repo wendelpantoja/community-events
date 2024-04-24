@@ -28,6 +28,11 @@ export const SectionIntroduction = styled.section`
             font-size: 18px;
             font-weight: 400;
         }
+
+        a {
+            width: 170px;
+            height: 50px;
+        }
     }
 
     .image_introduction {
@@ -194,8 +199,8 @@ export const Button = styled.button<{
 $background: string, 
 $border: string,
 $color: string}>`
-    width: 170px;
-    height: 50px;
+    width: 100%;
+    height: 100%;
     color: ${(props) => props.$color};
     border-radius: 10px;
     background-color: ${(props) => props.$background};

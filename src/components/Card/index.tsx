@@ -1,7 +1,7 @@
 import { DocumentData } from "firebase/firestore";
 import { CardComponent } from "./styles";
 import { useEvent } from "../../context/EventProvider/useEvent";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { ModalTrash } from "../ModalTrash";
 import { useState } from "react";
 
@@ -90,32 +90,34 @@ export function Card({ data, dataUser }: CardType) {
 
     return (
       <>
-          <CardComponent key={data?.id}>
-            <div className="container_img">
-                <img src={data?.data().url_imagem} alt="" />
-            </div>
+          <Link to={`/event/${data?.id}`}>
+            <CardComponent key={data?.id}>
+              <div className="container_img">
+                  <img src={data?.data().url_imagem} alt="" />
+              </div>
 
-            <div className="container_descriptions">
-                <div className="type_event">
-                  {data?.data().tipo_categoria}
-                </div>
+              <div className="container_descriptions">
+                  <div className="type_event">
+                    {data?.data().tipo_categoria}
+                  </div>
 
-                <p>{data?.data().data}</p>
+                  <p>{data?.data().data}</p>
 
-                <div className="container_title">
-                    <h2>{data?.data().titulo}</h2>
-                </div>
+                  <div className="container_title">
+                      <h2>{data?.data().titulo}</h2>
+                  </div>
 
-                <div className="description">
-                  {data?.data().descricao} 
-                </div>
-                
-                <div className="footer_card">
-                  <p>Cametá</p>
-                  <p>{data?.data().tipo_evento}</p>
-                </div>
-            </div>
-          </CardComponent>
+                  <div className="description">
+                    {data?.data().descricao} 
+                  </div>
+                  
+                  <div className="footer_card">
+                    <p>Cametá</p>
+                    <p>{data?.data().tipo_evento}</p>
+                  </div>
+              </div>
+            </CardComponent>
+          </Link>
       </>
     )
     

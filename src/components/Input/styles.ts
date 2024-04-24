@@ -21,9 +21,15 @@ export const ContainerInput = styled.div`
         border: 2px solid lightgray;
         border-radius: 8px;
         padding-left: 10px;
+        padding-right: 10px;
 
         i {
             color: lightgray;
+        }
+
+        .bxs-show, .bxs-hide {
+            cursor: pointer;
+            font-size: 19px;
         }
 
         input {
@@ -33,6 +39,11 @@ export const ContainerInput = styled.div`
             padding-left: 8px;
             border-radius: 8px;
             outline: none;
+        }
+
+        input[type=text],
+        input[type=password] {
+            color: grey;
         }
     }
 
