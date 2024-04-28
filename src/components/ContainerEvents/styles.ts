@@ -8,6 +8,17 @@ export const ContainerEventsComponent = styled.section`
         margin-bottom: 25px;
     }
 
+    h3 {
+        margin-top: 60px;
+        text-align: center;
+        color: #555555;
+    }
+
+    .container_spin {
+        margin-top: 60px;
+        text-align: center;
+    }
+
     .container_swiper {
         position: relative;
 

@@ -1,13 +1,14 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { Footer } from "../../components/Footer";
 import { Header } from "../../components/Header";
 import { Selected } from "../../components/Selected";
 import { SearchEvents, SectionOne } from "./styles";
-import { EventsPagination } from "../EventsPagination";
 import { useEvent } from "../../context/EventProvider/useEvent";
-import { DocumentData } from "firebase/firestore";
 import { ContainerEvents } from "../../components/ContainerEvents";
 import { useFilter } from "../../context/FilterProvider/useFilter";
+import { EventsPagination } from "../EventsPagination";
+// import { DocumentData } from "firebase/firestore";
+// import { usePagination } from "../../hooks/usePagination";
 
 
 const tipoEvento = [
@@ -25,19 +26,19 @@ const typeCategory = [
 
 
 export function Events() {
-    const { events, spinEvents } = useEvent()
+    const { events } = useEvent()
+    const { handleSpin, setHandleSpinEvent } = useEvent()
     const { handleSearch, selectEvent, selectCategory, setHandleSearch } = useFilter()
-
-    const [data, setData] = useState<DocumentData[] | null>([])
 
     useEffect(() => {
         async function pagination() {
             try {
-                if(events)
-                setData(events)
+                setHandleSpinEvent(true)
             } catch (error) {
-                console.log(error)
-            } 
+                console.error(error)
+            } finally {
+                setHandleSpinEvent(false)
+            }
         }
 
         pagination()
@@ -75,11 +76,10 @@ export function Events() {
                 </div>
             </SearchEvents>
 
-            {spinEvents && <h2>Carregando</h2>}
-            {/* {handleSearch != "" && <EventsPagination data={data}/>} */}
+            {handleSpin && <h2>Carregando</h2>}
             
             {handleSearch != "" || selectCategory != "Escolha uma categoria" || selectEvent != "Tipo evento" ? (
-                <EventsPagination data={data}/>
+                <EventsPagination />
             ) : (
                 <>
                     <ContainerEvents nameEvent="Online"/>

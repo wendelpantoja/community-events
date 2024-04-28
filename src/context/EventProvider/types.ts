@@ -2,11 +2,13 @@ import { DocumentData, Firestore, QuerySnapshot } from "firebase/firestore";
 
 export interface EventProps {
     user_id: string;
-    url_imagem: string;
+    url_imagem: string | unknown;
     titulo: string;
     descricao: string;
-    data: string;
-    hora: string;
+    data_inicio: string;
+    data_fim: string;
+    hora_inicio: string;
+    hora_fim: string;
     tipo_evento: string;
     tipo_categoria: string
 }

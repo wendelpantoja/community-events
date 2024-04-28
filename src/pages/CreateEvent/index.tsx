@@ -19,11 +19,13 @@ const categories = [
 ]
 
 interface Event {
-    url_imagem?: string;
+    url_imagem?: string | unknown;
     titulo: string;
     descricao: string;
-    data: string;
-    hora: string;
+    data_inicio: string;
+    data_fim: string;
+    hora_inicio: string;
+    hora_fim: string;
     tipo_evento: string;
     tipo_categoria: string
 }
@@ -68,9 +70,10 @@ export function CreateEvent() {
 
     return (
         <ContainerContent>
-            <h2>Criar evento</h2>
+            <h2>Crie um evento</h2>
             <form onSubmit={handleSubmit(handleEvent)}>
                 <div className="container_inputs">
+                    
                 <ContainerFile>
                     <Label htmlFor="file">
                         {preview != '' && <img className="preview_image" src={preview} alt="" />}
@@ -82,6 +85,7 @@ export function CreateEvent() {
                         onChange={handleOnChange}
                     />
                 </ContainerFile> 
+
                     <input 
                         className='title' 
                         type="text"
@@ -98,13 +102,18 @@ export function CreateEvent() {
                     <div className="container_date_hour">
                         <input 
                             type="date" 
-                            {...register("data")}
+                            {...register("data_inicio")}
                         />
 
                         <input 
-                            type="time"
-                            {...register("hora")}
+                            type="date" 
+                            {...register("data_fim")}
                         />
+                    </div>
+
+                    <div className="container_date_hour">
+                        <input type="time" {...register("hora_inicio")}/>
+                        <input type="time" {...register("hora_fim")}/>
                     </div>
                 </div>
 
@@ -126,7 +135,7 @@ export function CreateEvent() {
                     </select>
                 </div>
                 <button type="submit">
-                    {handleSpin && <HandleSpin />}
+                    {handleSpin && <HandleSpin colorPrimary="#DCE9E2" colorContainer="#f6ffed"/>}
                     {!handleSpin && <p>Criar evento</p> }
                 </button>
             </form>

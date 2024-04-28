@@ -33,4 +33,10 @@ export const Container = styled.div`
     max-width: 1480px;
     margin: 0 auto;
     padding: 0 30px; 
+
+
+    .container_h3 {
+        padding: 50px 0px;
+        text-align: center;
+    }
 `

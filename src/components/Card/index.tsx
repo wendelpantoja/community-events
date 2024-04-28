@@ -59,7 +59,7 @@ export function Card({ data, dataUser }: CardType) {
                     {event.data().tipo_categoria}
                   </div>
 
-                  <p>{event.data().data}</p>
+                  <p>{event.data().data_inicio}</p>
 
                   <div className="container_title">
                       <h2>{event.data().titulo}</h2>
@@ -101,7 +101,7 @@ export function Card({ data, dataUser }: CardType) {
                     {data?.data().tipo_categoria}
                   </div>
 
-                  <p>{data?.data().data}</p>
+                  <p>{data?.data().data_inicio}</p>
 
                   <div className="container_title">
                       <h2>{data?.data().titulo}</h2>

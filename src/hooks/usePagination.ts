@@ -3,6 +3,30 @@ import { db } from "../services/fireBaseConfig"
 
 export function usePagination() {
 
+    // async function getLimitDocs(nameCollection: string, search?: string, typeEvent?: string, typeCategory?: string) {
+    //     // if(typeEvent != "Tipo evento" && typeCategory != "Escolha uma categoria" && search != "") {
+    //     //     filter.push(where('titulo', '==', search))
+    //     //     filter.push(where('tipo_evento', '==', typeEvent))
+    //     //     filter.push(where('tipo_categoria', '==', typeCategory))
+    //     // } else if (typeEvent === "Tipo evento") {
+    //     //     filter.push(where('tipo_categoria', '==', typeCategory))
+    //     // } else {
+    //     //     filter.push(where('tipo_evento', '==', typeEvent))
+    //     // }
+    // } 
+
+    async function getFilterDoc(nameCollection: string, type: string) {
+        const coll = collection(db, nameCollection)
+        const q = query(coll, where('tipo_evento', '==', type), limit(9))
+        const docs = await getDocs(q)
+
+        // docs.docs.map((element) => {
+        //     console.log(element)
+        // })
+
+        return docs.docs
+    }
+
     async function getFirstDocument(nameCollection: string,  type: string) {
        const coll = collection(db, nameCollection)
        const first = query(coll, where("titulo", "==", type), orderBy("titulo"))
@@ -47,6 +71,7 @@ export function usePagination() {
     }
 
     return {
+        getFilterDoc,
         getFirstDocument,
         totalDocuments,
         getDocuments,

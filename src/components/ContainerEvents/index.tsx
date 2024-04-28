@@ -4,31 +4,64 @@ import { Card } from "../Card";
 import { Swiper, SwiperSlide } from 'swiper/react';
 
 import { ContainerEventsComponent, PlusEvents } from "./styles";
-import { useEvent } from "../../context/EventProvider/useEvent";
 import { Navigation } from "swiper/modules";
-import { useState } from "react";
+// import { useState } from "react";
 
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
+// import { HandleSpin } from "../Spin";
+import { usePagination } from "../../hooks/usePagination";
+import { useEffect, useState } from "react";
+import { DocumentData } from "firebase/firestore";
 import { useFilter } from "../../context/FilterProvider/useFilter";
+import { useEvent } from "../../context/EventProvider/useEvent";
+import { HandleSpin } from "../Spin";
 
 interface CardContainerProps {
     nameEvent: string;
 }
 
 export function ContainerEvents({ nameEvent }: CardContainerProps) {
-
-    const { events } = useEvent()
     const { setSelectEvent } = useFilter()
     const [indexSwiper, setIndexSwiper] = useState<number>(0)
     const [isEnd, setIsEnd] = useState<boolean>(false)
+
+    const [dataEvents, setDataEvents] = useState<DocumentData[]>()
+    const { getFilterDoc } = usePagination()
+    const {handleSpin, setHandleSpinEvent} = useEvent()
+
+    useEffect(() => {
+        async function handleEvents() {
+            try {
+                setHandleSpinEvent(true)
+                const filterDocs = await getFilterDoc('Events', nameEvent)
+
+                setDataEvents(filterDocs)
+            } catch (error) {
+                console.error(error)
+            } finally {
+                setHandleSpinEvent(false)
+            }
+        }
+
+        handleEvents()
+    }, [nameEvent])
     
     return (
         <Container>
             <ContainerEventsComponent>
                 <h1 className="">Evento {nameEvent}</h1>
+
+                {dataEvents?.length === 0 && <h3>Não há eventos</h3>}
+
+                {handleSpin && (
+                    <div className="container_spin">
+                        <HandleSpin colorPrimary="#555555" colorContainer="grey"/>
+                    </div>
+                )}
+                
                 <Swiper 
                     className="container_swiper"
                     modules={[Navigation]}
@@ -73,9 +106,8 @@ export function ContainerEvents({ nameEvent }: CardContainerProps) {
                         setIndexSwiper(swiper.activeIndex)
                     }}
                 >
-                    {events?.filter(type => type.data().tipo_evento.toLowerCase() === nameEvent?.toLowerCase())
-                    .slice(0, 9)
-                    .map((event, index) => (
+
+                    {dataEvents?.map((event, index) => (
                         <SwiperSlide className="swiper_slide" key={event.id}>
                             {index === 8 ? (
                                 <PlusEvents onClick={() => {
@@ -94,7 +126,7 @@ export function ContainerEvents({ nameEvent }: CardContainerProps) {
                     <button className={`button_prev ${indexSwiper === 0 ? "desable" : ""}`}>
                         <i className='bx bxs-chevron-left swiper-button-disabled'></i>
                     </button>
-    
+
                     <button className={`button_next ${isEnd === true ? "desable" : ""}`}>
                         <i className='bx bxs-chevron-right'></i>
                     </button>
