@@ -90,7 +90,7 @@ export function Event() {
                                 {dataEvent?.descricao}
                             </p>
                         </div>
-                    </SectionInfo>
+                    </SectionInfo>                  
                 </Container>
             </main>
             
