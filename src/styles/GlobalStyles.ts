@@ -7,6 +7,7 @@ export const GlobalStyled = createGlobalStyle`
 
     /*========== Colors ==========*/
     --violet-color: #381DDB;
+    --violet-color-light: #DBE2FF;
     --white-color: #FFFFFF;
     --black-color: #222222;
 
@@ -15,11 +16,14 @@ export const GlobalStyled = createGlobalStyle`
 
     --text-color-white: var(--white-color);
     --text-color-black: var(--black-color);
+    --text-color-violet: var(--violet-color);
 
     --icon-color-violet: var(--violet-color);
     --icon-color-white: var(--white-color);
 
     --button-color: var(--violet-color);
+    --button-color-hover: #6E72FF;
+    --button-bg-hover: #462CFF;
 
     --body-color: var(--white-color);
 
@@ -53,7 +57,7 @@ export const GlobalStyled = createGlobalStyle`
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Inter', sans-serif;
+    font-family: var(--body-font);
 }
 
 html, body {
@@ -62,7 +66,7 @@ html, body {
 
 body {
     position: relative;
-    background-color: white;
+    background-color: var(--body-color);
 }
 
 ul {
@@ -76,8 +80,7 @@ a {
 `
 
 export const Container = styled.div`
-    width: 100%;
-    max-width: 1480px;
+    max-width: 1230px;
     margin: 0 auto;
     padding: 0 30px; 
 
