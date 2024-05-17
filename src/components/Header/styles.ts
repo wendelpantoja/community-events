@@ -21,13 +21,12 @@ export const Nav = styled.nav`
 `
 
 export const Logo = styled(DisplayFlex)`
-    h2 {
-        font-size: var(--h2-font-size);
+    h3 {
         font-weight: var(--font-semi-bold);
         color: var(--logo-color-black);
     }
     span {
-        font-size: var(--h2-font-size);
+        font-size: var(--h3-font-size);
         font-weight: var(--font-bold);
         color: var(--logo-color-violet);
     }
@@ -60,11 +59,11 @@ export const Menu = styled.div`
 `
 
 export const ContainerButtons = styled(DisplayFlex)`
-    gap: 10px;
+    gap: 8px;
 `
 
 export const ButtonConect = styled.button`
-    width: 100px;
+    width: 115px;
     height: 45px;
 
     color: var(--text-color-violet);
@@ -91,7 +90,8 @@ export const ButtonCreate = styled(ButtonConect)`
     background-color: var(--button-color);
 
     &:hover {
+        border: 0;
         color: var(--text-color-white);
-        background-color: var(--button-bg-hover);
+        background-color: var(--button-hover);
     }
 `

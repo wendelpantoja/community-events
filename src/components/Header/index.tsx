@@ -10,7 +10,7 @@ export function Header() {
             <Container>
                 <Nav>
                     <Logo>
-                        <h2>Community</h2><span>Events</span>
+                        <h3>Community</h3><span>Events</span>
                     </Logo>
 
                     <Menu>
@@ -29,11 +29,11 @@ export function Header() {
                     
                     <ContainerButtons>
                         <ButtonConect>
-                            Login
+                            Conecte-se
                         </ButtonConect>
                         
                         <ButtonCreate>
-                            Create event
+                            Criar evento
                         </ButtonCreate>
                     </ContainerButtons>
                 </Nav>
