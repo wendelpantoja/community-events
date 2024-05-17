@@ -22,18 +22,20 @@ export const GlobalStyled = createGlobalStyle`
     --icon-color-white: var(--white-color);
 
     --button-color: var(--violet-color);
-    --button-color-hover: #6E72FF;
-    --button-bg-hover: #462CFF;
+    --button-hover: #462CFF;
+    --button-hover-light: #6E72FF;
+
+    --bg-gradient-differ: linear-gradient(180deg, rgba(56, 29, 219, 0.05) 0%, rgba(196, 196, 196, 0.05) 50%, rgba(56, 29, 219, 0.05) 100%);
 
     --body-color: var(--white-color);
 
     /*========== Font and Typography ==========*/
     --body-font: 'Montserrat', sans-serif;
 
-    --h0-font-size: 42px;
-    --h1-font-size: 30px;
-    --h2-font-size: 20px;
-    --h3-font-size: 18px;
+    --h1-font-size: 42px;
+    --h2-font-size: 30px;
+    --h3-font-size: 20px;
+    --h4-font-size: 18px;
     --p-font--size: 16px;
     --small-font-size: 14px;
     --smaller-font-size: 12px;
@@ -77,16 +79,31 @@ a {
     text-decoration: none;
     color: black;
 }
+
+h1 {
+    font-size: var(--h1-font-size);
+}
+h2 {
+    font-size: var(--h2-font-size);
+}
+h3 {
+    font-size: var(--h3-font-size);
+}
+h4 {
+    font-size: var(--h4-font-size);
+}
+p {
+    font-size: var(--p-font--size);
+}
+
+span {
+    color: var(--text-color-violet);
+}
 `
 
 export const Container = styled.div`
     max-width: 1230px;
     margin: 0 auto;
     padding: 0 30px; 
-
-
-    .container_h3 {
-        padding: 50px 0px;
-        text-align: center;
-    }
+    
 `
