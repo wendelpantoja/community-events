@@ -35,7 +35,7 @@ export function Event() {
                 <Container>
                     <nav className="nav_event">
                         <div className="nav_event_logo">
-                            <h2>Community<span>Events</span></h2>
+                            <h3>Community<span>Events</span></h3>
                         </div>
 
                         <Link to="#">
@@ -50,6 +50,7 @@ export function Event() {
             <main>
                 <Container>
                     <SectionImage>
+                        <img src={dataEvent?.url_imagem} alt="image_event" />
                         <img src={dataEvent?.url_imagem} alt="image_event" />
                     </SectionImage>
 
