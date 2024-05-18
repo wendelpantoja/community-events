@@ -64,10 +64,6 @@ export function Card({ data, dataUser }: CardType) {
                   <div className="container_title">
                       <h2>{event.data().titulo}</h2>
                   </div>
-
-                  <div className="description">
-                    {event.data().descricao} 
-                  </div>
                   
                   <div className="footer_card">
                     <p>Cametá</p>
@@ -104,11 +100,7 @@ export function Card({ data, dataUser }: CardType) {
                   <p>{data?.data().data_inicio}</p>
 
                   <div className="container_title">
-                      <h2>{data?.data().titulo}</h2>
-                  </div>
-
-                  <div className="description">
-                    {data?.data().descricao} 
+                      <p>{data?.data().titulo}</p>
                   </div>
                   
                   <div className="footer_card">

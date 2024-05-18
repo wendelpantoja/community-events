@@ -1,50 +1,53 @@
 import styled from "styled-components";
 
 export const CardComponent = styled.div`
-    width: 100%;
-    max-width: 280px;
-    max-height: 400px;
-    background-color: #FFF;
-    box-shadow: 0px 0px 2px 1px rgba(0,0,0,0.1),0px 10px 15px -3px rgba(0,0,0,0.1);
+    width: 265px;
+    max-height: 300px;
+    background-color: var(--white-color);
     border-radius: 10px;
     flex: 1 1 280px;
+    box-shadow: -5px 5px 10px 2px rgba(196, 196, 196, 0.20);
 
     cursor: pointer;
 
     .container_img {
         position: relative;
+
         width: 100%;
-        height: 180px;
+        height: 147px;
+
         border-radius: 10px 10px 0px 0px;
-        background: #C9C9C9;
+        background: #C4C4C4;
 
-        .container_icons {
-            width: 100%;
-            display: flex;
-            justify-content: right;
-            gap: 5px;
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            /* background-color: rgba(0, 0, 0, 0.3); */
-            z-index: 100;
-            margin-top: 10px;
-            padding-right: 10px;
+    }
+    .container_img img {
+        width: 100%;
+        height: 100%;
+        border-radius: 10px 10px 0px 0px;
+    }
+    .container_img
+    .container_icons {
+        display: flex;
+        justify-content: right;
+        gap: 5px;
 
-            i:nth-child(1) {
-                font-size: 20px;
-                color: #00856F;
-            }
-            i:nth-child(2) {
-                font-size: 20px;
-                color: red;
-            }
+        position: absolute;
+
+        width: 100%;
+        height: 100%;
+        
+        margin-top: 10px;
+        padding-right: 10px;
+
+        z-index: 100;
+
+        i:nth-child(1) {
+            font-size: 20px;
+            color: #00856F;
         }
-
-        img {
-            width: 100%;
-            height: 100%;
-            border-radius: 10px 10px 0px 0px;
+        i:nth-child(2) {
+            font-size: 20px;
+            color: red;
         }
     }
 
@@ -54,48 +57,45 @@ export const CardComponent = styled.div`
         display: flex;
         flex-direction: column;
         gap: 10px;
+    }
+    .container_descriptions
+    .type_event {
+        position: absolute;
+        top: -15px;
+        right: 20px;
+        padding: 5px 10px;
+        background-color: var(--violet-color);
+        text-align: center;
+        color: var(--white-color);
+        font-size: var(--small-font-size);
+        font-weight: var(--font-medium);
 
-        .type_event {
-            position: absolute;
-            top: -15px;
-            right: 20px;
-            padding: 5px 10px;
-            background-color: #00856F;
-            text-align: center;
-            color: white;
-            font-size: 14px;
-            font-weight: 500;
-
-            border-radius: 5px;
-        }
+        border-radius: 5px;
+    }
+    .container_descriptions > p {
+        color: var(--black-color);
+        font-size: var(--smaller-font-size);
+        font-weight: var(--font-medium);
+    }
+    .container_descriptions
+    .container_title {
+        width: 100%;
+        height: 40px;
+    }
+    .container_descriptions
+    .container_title p {
+        color: var(--black-color);
+        font-weight: var(--font-bold);
+    }
+    .container_descriptions
+    .footer_card {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
 
         p {
-           color: #000;
-           font-size: 12px;
-           font-weight: 500;
+            color: var(--balck-color);
+            font-size: var(--smaller-font-size);
         }
-
-        .container_title {
-            width: 100%;
-            height: 40px;
-
-            h2 {
-                font-size: 16px;
-                font-weight: 700;
-            }
-        }
-
-        .description {
-            width: 100%;
-            height: 75px;
-            overflow: hidden;
-        }
-
-        .footer_card {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
-
     }
 `

@@ -52,7 +52,7 @@ export function ContainerEvents({ nameEvent }: CardContainerProps) {
     return (
         <Container>
             <ContainerEventsComponent>
-                <h1 className="">Evento {nameEvent}</h1>
+                <h2 className="">Evento <span>{nameEvent}</span></h2>
 
                 {dataEvents?.length === 0 && <h3>Não há eventos</h3>}
 

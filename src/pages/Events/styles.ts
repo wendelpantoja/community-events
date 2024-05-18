@@ -1,30 +1,29 @@
 import styled from "styled-components";
 
 
-export const SectionOne = styled.section`
+export const Banner = styled.section`
     width: 100%;
-    height: 452px;
-    /* background-color: #DCE9E2; */
-    position: relative;
-
-    .container_text {
+    height: 362px;
+    background-image: url("src/assets/img/banner.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    
+    .bg_banner {
+        display: flex;
+        align-items: center;
+        justify-content: center;
         width: 100%;
-        max-width: 700px;
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-    }
+        height: 100%;
+        color: var(--text-color-white);
+        background-color: var(--bg-banner);
 
-    .container_text h2 {
-        font-size: 48px;
-        font-weight: 700;
         text-align: center;
-        color: #000;
     }
 `
 
 export const SearchEvents = styled.div`
+    position: relative;
+    top: -50px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -34,11 +33,13 @@ export const SearchEvents = styled.div`
     max-width: 875px;
     height: 200px;
     border-radius: 10px;
-    background-color: #00856F;
+    background-color: var(--violet-color);
     margin: 0 auto;
     margin-bottom: 80px;
 
     padding: 0px 35px;
+
+    z-index: 10;
 
     .search {
         display: flex;
@@ -51,7 +52,7 @@ export const SearchEvents = styled.div`
 
         i {
             font-size: 20px;
-            color: #00856F;
+            color: var(--icon-color-violet);
             margin-left: 21px;
         }
 

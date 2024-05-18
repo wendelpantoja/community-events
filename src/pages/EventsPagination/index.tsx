@@ -8,11 +8,6 @@ import { useEvent } from "../../context/EventProvider/useEvent";
 import { usePagination } from "../../hooks/usePagination";
 import { useFilter } from "../../context/FilterProvider/useFilter";
 
-
-// interface EventsFilter {
-//     data: DocumentData[] | null;
-// }
-
 const limitDoc = 8
 
 export function EventsPagination() {
@@ -39,8 +34,7 @@ export function EventsPagination() {
 
         filter()
     }, [handleSearch, selectEvent, selectCategory])
-    console.log(totalPage)
-    console.log(coutPage)
+    
     return (
         <Container>
             {filter?.length === 0 && (
@@ -55,6 +49,15 @@ export function EventsPagination() {
                     <Card key={event.id} data={event} />
                 ))}
             </ContainerPagination>
+            <ButtonPagination
+                    somaSlice={somaSlice}
+                    setSomaSlice={setSomaSlice}
+                    totalArray={totalArray}
+                    totalPage={totalPage}
+                    dataFilter={filter} 
+                    coutPage={coutPage}
+                    setCoutPage={setCoutPage}
+                />
             {totalPage != null && totalPage > 1 && 
                 <ButtonPagination
                     somaSlice={somaSlice}

@@ -10,6 +10,7 @@ export const GlobalStyled = createGlobalStyle`
     --violet-color-light: #DBE2FF;
     --white-color: #FFFFFF;
     --black-color: #222222;
+    --black-color-light: #555555;
 
     --logo-color-black: var(--black-color);
     --logo-color-violet: var(--violet-color);
@@ -25,6 +26,8 @@ export const GlobalStyled = createGlobalStyle`
     --button-hover: #462CFF;
     --button-hover-light: #6E72FF;
 
+
+    --bg-banner: rgba(0, 0, 0, 0.28);
     --bg-gradient-differ: linear-gradient(180deg, rgba(56, 29, 219, 0.05) 0%, rgba(196, 196, 196, 0.05) 50%, rgba(56, 29, 219, 0.05) 100%);
 
     --body-color: var(--white-color);
@@ -34,6 +37,7 @@ export const GlobalStyled = createGlobalStyle`
 
     --h1-font-size: 42px;
     --h2-font-size: 30px;
+    --icon-font-size: 25px;
     --h3-font-size: 20px;
     --h4-font-size: 18px;
     --p-font--size: 16px;

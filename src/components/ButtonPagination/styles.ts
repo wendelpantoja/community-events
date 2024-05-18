@@ -6,19 +6,19 @@ export const ContainerButtons = styled.div`
     gap: 10px;
 
     margin-top: 55px;
+    margin-bottom: 55px;
 
 
     .buttonShow {
         width: 45px;
         height: 35px;
-        background-color: white;
         border: 1px solid;
         border-radius: 8px;
         cursor: pointer;
 
         i {
-            font-size: 20px;
-            font-weight: 500;
+            font-size: var(--h3-font-size);
+            font-weight: var(--font-medium);
         }
     }
 
@@ -31,34 +31,33 @@ export const ContainerButtons = styled.div`
     .buttons .button {
         width: 20px;
         height: 25px;
-        color: white;
-        font-weight: 600;
+        font-weight: var(--font-bold);
         border: none;
-        border-radius: 8px;
+        border-radius: 10px;
         cursor: pointer;
     }
 
     .buttonShow_left {
-        color: #00856F;
-        background-color: transparent;
-        border: 2px solid #00856F;
+        color: var(--violet-color);
+        background-color: var(--white-color);
+        border: 1px solid var(--button-color);
     }
 
     .buttonShow_left:hover {
-        border-color: #03C5A5;
+        border-color: var(--button-hover-light);
 
         i {
-            color: #03C5A5;
+            color: var(--button-hover-light);
         }
     }
 
     .buttonShow_right {
-        color: white;
-        background-color: #00856F;
+        color: var(--white-color);
+        background-color: var(--button-color);
         border: none;
     }
 
     .buttonShow_right:hover {
-        background-color: #03C5A5;
+        background-color: var(--button-hover-light);
     }
 `

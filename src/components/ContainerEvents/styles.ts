@@ -2,16 +2,12 @@ import styled from "styled-components";
 
 
 export const ContainerEventsComponent = styled.section`
-    margin-bottom: 70px;
-
-    h1 {
-        margin-bottom: 25px;
-    }
+    margin-bottom: 50px;
 
     h3 {
         margin-top: 60px;
         text-align: center;
-        color: #555555;
+        color: #C4C4C4;
     }
 
     .container_spin {
@@ -21,7 +17,6 @@ export const ContainerEventsComponent = styled.section`
 
     .container_swiper {
         position: relative;
-
         .swiper_slide {
             display: flex;
             align-items: center;
@@ -43,16 +38,17 @@ export const ContainerEventsComponent = styled.section`
         top: 50%;
         left: 0;
         transform: translateY(-50%);
-        z-index: 10;
-        color: #00856F;
-        background-color: #DCE9E2;
+        color: var(--violet-color);
+        background-color: var(--violet-color-light);
         border: none;
         border-radius: 10px;
         cursor: pointer;
+
+        z-index: 10;
        
 
         i {
-            font-size: 24px;
+            font-size: var(--icon-font-size);
         }
     }
     .button_prev.desable {
@@ -66,16 +62,16 @@ export const ContainerEventsComponent = styled.section`
         top: 50%;
         right: 0;
         transform: translateY(-50%);
-        z-index: 10;
-        color: #00856F;
-        background-color: #DCE9E2;
+        color: var(--violet-color);
+        background-color: var(--violet-color-light);
         border: none;
         border-radius: 10px;
         cursor: pointer;
         
+        z-index: 10;
 
         i {
-            font-size: 24px;
+            font-size: var(--icon-font-size);
         }
     }
 
@@ -88,16 +84,16 @@ export const PlusEvents = styled.div`
     width: 100px;
     height: 70px;
     line-height: 70px;
-    font-size: 16px;
+    font-size: var(--p-font-size);
     text-align: center;
-    color: white;
-    background-color: #00856F;
+    color: var(--violet-color);
+    background-color: var(--button-color);
 
     border-radius: 10px;
 
     cursor: pointer;
 
-    &&:hover {
-        background-color: #03C5A5;
+    &:hover {
+        background-color: var(--button-hover);
     }
 `

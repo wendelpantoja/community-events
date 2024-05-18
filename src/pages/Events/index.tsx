@@ -2,14 +2,11 @@ import { useEffect } from "react";
 import { Footer } from "../../components/Footer";
 import { Header } from "../../components/Header";
 import { Selected } from "../../components/Selected";
-import { SearchEvents, SectionOne } from "./styles";
+import { Banner, SearchEvents } from "./styles";
 import { useEvent } from "../../context/EventProvider/useEvent";
 import { ContainerEvents } from "../../components/ContainerEvents";
 import { useFilter } from "../../context/FilterProvider/useFilter";
 import { EventsPagination } from "../EventsPagination";
-// import { DocumentData } from "firebase/firestore";
-// import { usePagination } from "../../hooks/usePagination";
-
 
 const tipoEvento = [
     "Online",
@@ -50,14 +47,14 @@ export function Events() {
 
     return(
         <>
-            <SectionOne>
-                <Header />
-                <div className="container_text">
-                    <h2>
-                        Encontre os principais eventos da sua cidade
-                    </h2>
+            <Header />
+            
+            <Banner>
+                <div className="bg_banner">
+                    <h1>Encontre os principais eventos da <br/> sua cidade</h1>
                 </div>
-            </SectionOne>
+            </Banner>
+
             <SearchEvents>
                 <div className="search">
                     <i className='bx bx-search-alt-2'></i>
