@@ -8,7 +8,7 @@ export function Footer() {
             <Container>
                 <div className="box_footer">
                     <div className="logo_footer">
-                        <h2>Community<span>Events</span></h2>
+                        <h3>Community<span>Events</span></h3>
                     </div>
                     <div className="cripto">
                         <p>2023 © Community Events Reserved</p>

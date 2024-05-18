@@ -16,17 +16,18 @@ export const ContainerFooter = styled.div`
     }
 
     .logo_footer {
-        h2 {
+        h3 {
             font-weight: var(--font-semi-bold);
         }
         span {
             color: var(--text-color-white);
-            font-size: var(--h2-font-size);
+            font-size: var(--h3-font-size);
             font-weight: var(--font-bold);
         }
     }
 
     .cripto p {
+        font-size: var(--small-font-size);
         font-weight: var(--font-medium);
     }
 `
