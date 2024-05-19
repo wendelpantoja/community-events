@@ -46,13 +46,14 @@ export const ContainerSelected = styled.div`
         .option {
             width: 100%;
             height: 35px;
-            line-height: var(--small-line-height);
+            line-height: 35px;
             padding-left: 10px;
             cursor: pointer;
         }
 
         .option:hover {
             color: var(--violet-color);
+            line-height: 35px;
             background-color: var(--violet-color-light);
             border-radius: 10px;
         }
