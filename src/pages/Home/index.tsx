@@ -26,9 +26,11 @@ export function Home() {
                                 </p>
                             </div>
 
-                            <button className="button_introduction">
-                                Comece agora
-                            </button>
+                            <a href="/register">
+                                <button className="button_introduction">
+                                    Comece agora
+                                </button>
+                            </a>
 
                         </div>
 
@@ -121,9 +123,11 @@ export function Home() {
                             Crie seu evento e compartilhe facilmente com sua cominidade pela internet
                         </p>
                     </div>
-                    <button className="button_start">
-                        Criar evento
-                    </button>
+                    <a href="/register">
+                        <button className="button_start">
+                            Criar evento
+                        </button>
+                    </a>
                 </Start>
             </Container>
             <Footer />

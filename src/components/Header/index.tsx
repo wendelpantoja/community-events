@@ -9,9 +9,11 @@ export function Header() {
         <HeaderComponent>
             <Container>
                 <Nav>
-                    <Logo>
-                        <h3>Community</h3><span>Events</span>
-                    </Logo>
+                    <a href="/">
+                        <Logo>
+                            <h3>Community</h3><span>Events</span>
+                        </Logo>
+                    </a>
 
                     <Menu>
                         <ul>
@@ -28,13 +30,16 @@ export function Header() {
                     </Menu>
                     
                     <ContainerButtons>
-                        <ButtonConect>
-                            Conecte-se
-                        </ButtonConect>
-                        
-                        <ButtonCreate>
-                            Criar evento
-                        </ButtonCreate>
+                        <a href="/login">
+                            <ButtonConect>
+                                Conecte-se
+                            </ButtonConect>
+                        </a>
+                        <a href="/register">
+                            <ButtonCreate>
+                                Criar evento
+                            </ButtonCreate>
+                        </a>
                     </ContainerButtons>
                 </Nav>
             </Container>
