@@ -49,15 +49,6 @@ export function EventsPagination() {
                     <Card key={event.id} data={event} />
                 ))}
             </ContainerPagination>
-            <ButtonPagination
-                    somaSlice={somaSlice}
-                    setSomaSlice={setSomaSlice}
-                    totalArray={totalArray}
-                    totalPage={totalPage}
-                    dataFilter={filter} 
-                    coutPage={coutPage}
-                    setCoutPage={setCoutPage}
-                />
             {totalPage != null && totalPage > 1 && 
                 <ButtonPagination
                     somaSlice={somaSlice}
