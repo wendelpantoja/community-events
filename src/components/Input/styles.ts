@@ -42,9 +42,13 @@ export const ContainerInput = styled.div`
             outline: none;
         }
 
-        input[type=text],
+        input[type=text] {
+            font-size: var(--small-font-size);
+            color: var(--black-color-light);
+        }
         input[type=password] {
-            color: #C4C4C4;
+            font-size: var(--small-font-size);
+            color: var(--black-color-light);
         }
     }
 
