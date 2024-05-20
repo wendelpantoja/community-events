@@ -35,7 +35,7 @@ export function Login() {
     return (
         <ContainerForm>
             <div className="header_form">
-                <div className="text-login">
+                <div className="text_login">
                     <i className='bx bx-log-in-circle'></i>
                     <h2>Faça seu login</h2>
                 </div>
@@ -61,7 +61,11 @@ export function Login() {
                     { errors.password && <span>{ errors.password.message }</span> }
                 </div>
                 <Button type="submit">
-                {auth.handleSpinState ? <HandleSpin /> : "Entrar"}
+                    {
+                        auth.handleSpinState 
+                            ? <HandleSpin colorPrimary="#DBE2FF" colorContainer="#6E72FF"/> 
+                            : "Entrar"
+                    }
                 </Button>
                 <p>Ainda não tem uma conta? <Link to="/register">Registre-se</Link></p>
                 <Link to="/">voltar para home</Link>

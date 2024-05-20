@@ -5,29 +5,35 @@ export const ContainerForm = styled.div`
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+
+    color: var(--text-color-black);
+
     width: 95%;
     max-width: 460px;
+
     border-radius: 24px;
-    margin: 0 auto;
     background-color: white;
+
     padding: 50px 40px;
 
     .header_form {
         width: 100%;
         margin: 0 auto;
 
-        .text-login {
+        .text_login {
             display: flex;
             align-items: center;
             gap: 8px;
+
             i {
-                font-size: 28px;
+                font-size: var(--h2-font-size);
             }
         }
+
         p {
             margin-top: 5px;
             margin-bottom: 20px;
-            font-size: 14px;
+            font-size: var(--small-font-size);
         }
     }
 `
@@ -45,17 +51,17 @@ export const Form = styled.form`
         flex-direction: column;
 
         span {
-            font-size: 12px;
-            color: red;
+            font-size: var(--smaller-font-size);
+            color: var(--text-color-violet);
         }
 
         i {
-            color: #ccc;
+            color: #C4C4C4;
         }
     }
 
     p {
-        font-size: 15px;
+        font-size: var(--small-font-size);
 
         a {
             font-size: 15px;
@@ -65,7 +71,7 @@ export const Form = styled.form`
     }
 
     a:hover {
-        color: #00856F;
+        color: var(--text-color-violet);
     }
     a {
         text-decoration: underline;
@@ -75,17 +81,20 @@ export const Form = styled.form`
 export const Button = styled.button`
     width: 100%;
     height: 56px;
-    font-weight: 600;
-    background-color: #00856F;
-    color: white;
-    border: none;
+
+    background-color: var(--button-color);
+    color: var(--text-color-white);
+
     font-size: 16px;
-    font-weight: 600;
+    font-weight: var(--font-bold);
+
+    border: none;
     border-radius: 8px;
+
     cursor: pointer;
     margin-top: 20px;
 
-    &&:hover {
-        background-color: #03C5A5;
+    &:hover {
+        background-color: var(--button-hover);
     }
 `

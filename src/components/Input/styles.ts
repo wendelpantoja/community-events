@@ -10,6 +10,7 @@ export const ContainerInput = styled.div`
     margin-top: 20px;
 
     label {
+        font-weight: var(--font-medium);
         margin-bottom: 5px;
     }
 
@@ -43,15 +44,15 @@ export const ContainerInput = styled.div`
 
         input[type=text],
         input[type=password] {
-            color: grey;
+            color: #C4C4C4;
         }
     }
 
     .input:focus-within {
-        border-color: #00856F;
+        border-color: var(--violet-color);
 
         i {
-            color: #00856F;
+            color: var(--icon-color-violet);
         }
     }
 
