@@ -17,7 +17,7 @@ export const Modal = styled.div`
         transform: translateX(-50%);
         width: 100%;
         max-width: 550px;
-        background-color: white;
+        background-color: var(--white-color);
         border-radius: 8px;
         padding: 40px;
     }
@@ -30,24 +30,25 @@ export const Modal = styled.div`
     }
     .header_modal p {
         font-size: 16px;
-        font-weight: 600;
+        font-weight: var(--font-bold);
     }
     .header_modal i {
-        font-size: 22px;
+        font-size: var(--icon-font-size);
         cursor: pointer;
     }
     .header_modal i:hover {
-        color: #dc2626;
+        color: var(--icon-color-violet);
     }
 
     .description_product {
         font-size: 14px;
-        font-weight: 400;
+        font-weight: var(--font-regular);
         text-align: center;
         margin-bottom: 30px;
     }
     .description_product span {
-        font-weight: 600;
+        color: var(--text-color-black);
+        font-weight: var(--font-bold);
     }
 
     .warning_modal {
@@ -69,12 +70,12 @@ export const Modal = styled.div`
     }
     .warning_modal
     .icon_warning p {
-        font-size: 14px;
-        font-weight: 600;
+        font-size: var(--small-font-size);
+        font-weight: var(--font-bold);
     }
     .warning_modal
     .message_warning {
-        font-size: 14px;
+        font-size: var(--small-font-size);
         margin-left: 26px;
         margin-top: 10px;
     }
@@ -97,15 +98,19 @@ export const Modal = styled.div`
     }
     .buttons_modal 
     .button_cancel {
-        color: #399976;
-        background-color: #ecfdf5;
-        border-color: #399976;
+        color: var(--button-color);
+        background-color: var(--violet-color-light);
+        border: 1px solid var(--button-color);
     }
     .buttons_modal
     .button_confirm {
         color: #dc2626;
         border: none;
         background-color: #fde4e4;
+
+        p {
+            font-size: var(--small-font-size);
+        }
     }
     .buttons_modal
     .button_confirm:hover {

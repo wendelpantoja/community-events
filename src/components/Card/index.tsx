@@ -36,20 +36,24 @@ export function Card({ data, dataUser }: CardType) {
             <CardComponent key={event.id}>
               <div className="container_img">
                   <div className="container_icons">
+
                     <i 
                       className='bx bx-edit' 
                       onClick={() => {
                         handleUpdate(event.id)
-                      }}
-                    ></i>
-                    <i className='bx bx-trash' 
-                    onClick={() => {
-                      setDataEvent({
-                        idEvent: event.id,
-                        nameEvent: event.data().titulo
-                      })
-                      setIsModal(true)
-                    }}></i>
+                    }} />
+
+                    <i 
+                      className='bx bx-trash' 
+                      onClick={() => {
+                        setDataEvent({
+                          idEvent: event.id,
+                          nameEvent: event.data().titulo
+                        })
+                        setIsModal(true)
+                      }} 
+                    />
+
                   </div>
                   <img src={event.data().url_imagem} alt="" />
               </div>
@@ -62,7 +66,7 @@ export function Card({ data, dataUser }: CardType) {
                   <p>{event.data().data_inicio}</p>
 
                   <div className="container_title">
-                      <h2>{event.data().titulo}</h2>
+                      <p>{event.data().titulo}</p>
                   </div>
                   
                   <div className="footer_card">

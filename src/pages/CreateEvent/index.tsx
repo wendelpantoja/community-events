@@ -34,11 +34,12 @@ export function CreateEvent() {
     const user = useAuth()
     const { handleSpin, createEvent, createUrlImage, setHandleSpinEvent } = useEvent()
 
-    const { register, handleSubmit, reset, formState: { errors } } = useForm<Event>();
+    const { register, handleSubmit, reset } = useForm<Event>();
     const [preview, setPreview] = useState('')
     const [nameImagem, setNameImagem] = useState<File>()
 
     async function handleEvent(data: Event) {
+
         if(nameImagem) {
             if(user?.user) {
                 setHandleSpinEvent(true)
@@ -58,33 +59,43 @@ export function CreateEvent() {
                 }
             }
         }
+
     }
 
     function handleOnChange(event: React.ChangeEvent<HTMLInputElement>) {
+
         const file = event.target.files
+
         if(file) {
             setPreview(URL.createObjectURL(file[0]))
             setNameImagem(file[0])
         }
+
     }
 
     return (
         <ContainerContent>
+
             <h2>Crie um evento</h2>
+
             <form onSubmit={handleSubmit(handleEvent)}>
+
                 <div className="container_inputs">
                     
-                <ContainerFile>
-                    <Label htmlFor="file">
-                        {preview != '' && <img className="preview_image" src={preview} alt="" />}
-                        {preview === '' && <i className='bx bx-cloud-upload'></i>}
-                    </Label>
-                    <input 
-                        id="file"
-                        type="file" 
-                        onChange={handleOnChange}
-                    />
-                </ContainerFile> 
+                    <ContainerFile>
+
+                        <Label htmlFor="file">
+                            {preview != '' && <img className="preview_image" src={preview} alt="" />}
+                            {preview === '' && <i className='bx bx-cloud-upload'></i>}
+                        </Label>
+
+                        <input 
+                            id="file"
+                            type="file" 
+                            onChange={handleOnChange}
+                        />
+
+                    </ContainerFile> 
 
                     <input 
                         className='title' 
@@ -115,9 +126,11 @@ export function CreateEvent() {
                         <input type="time" {...register("hora_inicio")}/>
                         <input type="time" {...register("hora_fim")}/>
                     </div>
+
                 </div>
 
                 <div className="selecteds">
+
                     <select {...register("tipo_evento")} id="">
 
                         {typeEvent.map((option, index) => (
@@ -133,10 +146,12 @@ export function CreateEvent() {
                         ))}
 
                     </select>
+
                 </div>
+
                 <button type="submit">
-                    {handleSpin && <HandleSpin colorPrimary="#DCE9E2" colorContainer="#f6ffed"/>}
-                    {!handleSpin && <p>Criar evento</p> }
+                    {handleSpin && <HandleSpin colorPrimary="#DBE2FF" colorContainer="#6E72FF"/>}
+                    {!handleSpin && <p>Criar evento</p>}
                 </button>
             </form>
         </ContainerContent>

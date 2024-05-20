@@ -1,7 +1,8 @@
 import styled from "styled-components";
 
 export const CardComponent = styled.div`
-    width: 265px;
+    width: 100%;
+    max-width: 265px;
     max-height: 300px;
     background-color: var(--white-color);
     border-radius: 10px;
@@ -27,27 +28,35 @@ export const CardComponent = styled.div`
     }
     .container_img
     .container_icons {
+        position: absolute;
+        right: 0;
+        width: 35px;
         display: flex;
-        justify-content: right;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
         gap: 5px;
 
-        position: absolute;
-
-        width: 100%;
-        height: 100%;
+        background-color: var(--white-color);
         
+        padding: 5px 0;
         margin-top: 10px;
-        padding-right: 10px;
+        margin-right: 15px;
+
+        border-radius: 10px;
 
         z-index: 100;
 
         i:nth-child(1) {
             font-size: 20px;
-            color: #00856F;
+            color: var(--violet-color);
         }
         i:nth-child(2) {
             font-size: 20px;
-            color: red;
+            color: var(--violet-color);
+        }
+        i:hover {
+            color: var(--button-hover-light);
         }
     }
 
