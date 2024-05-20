@@ -92,7 +92,11 @@ export function Register() {
                 </div>
 
                 <Button type="submit">
-                    {auth.handleSpinState ? <HandleSpin /> : "Cadastrar"}
+                    {
+                        auth.handleSpinState 
+                            ? <HandleSpin colorPrimary="#DBE2FF" colorContainer="#6E72FF"/>  
+                            : "Cadastrar"
+                    }
                 </Button>
 
                 <p>Já tem uma conta? <Link to="/login">Faça login</Link></p>

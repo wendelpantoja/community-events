@@ -61,11 +61,11 @@ export const Form = styled.form`
     }
 
     p {
-        font-size: var(--small-font-size);
+        font-size: var(--p-font-size);
 
         a {
-            font-size: 15px;
-            font-weight: 700;
+            font-size: var(--p-font-size);
+            font-weight: var(--font-bold);
             text-decoration: blink;
         }
     }
