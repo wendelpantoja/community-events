@@ -39,13 +39,12 @@ export const ContainerContent = styled.div`
     width: 100%;
     max-width: 500px;
 
-    text-align: center;
-
     padding: 20px;
     margin: 0 auto;
     margin-top: 50px;
 
     h2 {
+        text-align: center;
         font-weight: var(--font-semi-bold);
         margin-bottom: 30px;
     }
@@ -53,24 +52,30 @@ export const ContainerContent = styled.div`
     
     .container_inputs {
         width: 100%;
-
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 20px;
-
-        .title {
+        .container_title {
             width: 100%;
-            height: 55px;
+            margin-top: 25px;
 
-            font-size: var(--p-font-size);
+            label {
+                font-size: var(--small-font-size);
+                font-weight: var(--font-medium);
+            }
 
-            border: none;
-            box-shadow: 0px 0px 2px 1px rgba(0,0,0,0.1),0px 10px 15px -3px rgba(0,0,0,0.1);
-            border-radius: 10px;
+            .title {
+                width: 100%;
+                height: 55px;
 
-            outline: none;
-            padding: 10px;
+                border: none;
+                box-shadow: 0px 0px 2px 1px rgba(0,0,0,0.1),0px 10px 15px -3px rgba(0,0,0,0.1);
+                border-radius: 10px;
+
+                font-size: var(--p-font-size);
+
+                outline: none;
+                padding: 10px;
+
+                margin-top: 5px;
+            }
         }
 
         img {
@@ -78,19 +83,29 @@ export const ContainerContent = styled.div`
             height: 50px;
         }
 
-        textarea {
-            width: 100%;
-            height: 200px;
-            font-size: var(--p-font-size);
+        .container_description {
+            margin-top: 25px;
 
-            border: none;
-            box-shadow: 0px 0px 2px 1px rgba(0,0,0,0.1),0px 10px 15px -3px rgba(0,0,0,0.1);
-            border-radius: 10px;
+            label {
+                font-size: var(--small-font-size);
+                font-weight: var(--font-medium);
+            }
 
-            padding: 10px;
+            textarea {
+                width: 100%;
+                height: 200px;
+                font-size: var(--p-font-size);
 
-            outline: none;
-            resize: none;
+                border: none;
+                box-shadow: 0px 0px 2px 1px rgba(0,0,0,0.1),0px 10px 15px -3px rgba(0,0,0,0.1);
+                border-radius: 10px;
+
+                padding: 10px;
+
+                outline: none;
+                resize: none;
+                margin-top: 5px;
+            }
         }
 
         .container_date_hour {
@@ -101,16 +116,51 @@ export const ContainerContent = styled.div`
             justify-content: center;
             gap: 50px;
 
-            input:nth-child(1),
-            input:nth-child(2) {
-                width: 155px;
-                height: 40px;
-            
-                border: none;
-                box-shadow: 0px 0px 2px 1px rgba(0,0,0,0.1),0px 10px 15px -3px rgba(0,0,0,0.1);
-                border-radius: 10px;
+            margin-top: 25px;
 
-                padding: 10px;
+            .container_date {
+                width: 100%;
+
+                label {
+                    font-size: var(--small-font-size);
+                    font-weight: var(--font-medium);
+                }
+
+                input {
+                    width: 100%;
+                    height: 40px;
+                    border: none;
+                    box-shadow: 0px 0px 2px 1px rgba(0,0,0,0.1),0px 10px 15px -3px rgba(0,0,0,0.1);
+                    border-radius: 10px;
+
+                    padding: 10px;
+
+                    margin-top: 5px;
+
+                    cursor: pointer;
+                }
+            }
+            .container_hour {
+                width: 100%;
+
+                label {
+                    font-size: var(--small-font-size);
+                    font-weight: var(--font-medium);
+                }
+
+                input {
+                    width: 100%;
+                    height: 40px;
+                    border: none;
+                    box-shadow: 0px 0px 2px 1px rgba(0,0,0,0.1),0px 10px 15px -3px rgba(0,0,0,0.1);
+                    border-radius: 10px;
+
+                    padding: 10px;
+
+                    margin-top: 5px;
+
+                    cursor: pointer;
+                }
             }
         }
 
@@ -123,41 +173,58 @@ export const ContainerContent = styled.div`
         display: flex;
         align-items: center;
         justify-content: center;
-        gap: 30px;
-        margin-top: 30px;
+        gap: 50px;
 
-        select {
-            width: 155px;
-            height: 40px;
-            
-            border: none;
-            box-shadow: 0px 0px 2px 1px rgba(0,0,0,0.1),0px 10px 15px -3px rgba(0,0,0,0.1);
-            border-radius: 10px;
+        margin-top: 25px;
+        margin-bottom: 50px;
 
-            cursor: pointer;
+        .container_select {
+            width: 100%;
 
-            outline: none;
+            label {
+                font-size: var(--small-font-size);
+                font-weight: var(--font-medium);
+            }
+
+            select {
+                width: 100%;
+                height: 40px;
+                
+                border: none;
+                box-shadow: 0px 0px 2px 1px rgba(0,0,0,0.1),0px 10px 15px -3px rgba(0,0,0,0.1);
+                border-radius: 10px;
+
+                cursor: pointer;
+
+                outline: none;
+
+                margin-top: 5px;
+            }
         }
+
+
     }
 
-    button {
-        width: 250px;
-        height: 50px;
+    .container_button {
+        text-align: center;
 
-        background-color: var(--button-color);
-        border: none;
-        
-        color: var(--text-color-white);
-        font-weight: var(--font-bold);
+        button {
+            width: 200px;
+            height: 50px;
 
-        border-radius: 10px;
-        cursor: pointer;
+            background-color: var(--button-color);
+            border: none;
+            
+            color: var(--text-color-white);
+            font-weight: var(--font-semi-bold);
 
-        margin-top: 35px;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: var(--button-hover);
+        }
+
     }
-
-    button:hover {
-        background-color: var(--button-hover);
-    }
-
 `
