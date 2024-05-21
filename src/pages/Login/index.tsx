@@ -63,7 +63,7 @@ export function Login() {
                 <Button type="submit">
                     {
                         auth.handleSpinState 
-                            ? <HandleSpin colorPrimary="#DBE2FF" colorContainer="#6E72FF"/> 
+                            ? <HandleSpin typeColor="spin_violet"/> 
                             : "Entrar"
                     }
                 </Button>

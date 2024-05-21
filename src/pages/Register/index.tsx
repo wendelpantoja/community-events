@@ -7,6 +7,7 @@ import { useAuth } from "../../context/AuthProvider/useAuth";
 import { FirebaseError } from "firebase/app";
 import { Link, useNavigate } from "react-router-dom";
 import { HandleSpin } from "../../components/Spin";
+import { Notification } from "../../components/Notification";
 
 
 export function Register() {
@@ -15,6 +16,7 @@ export function Register() {
     });
     const auth = useAuth()
     const navigate = useNavigate()
+    const { notify } = Notification()
 
     async function getUser(data: CreateUserFormDataRegister) {
         console.log(data)
@@ -29,10 +31,9 @@ export function Register() {
                 }
             }
         } else {
-            auth.notificationGlobal({
+            notify({
                 message: "Senhas incopatíveis",
                 type: "info",
-                description: "Verifique se as senhas são iguais"
             })
         }
     }
@@ -94,7 +95,7 @@ export function Register() {
                 <Button type="submit">
                     {
                         auth.handleSpinState 
-                            ? <HandleSpin colorPrimary="#DBE2FF" colorContainer="#6E72FF"/>  
+                            ? <HandleSpin typeColor="spin_violet"/>  
                             : "Cadastrar"
                     }
                 </Button>

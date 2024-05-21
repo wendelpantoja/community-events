@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import { ContainerDash, ContainerElemens, HeaderDash, Layout } from './styles';
 import { Modal } from '../../components/Modal';
-import { LogoutOutlined } from '@ant-design/icons';
 import { Container } from '../../styles/GlobalStyles';
 import { Link, Navigate, Outlet, useLocation } from 'react-router-dom';
 import { useAuth } from '../../context/AuthProvider/useAuth';
@@ -31,7 +30,7 @@ export function Dashboard() {
                 <Container>
                     <ContainerElemens>
                         <h3>Dashboard</h3>
-                        <LogoutOutlined onClick={handleModalOpen} />
+                        <i className='bx bx-log-out-circle' onClick={handleModalOpen} />
                     </ContainerElemens>
                 </Container>
 

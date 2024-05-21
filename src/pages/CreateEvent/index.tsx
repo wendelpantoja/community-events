@@ -97,62 +97,88 @@ export function CreateEvent() {
 
                     </ContainerFile> 
 
-                    <input 
-                        className='title' 
-                        type="text"
-                        placeholder='Digite o título do evento'
-                        {...register("titulo")}
-                    />
-                    
-                    <textarea 
-                        id="" 
-                        placeholder='Descrição do evento'
-                        {...register("descricao")}
-                    />
-
-                    <div className="container_date_hour">
+                    <div className="container_title">
+                        <label htmlFor="">Título do evento</label>
                         <input 
-                            type="date" 
-                            {...register("data_inicio")}
+                            className='title' 
+                            type="text"
+                            placeholder='Digite o título do evento'
+                            {...register("titulo")}
                         />
-
-                        <input 
-                            type="date" 
-                            {...register("data_fim")}
+                    </div>
+                    
+                    <div className="container_description">
+                        <label htmlFor="">Descrição do evento</label>
+                        <textarea 
+                            id="" 
+                            placeholder='Descrição do evento'
+                            {...register("descricao")}
                         />
                     </div>
 
                     <div className="container_date_hour">
-                        <input type="time" {...register("hora_inicio")}/>
-                        <input type="time" {...register("hora_fim")}/>
+                        <div className="container_date">
+                            <label htmlFor="">Inicio</label>
+                            <input 
+                                type="date" 
+                                {...register("data_inicio")}
+                            />
+                        </div>
+
+                        <div className="container_date">
+                            <label htmlFor="">Fim</label>
+                            <input 
+                                type="date" 
+                                {...register("data_fim")}
+                            />
+                        </div>
+                    </div>
+
+                    <div className="container_date_hour">
+                        <div className="container_hour">
+                            <label htmlFor="">Inicio</label>
+                            <input type="time" {...register("hora_inicio")}/>
+                        </div>
+                        <div className="container_hour">
+                            <label htmlFor="">Fim</label>
+                            <input type="time" {...register("hora_fim")}/>
+                        </div>
                     </div>
 
                 </div>
 
                 <div className="selecteds">
 
-                    <select {...register("tipo_evento")} id="">
+                    <div className="container_select">
+                        <label htmlFor="">Tipo evento</label>
+                        <select {...register("tipo_evento")} id="">
 
-                        {typeEvent.map((option, index) => (
-                            <option value={option} key={index}>{option}</option>
-                        ))}
+                            {typeEvent.map((option, index) => (
+                                <option value={option} key={index}>{option}</option>
+                            ))}
 
-                    </select>
+                        </select>
+                    </div>
 
-                    <select {...register("tipo_categoria")}  id="">
+                    <div className="container_select">
+                        <label htmlFor="">Categoria</label>
+                        <select {...register("tipo_categoria")}  id="">
 
                         {categories.map((option, index) => (
                             <option value={option} key={index}>{option}</option>
                         ))}
 
-                    </select>
+                        </select>
+                    </div>
 
                 </div>
 
-                <button type="submit">
-                    {handleSpin && <HandleSpin colorPrimary="#DBE2FF" colorContainer="#6E72FF"/>}
-                    {!handleSpin && <p>Criar evento</p>}
-                </button>
+                <div className="container_button">
+                    <button type="submit">
+                        {handleSpin && <HandleSpin typeColor="spin_violet"/>}
+                        {!handleSpin && <p>Criar evento</p>}
+                    </button>
+                </div>
             </form>
         </ContainerContent>
     )

@@ -1,27 +1,23 @@
-import { notification } from 'antd';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
-type NotificationTypes = 'success' | 'info' | 'warning' | 'error'
+type NotificationTypes = 'success' | 'info' | 'warning' | 'error';
 
-interface NotificationProps {
+export interface NotificationProps {
     message?: string;
-    type: NotificationTypes; 
-    description?: string;
-} 
+    type: NotificationTypes;
+}
 
 export function Notification() {
-    const [api, contextHolder] = notification.useNotification();
-    const notificationOpen = ({ message, type, description }: NotificationProps): void => {
+    const notify = ({message, type}: NotificationProps): void => {
         if(message) {
-            api[type]({
-                message: message,
-                description: description,
-                placement: "topRight",
+            toast[type](message, {
+                position: "top-right",
             });
         }
-    }
+    };
 
     return {
-        notificationOpen,
-        contextHolder
+        notify
     }
 }
