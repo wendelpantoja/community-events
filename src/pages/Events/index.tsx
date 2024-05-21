@@ -7,6 +7,7 @@ import { useEvent } from "../../context/EventProvider/useEvent";
 import { ContainerEvents } from "../../components/ContainerEvents";
 import { useFilter } from "../../context/FilterProvider/useFilter";
 import { EventsPagination } from "../EventsPagination";
+import { HandleSpin } from "../../components/Spin";
 
 const tipoEvento = [
     "Online",
@@ -73,7 +74,7 @@ export function Events() {
                 </div>
             </SearchEvents>
 
-            {handleSpin && <h2>Carregando</h2>}
+            {handleSpin && <HandleSpin typeColor="spin_gray"/>}
             
             {handleSearch != "" || selectCategory != "Escolha uma categoria" || selectEvent != "Tipo evento" ? (
                 <EventsPagination />

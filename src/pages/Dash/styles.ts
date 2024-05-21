@@ -27,12 +27,11 @@ export const ContainerElemens = styled.div`
         color: var(--black-color);
     }
 
-    svg {
-        width: 25px;
-        height: 25px;
+    i {
+        font-size: var(--icon-font-size);
         cursor: pointer;
     }
-    svg:hover {
+    i:hover {
         color: var(--button-hover-light);
     }
 `

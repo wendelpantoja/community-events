@@ -150,7 +150,7 @@ export function CreateEvent() {
                 </div>
 
                 <button type="submit">
-                    {handleSpin && <HandleSpin colorPrimary="#DBE2FF" colorContainer="#6E72FF"/>}
+                    {handleSpin && <HandleSpin typeColor="spin_violet"/>}
                     {!handleSpin && <p>Criar evento</p>}
                 </button>
             </form>

@@ -4,15 +4,17 @@ import { DocumentData, Firestore, addDoc, collection, deleteDoc, doc, getDoc, ge
 import { useAuth } from "../AuthProvider/useAuth";
 import { getDownloadURL, ref, uploadBytesResumable } from "firebase/storage";
 import { db, storage } from "../../services/fireBaseConfig";
+import { Notification } from "../../components/Notification";
 
 export const EventContext = createContext<IcontextEvent>({} as IcontextEvent)
 
 export function EventProvider({ children }: IEventProvider) {
-    const { user, notificationGlobal } = useAuth()
+    const { user } = useAuth()
     const [idEvent, setIdEvent] = useState("")
     const [handleSpin, setHandleSpin] = useState(false)
     const [events, setEvents] = useState<DocumentData[] | null>(null)
     const [spinEvents, setSpinEvents] = useState(false)
+    const { notify } = Notification()
 
     useEffect(() => {
         async function handleProducts() {
@@ -80,10 +82,9 @@ export function EventProvider({ children }: IEventProvider) {
         try {
             await addDoc(collection(dataBase, nameCollection), event);
             
-            notificationGlobal({
+            notify({
                 message: "Evento cadastrado com sucesso",
                 type: "success",
-                description: "Veja seu evento na página eventos"
             })
         } catch (error) {
         console.error(error);
@@ -93,10 +94,9 @@ export function EventProvider({ children }: IEventProvider) {
     async function updateEvent(dataBase: Firestore, nameCollection: string, idDocument: string, event: EventProps) {
         try {
             await setDoc(doc(dataBase, nameCollection, idDocument), event);
-            notificationGlobal({
+            notify({
                 message: "Evento Atualizado com sucesso",
                 type: "success",
-                description: "Veja o evento atualizado na página eventos"
             })
         } catch (error) {
             console.error(error);
@@ -107,10 +107,9 @@ export function EventProvider({ children }: IEventProvider) {
         try {
             setHandleSpinEvent(true)
             await deleteDoc(doc(dataBase, nameCollection, idDocument));
-            notificationGlobal({
+            notify({
                 message: "Evento excluido com sucesso",
                 type: "success",
-                description: "Ventos disponiveis na página Eventos"
             })
         } catch (error) {   
             console.log(error)

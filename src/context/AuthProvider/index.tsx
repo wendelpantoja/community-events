@@ -9,19 +9,10 @@ import { errosCode } from "./erros";
 
 export const AuthContext = createContext<IContext>({} as IContext)
 
-type NotificatioTypes = 'success' | 'info' | 'warning' | 'error'
-
-interface NotificationProps {
-    message?: string;
-    type: NotificatioTypes; 
-    description?: string;
-} 
-
-
 export function AuthProvider({ children }: IAuthProvider) {
     const [user, setUser] = useState<User | null>(null)
     const [handleSpinState, setHandleSpinState] = useState(false)
-    const { notificationOpen, contextHolder } = Notification()
+    const { notify } = Notification()
 
     useEffect(() => {
         const subscriber = onAuthStateChanged(auth, (user) => {
@@ -55,7 +46,7 @@ export function AuthProvider({ children }: IAuthProvider) {
                 sobrenome: sobrenome,
                 url_photo: ""
             });
-            notificationGlobal({
+            notify({
                 message: "Usuário criado com sucesso",
                 type: "success"
             })
@@ -75,20 +66,10 @@ export function AuthProvider({ children }: IAuthProvider) {
         .catch(error => console.log(error))
     }
 
-    function notificationGlobal({ message, type, description }: NotificationProps) {
-        if(message) {
-            notificationOpen({
-                message: message,
-                type: type,
-                description: description,
-            })
-        }
-    }
-
     function fireBaseErrors(error: string | unknown) {
         errosCode.find((element) => {
             if(error == element.error) {
-                notificationOpen({
+                notify({
                     message: element.message,
                     type: "error",
                 })
@@ -104,8 +85,6 @@ export function AuthProvider({ children }: IAuthProvider) {
             logout,
             fireBaseErrors,
             handleSpinState,
-            contextHolder,
-            notificationGlobal,
         }}>
             {children}
         </AuthContext.Provider>
