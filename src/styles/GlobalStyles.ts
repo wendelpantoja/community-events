@@ -103,6 +103,41 @@ p {
 span {
     color: var(--text-color-violet);
 }
+
+@media (max-width: 942px) {
+
+:root {
+    --h1-font-size: 40px;
+    --h2-font-size: 28px;
+    --icon-font-size: 25px;
+    --h3-font-size: 20px;
+    --h4-font-size: 18px;
+    --p-font--size: 16px;
+    --small-font-size: 14px;
+
+    --normal-line-height: 48px;
+    --small-line-height: 28px;
+    --smaller-line-height: 22px;
+}
+
+}
+
+@media (max-width: 942px) {
+    :root {
+        --h1-font-size: 32px;
+        --h2-font-size: 22px;
+        --icon-font-size: 25px;
+        --h3-font-size: 18px;
+        --h4-font-size: 16px;
+        --p-font--size: 14px;
+        --small-font-size: 12px;
+
+        --normal-line-height: 48px;
+        --small-line-height: 28px;
+        --smaller-line-height: 22px;
+    }
+}
+
 `
 
 export const Container = styled.div`
