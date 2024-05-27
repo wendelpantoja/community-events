@@ -58,7 +58,7 @@ export function ContainerEvents({ nameEvent }: CardContainerProps) {
 
                 {handleSpin && (
                     <div className="container_spin">
-                        <HandleSpin colorPrimary="#555555" colorContainer="grey"/>
+                        <HandleSpin typeColor="spin_violet"/>
                     </div>
                 )}
                 
@@ -87,14 +87,6 @@ export function ContainerEvents({ nameEvent }: CardContainerProps) {
                     1024: {
                         slidesPerView: 3.5,
                         spaceBetween: 5,
-                    },
-                    1085: {
-                        slidesPerView: 4,
-                        spaceBetween: 5,
-                    },
-                    1350: {
-                    slidesPerView: 4.5,
-                    spaceBetween: 20,
                     },
                     }}
                     navigation={{

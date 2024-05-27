@@ -1,12 +1,10 @@
 import styled from "styled-components";
 
 export const CardComponent = styled.div`
-    width: 100%;
-    max-width: 265px;
+    width: 270px;
     max-height: 300px;
     background-color: var(--white-color);
     border-radius: 10px;
-    flex: 1 1 280px;
     box-shadow: -5px 5px 10px 2px rgba(196, 196, 196, 0.20);
 
     cursor: pointer;
@@ -17,8 +15,7 @@ export const CardComponent = styled.div`
         width: 100%;
         height: 147px;
 
-        border-radius: 10px 10px 0px 0px;
-        background: #C4C4C4;
+        border-radius: 10px 10px 0px 0px;   
 
     }
     .container_img img {

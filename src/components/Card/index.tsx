@@ -33,48 +33,48 @@ export function Card({ data, dataUser }: CardType) {
       return (
         <>
           {dataUser?.map((event: DocumentData) => (
-            <CardComponent key={event.id}>
-              <div className="container_img">
-                  <div className="container_icons">
+            <Link to={`/event/${data?.id}`}>
+              <CardComponent key={event.id}>
+                <div className="container_img">
+                    <div className="container_icons">
 
-                    <i 
-                      className='bx bx-edit' 
-                      onClick={() => {
-                        handleUpdate(event.id)
-                    }} />
+                      <i className='bx bx-edit' 
+                        onClick={() => {
+                          handleUpdate(event.id)
+                      }} />
 
-                    <i 
-                      className='bx bx-trash' 
-                      onClick={() => {
-                        setDataEvent({
-                          idEvent: event.id,
-                          nameEvent: event.data().titulo
-                        })
-                        setIsModal(true)
-                      }} 
-                    />
+                      <i className='bx bx-trash' 
+                        onClick={() => {
+                          setDataEvent({
+                              idEvent: event.id,
+                              nameEvent: event.data().titulo
+                          })
+                          setIsModal(true)
+                        }} 
+                      />
 
-                  </div>
-                  <img src={event.data().url_imagem} alt="" />
-              </div>
+                    </div>
+                    <img src={event.data().url_imagem} alt="" />
+                </div>
 
-              <div className="container_descriptions">
-                  <div className="type_event">
-                    {event.data().tipo_categoria}
-                  </div>
+                <div className="container_descriptions">
+                    <div className="type_event">
+                      {event?.data().tipo_categoria}
+                    </div>
 
-                  <p>{event.data().data_inicio}</p>
+                    <p>{event?.data().data_inicio}</p>
 
-                  <div className="container_title">
-                      <p>{event.data().titulo}</p>
-                  </div>
-                  
-                  <div className="footer_card">
-                    <p>Cametá</p>
-                    <p>{event.data().tipo_evento}</p>
-                  </div>
-              </div>
-            </CardComponent>
+                    <div className="container_title">
+                      <p>{event?.data().titulo}</p>
+                    </div>
+                    
+                    <div className="footer_card">
+                      <p>Cametá</p>
+                      <p>{event?.data().tipo_evento}</p>
+                    </div>
+                </div>
+              </CardComponent>
+            </Link>
           ))}
 
           {isModal && (

@@ -22,8 +22,8 @@ export const ContainerEventsComponent = styled.section`
             align-items: center;
             justify-content: center;
             height: 394px;
-            padding-left: 20px;
-            padding-right: 20px;
+            padding-left: 40px;
+            padding-right: 40px;
         }
     }
 
