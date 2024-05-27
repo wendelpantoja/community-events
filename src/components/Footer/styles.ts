@@ -30,4 +30,24 @@ export const ContainerFooter = styled.div`
         font-size: var(--small-font-size);
         font-weight: var(--font-medium);
     }
+
+    // ========== MEDIA MOBILE ============
+    @media (max-width: 630px) {
+        .box_footer {
+            width: 100%;
+            position: relative;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .cripto p {
+            width: 100%;
+            text-align: center;
+            position: absolute;
+            left: 50%;
+            bottom: 10px;
+
+            transform: translateX(-50%);
+        }
+    }
 `
