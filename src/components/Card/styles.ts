@@ -1,5 +1,45 @@
 import styled from "styled-components";
 
+export const BoxCard = styled.div`
+    position: relative;
+
+    .container_icons {
+        position: absolute;
+        right: 0;
+        width: 35px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 5px;
+
+        background-color: var(--white-color);
+        
+        padding: 5px 0;
+        margin-top: 10px;
+        margin-right: 15px;
+
+        border-radius: 10px;
+
+        z-index: 100;
+
+        i {
+            cursor: pointer;
+        }
+        i:nth-child(1) {
+            font-size: 20px;
+            color: var(--violet-color);
+        }
+        i:nth-child(2) {
+            font-size: 20px;
+            color: var(--violet-color);
+        }
+        i:hover {
+            color: var(--button-hover-light);
+        }
+    }
+`
+
 export const CardComponent = styled.div`
     width: 270px;
     max-height: 300px;
@@ -22,39 +62,6 @@ export const CardComponent = styled.div`
         width: 100%;
         height: 100%;
         border-radius: 10px 10px 0px 0px;
-    }
-    .container_img
-    .container_icons {
-        position: absolute;
-        right: 0;
-        width: 35px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        gap: 5px;
-
-        background-color: var(--white-color);
-        
-        padding: 5px 0;
-        margin-top: 10px;
-        margin-right: 15px;
-
-        border-radius: 10px;
-
-        z-index: 100;
-
-        i:nth-child(1) {
-            font-size: 20px;
-            color: var(--violet-color);
-        }
-        i:nth-child(2) {
-            font-size: 20px;
-            color: var(--violet-color);
-        }
-        i:hover {
-            color: var(--button-hover-light);
-        }
     }
 
     .container_descriptions {

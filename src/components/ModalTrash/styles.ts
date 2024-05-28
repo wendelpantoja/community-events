@@ -119,4 +119,10 @@ export const Modal = styled.div`
         border-color: #dc2626;
     }
 
+    @media (max-width: 552px) {
+        .container_modal {
+            width: 98%;
+            padding: 25px 15px;
+        }
+    }
 `

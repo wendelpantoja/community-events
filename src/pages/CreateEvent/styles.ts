@@ -227,4 +227,16 @@ export const ContainerContent = styled.div`
         }
 
     }
+
+    @media (max-width: 466px) {
+        padding: 0px;
+    }
+
+    @media (max-width: 416px) {
+        .container_inputs
+        .container_date_hour {
+            flex-direction: column;
+            gap: 10px;
+        }
+    }
 `

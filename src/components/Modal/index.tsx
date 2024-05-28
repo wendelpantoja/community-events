@@ -33,7 +33,7 @@ export function Modal({ handleModal }: IfunctioProp) {
         <ContainerModal>
             <BoxModal>
 
-                {handleSpin && <HandleSpin colorPrimary="#DBE2FF" colorContainer="#6E72FF"/>}
+                {handleSpin && <HandleSpin typeColor="spin_violet"/>}
 
                 {!handleSpin && (
                     <>

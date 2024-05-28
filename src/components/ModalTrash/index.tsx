@@ -50,7 +50,7 @@ export function ModalTrash({ idEvent, nameEvent, setIsModal }: ModalProps) {
                         className="button_confirm"
                         onClick={() => deleteDoc()} 
                     >
-                    {handleSpin && <HandleSpin colorPrimary="#dc2626" colorContainer="#fde4e4"/>}
+                    {handleSpin && <HandleSpin typeColor="spin_gray"/>}
                     {!handleSpin && <p>Confirmar</p>}
                     </button>
                 </div>

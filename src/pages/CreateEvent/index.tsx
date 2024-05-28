@@ -118,7 +118,7 @@ export function CreateEvent() {
 
                     <div className="container_date_hour">
                         <div className="container_date">
-                            <label htmlFor="">Inicio</label>
+                            <label htmlFor="">Inicio do evento</label>
                             <input 
                                 type="date" 
                                 {...register("data_inicio")}
@@ -126,7 +126,7 @@ export function CreateEvent() {
                         </div>
 
                         <div className="container_date">
-                            <label htmlFor="">Fim</label>
+                            <label htmlFor="">Fim do evento</label>
                             <input 
                                 type="date" 
                                 {...register("data_fim")}
@@ -136,11 +136,11 @@ export function CreateEvent() {
 
                     <div className="container_date_hour">
                         <div className="container_hour">
-                            <label htmlFor="">Inicio</label>
+                            <label htmlFor="">Horario de inicio</label>
                             <input type="time" {...register("hora_inicio")}/>
                         </div>
                         <div className="container_hour">
-                            <label htmlFor="">Fim</label>
+                            <label htmlFor="">Horario de encerramento </label>
                             <input type="time" {...register("hora_fim")}/>
                         </div>
                     </div>
