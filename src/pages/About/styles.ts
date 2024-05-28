@@ -1,7 +1,8 @@
 import styled from "styled-components";
 
 export const AboutUs = styled.div`
-    width: 503px;
+    width: 100%;
+    max-width: 503px;
     margin: 0 auto;
     text-align: center;
 
@@ -15,7 +16,8 @@ export const AboutUs = styled.div`
     }
 `
 export const AboutProject = styled(AboutUs)`
-    width: 752px;
+    width: 100%;
+    max-width: 752px;
 `
 
 export const Technology = styled.div`
@@ -27,11 +29,13 @@ export const Technology = styled.div`
     }
     .container_cards_tec {
         display: grid;
-        grid-template-columns: repeat(3, 220px);
-        grid-column-gap: 120px;
+        grid-template-columns: repeat(3, 1fr);
         grid-row-gap: 82px;
-        justify-content: center;
+        justify-items: center;
+
         width: 100%;
+        max-width: 1230px;
+        margin: 0 auto;
     }
     .container_cards_tec
     .card_tec {
@@ -58,27 +62,49 @@ export const Technology = styled.div`
             font-size: var(--small-font-size);
         }
     }
+
+
+    @media (max-width: 700px) {
+        .container_cards_tec {
+            grid-template-columns: repeat(2, 1fr);
+            grid-row-gap: 30px;
+        }
+    }
+
+    // ========== MEDIA MOBILE =========
+    @media (max-width: 470px) {
+        .container_cards_tec {
+            grid-template-columns: 1fr;
+        }
+        .container_cards_tec 
+        .card_tec {
+            width: 100%;
+            max-width: 300px;
+
+        }
+    }
 `
 
 export const Devs = styled.div`
+    width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 306px;
+    gap: 200px;
     width: 100%;
     height: 593px;
 
     background-color: var(--violet-color);
-
     .dev {
         color: var(--white-color);
 
         .image {
-            width: 200px;
-            height: 200px;
+            width: 150px;
+            height: 150px;
             border-radius: 50%;
 
             background-color: var(--violet-color-light);
+            margin: 0 auto;
         }
 
         h3 {
@@ -100,5 +126,14 @@ export const Devs = styled.div`
         .icons i:hover {
             color: var(--violet-color-light);
         }
+    }
+
+    @media (max-width: 570px) {
+        gap: 50px;
+    }
+
+    @media (max-width: 470px) {
+        flex-direction: column;
+        gap: 70px;
     }
 `

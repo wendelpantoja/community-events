@@ -27,8 +27,8 @@ export function About() {
                         <h3><span>Tecnologias</span> ultilizadas</h3>
 
                         <div className="container_cards_tec">
-                            {CardItensIcon.map((card) => (
-                                <div className="card_tec">
+                            {CardItensIcon.map((card, index) => (
+                                <div className="card_tec" key={index}>
                                     <i className={card.icon}></i>
                                     <h4>{card.nameTec}</h4>
                                     <p>
@@ -36,8 +36,8 @@ export function About() {
                                     </p>
                                 </div>
                             ))}
-                            {CardItensSvg.map((card) => (
-                                <div className="card_tec">
+                            {CardItensSvg.map((card, index) => (
+                                <div className="card_tec" key={index}>
                                     <img src={card.icon} alt="" />
                                     <h4>{card.nameTec}</h4>
                                     <p>
