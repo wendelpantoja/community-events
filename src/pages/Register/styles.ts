@@ -20,6 +20,10 @@ export const ContainerForm = styled.div`
         margin: 0 auto;
         margin-bottom: 20px;
     }
+
+    @media (max-width: 480px) {
+        padding: 0;
+    }
 `
 
 export const Form = styled.form`
@@ -70,7 +74,7 @@ export const Button = styled.button`
     color: var(--text-color-white);
     
     font-size: var(--p-font-size);
-    font-weight: var(--font-bold);
+    font-weight: var(--font-semi-bold);
 
     border: none;
     border-radius: 8px;
@@ -80,5 +84,9 @@ export const Button = styled.button`
 
     &:hover {
         background-color: var(--button-hover);
+    }
+
+    @media (max-width: 480px) {
+        height: 50px;
     }
 `
