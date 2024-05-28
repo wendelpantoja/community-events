@@ -24,16 +24,19 @@ export const Banner = styled.section`
 export const SearchEvents = styled.div`
     position: relative;
     top: -50px;
+
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     gap: 40px;
-    width: 100%;
+
     max-width: 875px;
     height: 200px;
+
     border-radius: 10px;
     background-color: var(--violet-color);
+
     margin: 0 auto;
     margin-bottom: 80px;
 
@@ -68,7 +71,7 @@ export const SearchEvents = styled.div`
         input::-webkit-input-placeholder {
             color: #384633;
             font-weight: 500;
-            font-size: 14px;
+            font-size: var(--small-font-size);
         }
     }
 
@@ -80,12 +83,20 @@ export const SearchEvents = styled.div`
     }
 
     @media (max-width: 904px) {
-        flex-direction: column;
-        align-items: center;
-        gap: 20px;
-        height: auto;
         width: 97%;
         padding: 30px 20px;
-        bottom: -200px;
+    }
+
+    // =========== MEDIA MOBILE ==========
+    @media (max-width: 630px) {
+        height: auto;
+        .container_select {
+            width: 100%;
+            gap: 10px;
+        }
+
+        .search input::-webkit-input-placeholder {
+            font-size: var(--p-font-size);
+        }
     }
 ` 

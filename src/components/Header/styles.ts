@@ -150,7 +150,7 @@ export const ContainerMenuMobile = styled.div`
 
     background-color: var(--white-color);
     box-shadow: -5px 5px 10px 2px rgba(196, 196, 196, 0.20);
-    padding: 0 30px;
+    padding: 0 10px 0px 20px;
     z-index: 100;
 
     .container_close {

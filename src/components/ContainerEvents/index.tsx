@@ -5,13 +5,11 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 
 import { ContainerEventsComponent, PlusEvents } from "./styles";
 import { Navigation } from "swiper/modules";
-// import { useState } from "react";
 
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
-// import { HandleSpin } from "../Spin";
 import { usePagination } from "../../hooks/usePagination";
 import { useEffect, useState } from "react";
 import { DocumentData } from "firebase/firestore";
@@ -52,7 +50,7 @@ export function ContainerEvents({ nameEvent }: CardContainerProps) {
     return (
         <Container>
             <ContainerEventsComponent>
-                <h2 className="">Evento <span>{nameEvent}</span></h2>
+                <h2>Evento <span>{nameEvent}</span></h2>
 
                 {dataEvents?.length === 0 && <h3>Não há eventos</h3>}
 
@@ -65,29 +63,79 @@ export function ContainerEvents({ nameEvent }: CardContainerProps) {
                 <Swiper 
                     className="container_swiper"
                     modules={[Navigation]}
-                    slidesPerView={1.3}
-                    spaceBetween={15}
                     breakpoints={{
-                    450: {
+                    300: {
+                        slidesPerView: 1,
+                        spaceBetween: 30,
+                    },
+                    370: {
+                        slidesPerView: 1.3,
+                        spaceBetween: 30,
+                    },
+                    430: {
                         slidesPerView: 1.5,
+                        spaceBetween: 30,
+                    },
+                    500: {
+                        slidesPerView: 1.7,
+                        spaceBetween: 30,
+                    },
+                    580: {
+                        slidesPerView: 2,
+                        spaceBetween: 30,
+                    },
+                    685: {
+                        slidesPerView: 2.3,
+                        spaceBetween: 30,
+                    },
+                    760: {
+                        slidesPerView: 2.5,
                         spaceBetween: 10,
                     },
-                    640: {
-                        slidesPerView: 2,
-                        spaceBetween: 5,
+                    840: {
+                        slidesPerView: 2.7,
+                        spaceBetween: 10,
                     },
-                    768: {
-                        slidesPerView: 2,
-                        spaceBetween: 5,
+                    950: {
+                        slidesPerView: 3,
+                        spaceBetween: 30,
                     },
-                    970: {
-                        slidesPerView: 3.3,
-                        spaceBetween: 5,
-                        },
-                    1024: {
+                    1050: {
                         slidesPerView: 3.5,
-                        spaceBetween: 5,
+                        spaceBetween: 30,
                     },
+                    1080: {
+                        slidesPerView: 3.8,
+                        spaceBetween: 30,
+                    },
+                    1120: {
+                        slidesPerView: 4,
+                        spaceBetween: 30,
+                    },
+                    // 640: {
+                    //     slidesPerView: 2,
+                    //     spaceBetween: 10,
+                    // },
+                    // 768: {
+                    //     slidesPerView: 2,
+                    //     spaceBetween: 5,
+                    // },
+                    // 970: {
+                    //     slidesPerView: 3.3,
+                    //     spaceBetween: 5,
+                    //     },
+                    // 1024: {
+                    //     slidesPerView: 3.5,
+                    //     spaceBetween: 5,
+                    // },
+                    // 1085: {
+                    //     slidesPerView: 4,
+                    //     spaceBetween: 5,
+                    // },
+                    // 1350: {
+                    // slidesPerView: 4.5,
+                    // spaceBetween: 20,
+                    // },
                     }}
                     navigation={{
                         nextEl: ".button_next",

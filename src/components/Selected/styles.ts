@@ -59,4 +59,22 @@ export const ContainerSelected = styled.div`
         }
     }
 
+    @media (max-width: 630px) {
+        .header_select {
+            width: 200px;
+        }
+        .body_select {
+            width: 200px;
+        }
+    }
+
+    @media (max-width: 472px) {
+        width: 100%;
+        .header_select {
+            width: 100%;
+        }
+        .body_select {
+            width: 100%;
+        }
+    }
 `

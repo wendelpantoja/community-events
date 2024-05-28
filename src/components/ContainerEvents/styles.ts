@@ -2,10 +2,13 @@ import styled from "styled-components";
 
 
 export const ContainerEventsComponent = styled.section`
-    margin-bottom: 50px;
-
+    margin-bottom: 10px;
+    h2 {
+        margin-bottom: 20px;
+    }
+    
     h3 {
-        margin-top: 60px;
+        margin-top: 30px;
         text-align: center;
         color: #C4C4C4;
     }
@@ -21,14 +24,13 @@ export const ContainerEventsComponent = styled.section`
             display: flex;
             align-items: center;
             justify-content: center;
-            height: 394px;
             padding-left: 40px;
             padding-right: 40px;
         }
     }
 
     .swiper-horizontal {
-        padding-bottom: 20px;
+        padding-bottom: 60px;
     }
 
     .button_prev {
