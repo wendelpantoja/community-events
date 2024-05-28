@@ -110,32 +110,8 @@ export function ContainerEvents({ nameEvent }: CardContainerProps) {
                     },
                     1120: {
                         slidesPerView: 4,
-                        spaceBetween: 30,
+                        spaceBetween: 10,
                     },
-                    // 640: {
-                    //     slidesPerView: 2,
-                    //     spaceBetween: 10,
-                    // },
-                    // 768: {
-                    //     slidesPerView: 2,
-                    //     spaceBetween: 5,
-                    // },
-                    // 970: {
-                    //     slidesPerView: 3.3,
-                    //     spaceBetween: 5,
-                    //     },
-                    // 1024: {
-                    //     slidesPerView: 3.5,
-                    //     spaceBetween: 5,
-                    // },
-                    // 1085: {
-                    //     slidesPerView: 4,
-                    //     spaceBetween: 5,
-                    // },
-                    // 1350: {
-                    // slidesPerView: 4.5,
-                    // spaceBetween: 20,
-                    // },
                     }}
                     navigation={{
                         nextEl: ".button_next",

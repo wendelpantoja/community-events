@@ -30,7 +30,7 @@ export const ContainerEventsComponent = styled.section`
     }
 
     .swiper-horizontal {
-        padding-bottom: 60px;
+        padding: 30px 10px;
     }
 
     .button_prev {
@@ -79,6 +79,13 @@ export const ContainerEventsComponent = styled.section`
 
     .button_next.desable {
         display: none;
+    }
+
+    @media (max-width: 430px) {
+        .container_swiper
+        .button_next, .button_prev {
+            display: none;
+        }
     }
 `
 
