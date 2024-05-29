@@ -39,7 +39,7 @@ export function Event() {
                         </div>
 
                         <Link to="#">
-                            <button className="nav_event_button_login">
+                            <button className="button_login">
                                 Login
                             </button>
                         </Link>

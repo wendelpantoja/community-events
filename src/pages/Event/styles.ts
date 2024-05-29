@@ -17,7 +17,7 @@ export const Header = styled.div`
             font-weight: var(--font-bold);
         }
 
-        .nav_event_button_login {
+        .button_login {
             width: 89px;
             height: 40px;
 
@@ -26,12 +26,12 @@ export const Header = styled.div`
             border-radius: 10px;
 
             font-size: var(--small-font-size);
-            font-weight: var(--font-semi-bold);
-            color: var(--text-violet-color);
+            font-weight: var(--font-bold);
+            color: var(--text-color-violet);
 
             cursor: pointer;
         }
-        .nav_event_button_login:hover {
+        .button_login:hover {
             border: 1px solid var(--button-hover);
             background-color: var(--violet-color-light);
         }
