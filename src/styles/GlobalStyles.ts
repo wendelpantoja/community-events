@@ -145,4 +145,7 @@ export const Container = styled.div`
     margin: 0 auto;
     padding: 0 10px; 
     
+    .container_h3 h3 {
+        text-align: center;
+    }
 `

@@ -14,7 +14,6 @@ import { usePagination } from "../../hooks/usePagination";
 import { useEffect, useState } from "react";
 import { DocumentData } from "firebase/firestore";
 import { useFilter } from "../../context/FilterProvider/useFilter";
-import { useEvent } from "../../context/EventProvider/useEvent";
 import { HandleSpin } from "../Spin";
 
 interface CardContainerProps {
@@ -28,25 +27,26 @@ export function ContainerEvents({ nameEvent }: CardContainerProps) {
 
     const [dataEvents, setDataEvents] = useState<DocumentData[]>()
     const { getFilterDoc } = usePagination()
-    const {handleSpin, setHandleSpinEvent} = useEvent()
+    const [handleSpin, setHandleSpin] = useState(false)
 
     useEffect(() => {
         async function handleEvents() {
             try {
-                setHandleSpinEvent(true)
+                setHandleSpin(true)
                 const filterDocs = await getFilterDoc('Events', nameEvent)
 
                 setDataEvents(filterDocs)
             } catch (error) {
                 console.error(error)
             } finally {
-                setHandleSpinEvent(false)
+                setHandleSpin(false)
             }
         }
 
         handleEvents()
     }, [nameEvent])
     
+
     return (
         <Container>
             <ContainerEventsComponent>
@@ -138,7 +138,7 @@ export function ContainerEvents({ nameEvent }: CardContainerProps) {
                             )}
                         </SwiperSlide>
                     ))}
-                    
+                
                     <button className={`button_prev ${indexSwiper === 0 ? "desable" : ""}`}>
                         <i className='bx bxs-chevron-left swiper-button-disabled'></i>
                     </button>
@@ -147,6 +147,7 @@ export function ContainerEvents({ nameEvent }: CardContainerProps) {
                         <i className='bx bxs-chevron-right'></i>
                     </button>
                 </Swiper>
+                
             </ContainerEventsComponent>
         </Container>
     )
