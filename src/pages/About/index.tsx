@@ -20,7 +20,7 @@ export function About() {
                         <p>
                             Este projeto foi elaborado durante o estagio supervisionado no 
                             Laboratório de Abordagens Focadas no Aluno (LafocA). 
-                            Buscamos aplicar na pratica os estudos de desenvolvimento web passado durante esse periodo. 
+                            Buscamos aplicar na pratica os estudos de desenvolvimento web passados durante esse periodo. 
                         </p>
                     </AboutProject>
                     <Technology>

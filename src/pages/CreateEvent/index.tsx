@@ -118,7 +118,7 @@ export function CreateEvent() {
 
                     <div className="container_date_hour">
                         <div className="container_date">
-                            <label htmlFor="">Inicio do evento</label>
+                            <label htmlFor="">Início do evento</label>
                             <input 
                                 type="date" 
                                 {...register("data_inicio")}
@@ -136,11 +136,11 @@ export function CreateEvent() {
 
                     <div className="container_date_hour">
                         <div className="container_hour">
-                            <label htmlFor="">Horario de inicio</label>
+                            <label htmlFor="">Horário de início</label>
                             <input type="time" {...register("hora_inicio")}/>
                         </div>
                         <div className="container_hour">
-                            <label htmlFor="">Horario de encerramento </label>
+                            <label htmlFor="">Horário de encerramento </label>
                             <input type="time" {...register("hora_fim")}/>
                         </div>
                     </div>
@@ -150,7 +150,7 @@ export function CreateEvent() {
                 <div className="selecteds">
 
                     <div className="container_select">
-                        <label htmlFor="">Tipo evento</label>
+                        <label htmlFor="">Tipo de evento</label>
                         <select {...register("tipo_evento")} id="">
 
                             {typeEvent.map((option, index) => (
