@@ -66,6 +66,14 @@ export const SectionImage = styled.section`
         filter: blur(10px);
         z-index: 5;
     }
+
+    @media (max-width: 700px) {
+        height: 250px;
+
+        img:nth-child(2) {
+            height: 250px;
+        }
+    }
 `
 
 export const SectionInfo = styled.section`
@@ -78,19 +86,13 @@ export const SectionInfo = styled.section`
 
     margin-bottom: 50px;
 
-    .section_title_info {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-    }
-
     .section_title_info
     .section_title_button {
-        width: 180px;
-        height: 55px;
+        width: 170px;
+        height: 50px;
         color: var(--text-color-white);
-        font-size: var(--p-font-size);
-        font-weight: var(--font-bold);
+        font-size: var(--small-font-size);
+        font-weight: var(--font-semi-bold);
 
         border: none;
         border-radius: 10px;
@@ -162,5 +164,9 @@ export const SectionInfo = styled.section`
         p {
             font-weight: var(--font-medium);
         }
+    }
+
+    @media (max-width: 700px) {
+        padding: 30px 15px;
     }
 `

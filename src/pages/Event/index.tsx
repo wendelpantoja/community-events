@@ -34,14 +34,10 @@ export function Event() {
             <Header>
                 <Container>
                     <nav className="nav_event">
-                        <div className="nav_event_logo">
-                            <h3>Community<span>Events</span></h3>
-                        </div>
-
-                        <Link to="#">
-                            <button className="button_login">
-                                Login
-                            </button>
+                        <Link to="/">
+                            <div className="nav_event_logo">
+                                <h3>Community<span>Events</span></h3>
+                            </div>
                         </Link>
                     </nav>
                 </Container>
@@ -72,10 +68,6 @@ export function Event() {
                                     <p>Universidade Federal do Pará - Cametá-PA - Brasil</p>
                                 </div>
                             </div>
-
-                            <button className="section_title_button">
-                                Inscreva-se
-                            </button>
 
                         </div>
                     </SectionInfo>
