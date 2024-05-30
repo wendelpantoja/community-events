@@ -5,12 +5,12 @@ import { Container } from "../../styles/GlobalStyles";
 import { useEffect, useState } from "react";
 import { useEvent } from "../../context/EventProvider/useEvent";
 import { db } from "../../services/fireBaseConfig";
-import { EventProps } from "../../context/EventProvider/types";
+import { DocumentData } from "firebase/firestore";
 
 
 export function Event() {
     const { getEvent } = useEvent()
-    const [dataEvent, setDataEvent] = useState<EventProps>()
+    const [dataEvent, setDataEvent] = useState<DocumentData>()
     
     const params = useParams()
 
@@ -64,7 +64,6 @@ export function Event() {
 
                                 <div className="date_hour">
                                     <i className='bx bx-calendar'></i>
-                                    {/* <p>03/04/2024 a 05/04/2024 - 08:00 - 21:00 GMT-3</p> */}
                                     <p>{dataEvent?.data_inicio} a {dataEvent?.data_fim} - {dataEvent?.hora_inicio} - {dataEvent?.hora_fim}</p>
                                 </div>
 

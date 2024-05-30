@@ -9,10 +9,6 @@ export function FilterProvider({ children }: IFilterProvider) {
     const [selectEvent, setSelectEvent] = useState<string>("Tipo evento")
     const [selectCategory, setSelectCategory] = useState<string>("Escolha uma categoria")
 
-    console.log(selectCategory)
-    console.log(selectEvent)
-    console.log(handleSearch)
-
     return (
         <FilterContext.Provider value={{
             handleSearch,
