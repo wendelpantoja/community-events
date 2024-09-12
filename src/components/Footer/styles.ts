@@ -1,89 +1,53 @@
 import styled from "styled-components";
 
-export const FooterComponent = styled.footer`
-    display: flex;
-    align-items: center;
-    justify-content: center;
+export const ContainerFooter = styled.div`
     width: 100%;
-    padding: 30px;
-    background-color: #00856F;
+    
 
-    /* .container_conteudo {
+    color: var(--text-color-white);
+
+    background-color: var(--black-color);
+
+    .box_footer {
         display: flex;
         align-items: center;
-        justify-content: center;
-        gap: 200px;
-
-        .eventos {
-            h2 {
-                font-size: 20px;
-                font-weight: 700;
-                color: white;
-                margin-bottom: 15px;
-            }
-            ul {
-                display: flex;
-                align-items: baseline;
-                flex-direction: column;
-                gap: 20px;
-            }
-            ul li a {
-                color: white;
-                font-size: 14px;
-                font-weight: 400;
-            }
-        }
-        .sobre {
-            h2 {
-                font-size: 20px;
-                font-weight: 700;
-                color: white;
-                margin-bottom: 15px;
-            }
-            ul {
-                display: flex;
-                align-items: baseline;
-                flex-direction: column;
-                gap: 20px;
-            }
-            ul li a {
-                color: white;
-                font-size: 14px;
-                font-weight: 400;
-            }
-        }
-        .social_media {
-            h2 {
-                font-size: 20px;
-                font-weight: 700;
-                color: white;
-                margin-bottom: 15px;
-            }
-            ul {
-                display: flex;
-                align-items: baseline;
-                flex-direction: column;
-                gap: 20px;
-            }
-            ul li a {
-                color: white;
-                font-size: 14px;
-                font-weight: 400;
-            }
-        }
-    } */
-    .cripto {
-        color: white;
-        text-align: center;
+        justify-content: space-between;
+        height: 222px;
     }
 
-    @media (max-width: 904px) {
-        height: auto;
-        padding: 20px;
+    .logo_footer h3 {
+        color: var(--text-color-white);
+        font-weight: var(--font-semi-bold);
+    }
+    .logo_footer span {
+        color: var(--text-color-white);
+        font-size: var(--h3-font-size);
+        font-weight: var(--font-bold);
+    }
+    
 
-        .container_conteudo {
+    .cripto p {
+        font-size: var(--small-font-size);
+        font-weight: var(--font-medium);
+    }
+
+    // ========== MEDIA MOBILE ============
+    @media (max-width: 630px) {
+        .box_footer {
+            width: 100%;
+            position: relative;
             flex-direction: column;
-            gap: 30px;
+            justify-content: center;
+        }
+
+        .cripto p {
+            width: 100%;
+            text-align: center;
+            position: absolute;
+            left: 50%;
+            bottom: 10px;
+
+            transform: translateX(-50%);
         }
     }
 `

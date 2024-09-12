@@ -1,87 +1,201 @@
 import styled from "styled-components";
 
+const DisplayFlex = styled.div`
+    display: flex;
+    align-items: center;
+`
+
 export const HeaderComponent = styled.header`
     width: 100%;
-    height: 88px;
-    line-height: 88px;
-    background-color: transparent;
-    .menu {
+    height: var(--header-height);
+    line-height: var(--header-height);
+`
+
+export const Nav = styled.nav`
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    width: 100%;
+    height: 100%;
+
+    i {
         display: none;
     }
 
-    .navegation {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-
-        .links-list ul {
-            display: flex;
-            align-items: center;
-            gap: 40px;
-        }
-
+    i {
+        font-size: 26px;
+        color: var(--icon-color-violet);
+        cursor: pointer;
     }
 
-    .list li a {
-        font-weight: 500;
-    }
-
-    .list li a:hover {
-        color: #00856F;
-    }
-
-    .logo h2, span {
-        font-size: 20px;
-        font-weight: 700;
-    }
-
-    .logo span {
-        color: #00856F;
-    }
-
-    .buttons {
-        display: flex;
-        align-items: center;
-        gap: 45px;
-    }
-
-    @media (max-width: 904px) {
-        .links-list {
-            display: none;
-        }
-
-        .buttons {
-            display: none;
-        }
-
-        .menu {
+    @media (max-width: 942px) {
+        i {
             display: block;
-            cursor: pointer;
-
-            i {
-                font-size: 25px;
-                cursor: pointer;
-            }
         }
     }
 `
 
-export const Button = styled.button<{
-$background: string, 
-$border: string,
-$color: string}>`
-    font-size: 14px;
-    font-weight: 500;
-    width: 130px;
-    height: 40px;
-    color: ${(props) => props.$color};
+export const Logo = styled(DisplayFlex)`
+    h3 {
+        font-weight: var(--font-semi-bold);
+        color: var(--logo-color-black);
+    }
+    span {
+        font-size: var(--h3-font-size);
+        font-weight: var(--font-bold);
+        color: var(--logo-color-violet);
+    }
+`
+
+export const Menu = styled.div`
+    position: relative;
+    
+    ul {
+        position: relative;
+        display: flex;
+        gap: 30px;
+        font-size: var(--small-font-size);
+        font-weight: var(--font-semi-bold);
+    }
+
+    .active_link, .active_hover {
+        position: relative;
+    }
+    .active_link::before,
+    .active_hover:hover::before {
+        content: '';
+        position: absolute;
+        bottom: -14px;
+        left: 0;
+        width: 100%;
+        height: 2px;
+        background-color: var(--violet-color);
+    }
+
+    @media (max-width: 942px) {
+        & {
+            display: none;
+        }
+    }
+
+`
+
+export const ContainerButtons = styled(DisplayFlex)`
+    gap: 8px;
+
+    @media (max-width: 942px) {
+        & {
+            display: none;
+        }
+    }
+`
+
+export const ButtonConect = styled.button`
+    width: 115px;
+    height: 45px;
+
+    color: var(--text-color-violet);
+
+    font-size: var(--small-font-size);
+    font-weight: var(--font-semi-bold);
+
+    border: none;
     border-radius: 10px;
-    background-color: ${(props) => props.$background};
-    border: ${(props) => props.$border};
+    background-color: var(--white-color);
+
     cursor: pointer;
 
+    &:hover {
+        background-color: var(--violet-color-light);
+        border: 1px solid;
+        border-color: var(--button-color-hover);
+    }
+
+    @media (max-width: 724px) {
+        & {
+            width: 100px;
+        }
+    }
+`
+export const ButtonCreate = styled(ButtonConect)`
+    width: 130px;
+    height: 45px;
+    color: var(--text-color-white);
+    background-color: var(--button-color);
+
+    &:hover {
+        border: 0;
+        color: var(--text-color-white);
+        background-color: var(--button-hover);
+    }
+
+    @media (max-width: 724px) {
+        & {
+            width: 115px;
+            height: 40px;
+        }
+    }
+`
+
+// ========== MENU MOBILE ==========
+export const ContainerMenuMobile = styled.div`
+    position: fixed;
+    top: 0;
+    right: 0;
+
+    width: 70%;
+    max-width: 400px;
+    height: 100vh;
+
+    background-color: var(--white-color);
+    box-shadow: -5px 5px 10px 2px rgba(196, 196, 196, 0.20);
+    padding: 0 10px 0px 20px;
+    z-index: 100;
+
+    .container_close {
+        width: 100%;
+        height: var(--header-hight);
+        line-height: var(--header-hight);
+        text-align: right;
+
+        margin-top: 8px;
+        i {
+            font-size: 30px;
+            color: var(--icon-color-violet);
+            cursor: pointer;
+        }
+    }
+`
+export const MenuMobile = styled.div`
+    position: relative;
+    
+    ul {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+        font-size: var(--small-font-size);
+        font-weight: var(--font-semi-bold);
+    }
+
+    .active_link, .active_hover {
+        position: relative;
+    }
+    .active_link::before,
+    .active_hover:hover::before {
+        content: '';
+        position: absolute;
+        bottom: -14px;
+        left: 0;
+        width: 100%;
+        height: 2px;
+        background-color: var(--violet-color);
+    }
+`
+
+export const ContainerButtonsMobile = styled.div`
     display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
+    flex-direction: column;
+    align-items: baseline;
 `

@@ -1,82 +1,144 @@
 import { Header } from "../../components/Header";
 import { Container } from "../../styles/GlobalStyles";
-import { Button, SectionIntroduction, SectionRectangle, SectionServices } from "./styles";
-import IconTicket from "../../assets/img/icon-ticket.svg"
-import ImgCollabOne from "../../assets/img/img-collab-pana.png"
+import { Differential, Introduction, Services, Start } from "./styles";
 import { Footer } from "../../components/Footer";
-import ImgCommunityAmico from "../../assets/img/img-community-amico.png"
-import { Link } from "react-router-dom";
+
 
 
 export function Home() {
+
     return( 
         <>
             <Header />
             <Container >
-                <SectionIntroduction>
-                        <div className="container_introduction">
-                            <h2>Conecte-se com suas comunidades</h2>
-                            <p>Bem-vindo ao nosso portal de gerenciamento de eventos, dedicado a fortalecer comunidades e impulsionar a colaboração. Planeje, promova e gerencie eventos incríveis com facilidade. Faça parte dessa transformação comunitária!</p>
-                            <Link to="/register">
-                                <Button $background="#00856F" $border="none" $color="white">
-                                    Criar Eventos <i className='bx bx-chevron-right'></i>
-                                </Button>
-                            </Link>
+                <Introduction>
+                    
+                        <div className="container_text">
+
+                            <div className="container_title">
+                                <h1>Compartilhe seus eventos de forma <span>simplificada</span></h1>
+                            </div>
+
+                            <div className="container_subtitle">
+                                <p>
+                                    Planeje, promova e gerencie eventos incríveis com facilidade. 
+                                    Faça parte dessa transformação comunitária!
+                                </p>
+                            </div>
+
+                            <a href="/register">
+                                <button className="button_introduction">
+                                    Comece agora
+                                </button>
+                            </a>
+
                         </div>
 
-                        <div className="image_introduction">
-                            <img src={ImgCommunityAmico} alt="" />
+                        <div className="container_photos">
+
+                            <img src="src/assets/img/img-intro-01.jpg" alt="" />
+                            <img src="src/assets/img/img-intro-01.jpg" alt="" />
+
+                            <img src="src/assets/img/img-intro-02.jpg" alt="" />
+                            <img src="src/assets/img/img-intro-02.jpg" alt="" />
+
+                            <img src="src/assets/img/img-intro-03.jpg" alt="" />
+                            <img src="src/assets/img/img-intro-03.jpg" alt="" />
+
                         </div>
-                </SectionIntroduction>
-                <SectionServices>
-                    <h2>Nossos serviços</h2>
+
+                </Introduction>
+
+                <Services>
+                    <h2>Nossos <span>Serviços</span></h2>
+
                     <div className="container_cards">
+
                         <div className="card">
-                            <img src={IconTicket} alt="" />
-                            <h3>Venda mais ingressos</h3>
+                            <i className='bx bx-calendar'></i>
+                            <h3>Planeje <br/> seus eventos</h3>
+                            <p>
+                                Crie cupons de desconto. Categorias de inscrição. 
+                                Colete dados. Vendas no cartão, boleto e PIX. 
+                            </p>
                         </div>
+
                         <div className="card">
-                            <i className='bx bx-book-content' ></i>
-                            <h3>Conteduo interativo</h3>
+                            <i className='bx bx-book-content'></i>
+                            <h3>Gerencie <br/> seus eventos</h3>
+                            <p>
+                                Crie cupons de desconto. Categorias de inscrição. 
+                                Colete dados. Vendas no cartão, boleto e PIX. 
+                            </p>
                         </div>
+
                         <div className="card">
-                            <i className='bx bx-slideshow'></i>
-                            <h3>Eventos online</h3>
+                            <i className='bx bxs-share-alt'></i>
+                            <h3>Compartilhe <br/> seus eventos</h3>
+                            <p>
+                                Crie cupons de desconto. Categorias de inscrição. 
+                                Colete dados. Vendas no cartão, boleto e PIX. 
+                            </p>
                         </div>
+
                     </div>
-                </SectionServices>
-                <SectionRectangle 
-                    $background="#00856F" 
-                    $colorH2="white" 
-                    $color="white" 
-                    $gap="100px"
-                    $flex="column"
-                >
-                    <div className="image-rectangle">
-                        <img src={ImgCollabOne} alt="" />
+
+                </Services>
+
+                <Differential>
+                    <div className="container_differ differ01">
+
+                        <div className="container_img img01">
+                            <img src="src/assets/img/img-differ-01.jpg" alt="" />
+                            <img src="src/assets/img/img-differ-01.jpg" alt="" />
+                        </div>
+
+                        <div className="container_text">
+                            <h2>Foco na <span>facilidade</span> de Uso</h2>
+                            <h4>
+                                Não é necessário ser um expert! Nosso sistema é fácil de usar, com uma interface amigável que 
+                                permite a você concentrar-se no conteúdo do evento, não nas complexidades do gerenciamento.
+                            </h4>
+                        </div>
+
                     </div>
-                    <div className="informations">
-                        <h2>Foco na facilidade de Uso</h2>
-                        <p>Não é necessário ser um expert! Nosso sistema é fácil de usar, com uma interface amigável que permite a você concentrar-se no conteúdo do evento, não nas complexidades do gerenciamento.</p>
+
+                    <div className="container_differ differ02">
+
+                        <div className="container_text">
+                            <h2>Organize eventos sem <span>dificuldades</span></h2>
+                            <h4>
+                                Não é necessário ser um expert! Nosso sistema é fácil de usar, com uma interface amigável que 
+                                permite a você concentrar-se no conteúdo do evento, não nas complexidades do gerenciamento.
+                            </h4>
+                        </div>
+
+                        <div className="container_img img02">
+                            <img src="src/assets/img/img-differ-02.jpg" alt="" />
+                            <img src="src/assets/img/img-differ-02.jpg" alt="" />
+                        </div>
+
                     </div>
-                </SectionRectangle>
-                <SectionRectangle 
-                    $background="white" 
-                    $colorH2="black" 
-                    $color="black" 
-                    $gap="100px"
-                    $flex="column-reverse"
-                >
-                    <div className="informations">
-                        <h2>Tudo em um só lugar</h2>
-                        <p>Integre ferramentas, compartilhe seus dados.
-                        Acompanhe suas vendas. Veja relatórios, crie vendas em lotes e cupons de desconto. 
-                        Notifique participantes, envie e-mails.</p>
+                </Differential>
+
+                <Start>
+                    <div className="container_text">
+
+                        <h2>Pronto para começar?</h2>
+                        <p>
+                            Crie seu evento e compartilhe facilmente com sua cominidade pela internet
+                        </p>
+
                     </div>
-                    <div className="image-rectangle">
-                        <img src={ImgCollabOne} alt="" />
-                    </div>
-                </SectionRectangle>
+
+                    <a href="/register">
+
+                        <button className="button_start">
+                            Criar evento
+                        </button>
+                        
+                    </a>
+                </Start>
             </Container>
             <Footer />
         </> 

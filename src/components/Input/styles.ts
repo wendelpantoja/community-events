@@ -10,6 +10,7 @@ export const ContainerInput = styled.div`
     margin-top: 20px;
 
     label {
+        font-weight: var(--font-medium);
         margin-bottom: 5px;
     }
 
@@ -18,12 +19,18 @@ export const ContainerInput = styled.div`
         align-items: center;
         width: 100%;
         height: 54px;
-        border: 1.5px solid lightgray;
+        border: 2px solid lightgray;
         border-radius: 8px;
         padding-left: 10px;
+        padding-right: 10px;
 
-        svg {
+        i {
             color: lightgray;
+        }
+
+        .bxs-show, .bxs-hide {
+            cursor: pointer;
+            font-size: 19px;
         }
 
         input {
@@ -34,5 +41,23 @@ export const ContainerInput = styled.div`
             border-radius: 8px;
             outline: none;
         }
+
+        input[type=text] {
+            font-size: var(--small-font-size);
+            color: var(--black-color-light);
+        }
+        input[type=password] {
+            font-size: var(--small-font-size);
+            color: var(--black-color-light);
+        }
     }
+
+    .input:focus-within {
+        border-color: var(--violet-color);
+
+        i {
+            color: var(--icon-color-violet);
+        }
+    }
+
 `

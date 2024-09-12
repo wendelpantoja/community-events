@@ -5,17 +5,24 @@ export const ContainerForm = styled.div`
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+
     width: 95%;
     max-width: 460px;
+
     border-radius: 24px;
-    margin: 0 auto;
     background-color: white;
+
+    margin: 0 auto;
     padding: 50px 40px;
 
     .header_form {
         width: 100%;
         margin: 0 auto;
         margin-bottom: 20px;
+    }
+
+    @media (max-width: 480px) {
+        padding: 0;
     }
 `
 
@@ -32,36 +39,54 @@ export const Form = styled.form`
         flex-direction: column;
 
         span {
-            font-size: 12px;
-            color: red;
+            font-size: var(--smaller-font-size);
+            color: var(--text-color-violet);
         }
 
         i {
-            color: #ccc;
+            color: #C4C4C4;
         }
     }
     p {
-        font-size: 15px;
+        font-size: var(--p-font-size);
 
         a {
-            font-size: 15px;
-            font-weight: 700;
+            font-size: var(--p-font-size);
+            font-weight: var(--font-bold);
+            text-decoration: blink;
         }
     }
 
+    a:hover {
+        color: var(--text-color-violet);
+    }
+    a {
+        text-decoration: underline;
+    }
     
 `
 
 export const Button = styled.button`
     width: 100%;
     height: 56px;
-    font-weight: 600;
-    background-color: #00856F;
-    color: white;
+    
+    background-color: var(--button-color);
+    color: var(--text-color-white);
+    
+    font-size: var(--p-font-size);
+    font-weight: var(--font-semi-bold);
+
     border: none;
-    font-size: 16px;
-    font-weight: 700;
     border-radius: 8px;
     cursor: pointer;
+
     margin-top: 20px;
+
+    &:hover {
+        background-color: var(--button-hover);
+    }
+
+    @media (max-width: 480px) {
+        height: 50px;
+    }
 `

@@ -1,52 +1,101 @@
-import { Link } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import { Container } from "../../styles/GlobalStyles";
-import { Button, HeaderComponent } from "./styles";
+import { 
+    ButtonConect, 
+    ButtonCreate, 
+    ContainerButtons, 
+    HeaderComponent, 
+    Logo, 
+    Nav, 
+    Menu,
+    ContainerMenuMobile,
+    MenuMobile,
+    ContainerButtonsMobile, 
+} from "./styles";
 import { useState } from "react";
-import { ActionMenu } from "../ActionMenu";
 
 export function Header() {
-    const [actionMenu, setActionMenu] = useState(true)
-    function handleMenu(value: boolean) {
-        setActionMenu(value)
-    }
+    const local = useLocation()
+    const [toggle, setToggle] = useState(false)
+
     return(
         <HeaderComponent>
             <Container>
-                <nav className="navegation">
-                    <div className="logo">
-                        <h2>Community<span>Events</span></h2>
-                    </div>
+                <Nav>
+                    <a href="/">
+                        <Logo>
+                            <h3>Community</h3><span>Events</span>
+                        </Logo>
+                    </a>
 
-                    <div className="links-list">
-                        <ul className="list">
-                            <li><Link to="/">Home</Link></li>
-                            <li><Link to="/events">Encontrar eventos</Link></li>
+                    <Menu>
+                        <ul>
+                            <li>
+                                <a className={local.pathname === "/" ? "active_link" : "active_hover"} href="/">Home</a>
+                            </li>
+                            <li>
+                                <a className={local.pathname === "/events" ? "active_link" : "active_hover"} href="/events">Events</a>
+                            </li>
+                            <li>
+                                <a className={local.pathname === "/about" ? "active_link" : "active_hover"} href="/about">About</a>
+                            </li>
                         </ul>
-                    </div>
+                    </Menu>
+                    
+                    <ContainerButtons>
+                        <a href="/login">
+                            <ButtonConect>
+                                Conecte-se
+                            </ButtonConect>
+                        </a>
+                        <a href="/register">
+                            <ButtonCreate>
+                                Criar evento
+                            </ButtonCreate>
+                        </a>
+                    </ContainerButtons>
+
+                    <i className='bx bx-menu-alt-right' onClick={() => setToggle(true)} />
+
+                </Nav>
+
+                {toggle && (
+                    <ContainerMenuMobile>
+                        <div className="container_close">
+                            <i className='bx bx-x' onClick={() => setToggle(false)}/>
+                        </div>
+
+                        <MenuMobile>
+                            <ul>
+                                <li>
+                                    <a className={local.pathname === "/" ? "active_link" : "active_hover"} href="/">Home</a>
+                                </li>
+                                <li>
+                                    <a className={local.pathname === "/events" ? "active_link" : "active_hover"} href="/events">Events</a>
+                                </li>
+                                <li>
+                                    <a className={local.pathname === "/about" ? "active_link" : "active_hover"} href="/about">About</a>
+                                </li>
+                            </ul>
+                        </MenuMobile>
                         
-                    <div className="buttons">
-                        <Link to="/login">
-                            <Button $background="transparent" $border="2px solid #00856F" $color="#00856F">
-                                <i className='bx bxs-user'></i> Conecte-se
-                            </Button>
-                        </Link>
-                        <Link to="/register">
-                            <Button $background="#00856F" $border="none" $color="white">
-                                Criar Eventos
-                            </Button>
-                        </Link>
-                    </div>
-                    <div className="menu">
-                        {actionMenu && <i className='bx bx-menu' onClick={() => handleMenu(false)}></i>}
-                    </div>
-                </nav>
+                        <ContainerButtonsMobile>
+                            <a href="/login">
+                                <ButtonConect>
+                                    Conecte-se
+                                </ButtonConect>
+                            </a>
+                            <a href="/register">
+                                <ButtonCreate>
+                                    Criar evento
+                                </ButtonCreate>
+                            </a>
+                        </ContainerButtonsMobile>
+
+                    </ContainerMenuMobile>
+                )}
+
             </Container>
-            {!actionMenu && 
-                    <ActionMenu 
-                        action={actionMenu ? "-100%" : "0"}
-                        handleMenu={handleMenu}
-                    />
-                }
         </HeaderComponent>
     )
 }

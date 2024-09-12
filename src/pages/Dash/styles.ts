@@ -3,54 +3,94 @@ import styled from "styled-components"
 export const Layout = styled.div`
     width: 100%;
     height: 100vh;
-    background-color: #DCE9E2;
+
     display: flex;
     flex-direction: column;
     gap: 20px;
+    background-color: var(--violet-color-light);
 `
 
 export const HeaderDash = styled.div`
     width: 100%;
     height: 70px;
     line-height: 70px;
-    background-color: white;
-    color: black;
+
+    background-color: var(--white-color);
+    color: var(--violet-color);
 `
 export const ContainerElemens = styled.div`
     display: flex;
     align-items: center;
     justify-content: space-between;
 
-    svg {
-        width: 25px;
-        height: 25px;
+    h3 {
+        color: var(--black-color);
+    }
+
+    i {
+        font-size: var(--icon-font-size);
         cursor: pointer;
+    }
+    i:hover {
+        color: var(--button-hover-light);
     }
 `
 
 export const ContainerDash = styled.div`
-    position: relative;
-    width: 95%;
+    width: 98%;
     max-width: 1280px;
     height: 850px;
-    background-color: white;
+
+    background-color: var(--white-color);
+
     margin: 0 auto;
     padding: 20px;
-    border-radius: 24px;
+
+    color: var(--text-color-black);
+
+    border-radius: 10px;
+
     .links {
-        display: flex;
-        align-items: center;
-        gap: 20px;
-
-        a {
-            font-size: 18px;
-            color: black;
-            font-weight: 600;
+        position: relative;
+    
+        ul {
+            position: relative;
+            display: flex;
+            gap: 30px;
+            font-size: var(--small-font-size);
+            font-weight: var(--font-semi-bold);
         }
 
-        a:hover {
-            color: #00856F;
+        .active_link, .active_hover {
+            position: relative;
         }
+        .active_link::before,
+        .active_hover:hover::before {
+            content: '';
+            position: absolute;
+            bottom: -14px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: var(--violet-color);
+        }
+
+    }
+
+    overflow-x: auto;
+
+    &::-webkit-scrollbar {
+        width: 10px;          
+    }
+
+    &::-webkit-scrollbar-track {
+        background: transparent;        
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background-color: var(--violet-color);
+        border-radius: 10px;       
+        border: 3px solid var(--white-color);  
     }
     
 `

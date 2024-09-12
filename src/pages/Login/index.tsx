@@ -4,7 +4,7 @@ import { Button, ContainerForm, Form } from "./styles";
 import { CreateUserFormDataLogin, createUserFormLogin } from "./validationZod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { FirebaseError } from "firebase/app"
-import { useAuth } from "../../context/useAuth";
+import { useAuth } from "../../context/AuthProvider/useAuth";
 import { Link, Navigate, useNavigate } from "react-router-dom";
 import { HandleSpin } from "../../components/Spin";
 
@@ -35,7 +35,7 @@ export function Login() {
     return (
         <ContainerForm>
             <div className="header_form">
-                <div className="text-login">
+                <div className="text_login">
                     <i className='bx bx-log-in-circle'></i>
                     <h2>Faça seu login</h2>
                 </div>
@@ -61,7 +61,11 @@ export function Login() {
                     { errors.password && <span>{ errors.password.message }</span> }
                 </div>
                 <Button type="submit">
-                {auth.handleSpinState ? <HandleSpin /> : "Entrar"}
+                    {
+                        auth.handleSpinState 
+                            ? <HandleSpin typeColor="spin_violet"/> 
+                            : "Entrar"
+                    }
                 </Button>
                 <p>Ainda não tem uma conta? <Link to="/register">Registre-se</Link></p>
                 <Link to="/">voltar para home</Link>

@@ -1,12 +1,12 @@
 import { RouterProvider } from "react-router-dom"
 import { router } from "./routes"
-import { useAuth } from "./context/useAuth"
+import { ToastContainer } from "react-toastify"
 
 function App() {
-  const auth =useAuth()
+  
   return (
     <>
-      {auth.contextHolder}
+      <ToastContainer />
       <RouterProvider router={router} />
     </> 
   )

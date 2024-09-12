@@ -1,7 +1,7 @@
 import { useState } from "react";
-import { Button, ContainerModal } from "./styles";
+import { BoxModal, Button, ContainerModal } from "./styles";
 import { useNavigate } from "react-router-dom";
-import { useAuth } from "../../context/useAuth";
+import { useAuth } from "../../context/AuthProvider/useAuth";
 import { FirebaseError } from "firebase/app";
 import { HandleSpin } from "../Spin";
 
@@ -31,16 +31,21 @@ export function Modal({ handleModal }: IfunctioProp) {
 
     return (
         <ContainerModal>
-            {handleSpin && <HandleSpin />}
-            {!handleSpin && (
-                <>
-                    <h2>Deseja realmente sair?</h2>
-                    <div className="container_buttons">
-                        <Button onClick={() => handleModal(false)} color="#8C8C8C">Cancelar</Button>
-                        <Button onClick={handleLogout} color="red">Confirmar</Button>
-                    </div> 
-                </>
-            )}  
+            <BoxModal>
+
+                {handleSpin && <HandleSpin typeColor="spin_violet"/>}
+
+                {!handleSpin && (
+                    <>
+                        <h2>Deseja realmente sair?</h2>
+                        <div className="container_buttons">
+                            <Button onClick={() => handleModal(false)} color="#a0a0a0">Cancelar</Button>
+                            <Button onClick={handleLogout} color="red">Confirmar</Button>
+                        </div> 
+                    </>
+                )} 
+
+            </BoxModal> 
         </ContainerModal>
     )
 }
