@@ -1,7 +1,7 @@
 import { Footer } from "../../components/Footer";
 import { Header } from "../../components/Header";
 import { Container } from "../../styles/GlobalStyles";
-import { AboutProject, AboutUs, Devs, Technology } from "./styles";
+import { AboutProject, AboutUs, Technology } from "./styles";
 import { CardItensIcon, CardItensSvg } from "./infoCards";
 
 export function About() {
@@ -48,38 +48,6 @@ export function About() {
                         </div>
                     </Technology>
                 </Container>
-                <Devs>
-                    <div className="dev dev01">
-
-                            <div className="image">
-
-                            </div>
-
-                            <h3>Wendel Viana</h3>
-
-                            <div className="icons">
-                                <i className='bx bxl-github'></i>
-                                <i className='bx bxl-linkedin-square'></i>
-                                <i className='bx bxl-instagram-alt'></i>
-                            </div>
-
-                    </div>
-                    <div className="dev dev02">
-
-                        <div className="image">
-
-                        </div>
-
-                        <h3>Heverson de Nazaré</h3>
-
-                        <div className="icons">
-                            <i className='bx bxl-github'></i>
-                            <i className='bx bxl-linkedin-square'></i>
-                            <i className='bx bxl-instagram-alt'></i>
-                        </div>
-
-                    </div>
-                </Devs>
             <Footer />
         </>
     )
