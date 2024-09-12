@@ -38,7 +38,7 @@ export function EventProvider({ children }: IEventProvider) {
     async function createUrlImage(fileList: File) {
 
         if(fileList) {
-            return new Promise(function resolverPromise(resolver, reject) {
+            return new Promise(function resolverPromise(resolver) {
                 const storageRef = ref(storage, `images/${fileList.name}`)
                 const uploadTask = uploadBytesResumable(storageRef, fileList)
 
