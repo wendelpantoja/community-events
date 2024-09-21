@@ -36,14 +36,14 @@ export function Home() {
 
                         <div className="container_photos">
 
-                            <img src="../assets/img/img-intro-01.jpg" alt="" />
-                            <img src="../assets/img/img-intro-01.jpg" alt="" />
+                            <img src="../src/assets/img/img-intro-01.jpg" alt="" />
+                            <img src="../src/assets/img/img-intro-01.jpg" alt="" />
 
-                            <img src="../assets/img/img-intro-02.jpg" alt="" />
-                            <img src="../assets/img/img-intro-02.jpg" alt="" />
+                            <img src="../src/assets/img/img-intro-02.jpg" alt="" />
+                            <img src="../src/assets/img/img-intro-02.jpg" alt="" />
 
-                            <img src="../assets/img/img-intro-03.jpg" alt="" />
-                            <img src="../assets/img/img-intro-03.jpg" alt="" />
+                            <img src="../src/assets/img/img-intro-03.jpg" alt="" />
+                            <img src="../src/assets/img/img-intro-03.jpg" alt="" />
 
                         </div>
 
