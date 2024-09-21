@@ -19,17 +19,17 @@ export const CardItensIcon = [
 
 export const CardItensSvg = [
     {
-        icon: "src/assets/icons/icon-styled.svg",
+        icon: "/assets/icons/icon-styled.svg",
         nameTec: "Styled-components",
         descrition: "Bilbioteca de estilização de componentes em apliações React"
     },
     {
-        icon: "src/assets/icons/icon-zod.svg",
+        icon: "/assets/icons/icon-zod.svg",
         nameTec: "Zod",
         descrition: "Biblioteca de declaração e validação de dados."
     },
     {
-        icon: "src/assets/icons/icon-swiper.svg",
+        icon: "/assets/icons/icon-swiper.svg",
         nameTec: "Swiper",
         descrition: "Biblioteca para apresentação em forma de slide"
     },

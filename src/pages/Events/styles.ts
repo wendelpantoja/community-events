@@ -4,7 +4,7 @@ import styled from "styled-components";
 export const Banner = styled.section`
     width: 100%;
     height: 362px;
-    background-image: url("src/assets/img/banner.jpg");
+    background-image: url("/assets/img/banner.jpg");
     background-repeat: no-repeat;
     background-size: cover;
     
