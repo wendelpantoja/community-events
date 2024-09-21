@@ -20,4 +20,8 @@ export const ContainerCardsDash = styled.div`
         width: 100%;
         margin: 0 auto;
     }
+    .container_cards h4 {
+        font-weight: var(--font-medium);
+        color: var(--black-color-light);
+    }
 `

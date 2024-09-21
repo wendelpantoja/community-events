@@ -31,7 +31,7 @@ export function EventsDash() {
                 </div>
                 <div className="container_cards">
                     {eventsUser && <Card dataUser={eventsUser} />}
-                    {eventsUser?.length === 0 && <h2>Nenhum evento cadastrado</h2> }
+                    {eventsUser?.length === 0 && <h4>Nenhum evento cadastrado</h4> }
                 </div>
             </ContainerCardsDash>
         </>

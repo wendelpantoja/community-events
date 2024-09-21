@@ -10,7 +10,8 @@ export const ContainerEventsComponent = styled.section`
     h3 {
         margin-top: 30px;
         text-align: center;
-        color: #C4C4C4;
+        color: var(--black-color-light);
+        font-weight: var(--font-medium);
     }
 
     .container_spin {

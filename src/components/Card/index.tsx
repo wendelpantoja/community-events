@@ -52,7 +52,7 @@ export function Card({ data, dataUser }: CardType) {
                   />
 
                 </div>
-                <Link to={`/event/${event?.id}`}>
+                <Link to={`/event/${event?.id}`} target="_blank">
                   <CardComponent key={event.id}>
                     <div className="container_img">
                         <img src={event.data().url_imagem} alt="" />
@@ -92,7 +92,7 @@ export function Card({ data, dataUser }: CardType) {
 
     return (
       <>
-          <Link to={`/event/${data?.id}`}>
+          <Link to={`/event/${data?.id}`} target="_blank">
             <CardComponent key={data?.id}>
               <div className="container_img">
                   <img src={data?.data().url_imagem} alt="" />
