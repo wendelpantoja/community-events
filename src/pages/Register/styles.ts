@@ -1,11 +1,18 @@
 import styled from "styled-components"
 
-export const ContainerForm = styled.div`
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+export const ContainerRegister = styled.div`
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
+    @media (max-width: 480px) {
+        display: block;
+    }
+`
+
+export const ContainerForm = styled.div`
     width: 95%;
     max-width: 460px;
 
@@ -22,7 +29,7 @@ export const ContainerForm = styled.div`
     }
 
     @media (max-width: 480px) {
-        padding: 0;
+        padding: 80px 15px;
     }
 `
 

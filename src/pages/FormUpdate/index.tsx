@@ -148,8 +148,9 @@ export function FormUpdate() {
                     </ContainerFile> 
 
                     <div className="container_title">
-                        <label htmlFor="">Título do evento</label>
+                        <label htmlFor="title">Título do evento</label>
                         <input 
+                            id="title"
                             className='title' 
                             type="text"
                             placeholder='Digite o título do evento'
@@ -158,9 +159,9 @@ export function FormUpdate() {
                     </div>
                     
                     <div className="container_description">
-                        <label htmlFor="">Descrição do evento</label>
+                        <label htmlFor="descriptoin">Descrição do evento</label>
                         <textarea 
-                            id="" 
+                            id="description" 
                             placeholder='Descrição do evento'
                             {...register("descricao")}
                         />
@@ -168,16 +169,18 @@ export function FormUpdate() {
 
                     <div className="container_date_hour">
                         <div className="container_date">
-                            <label htmlFor="">Inicio</label>
+                            <label htmlFor="init-event">Inicio</label>
                             <input 
+                                id="init-event"
                                 type="date" 
                                 {...register("data_inicio")}
                             />
                         </div>
 
                         <div className="container_date">
-                            <label htmlFor="">Fim</label>
+                            <label htmlFor="finish-event">Fim</label>
                             <input 
+                                id="finish-event"
                                 type="date" 
                                 {...register("data_fim")}
                             />
@@ -186,12 +189,12 @@ export function FormUpdate() {
 
                     <div className="container_date_hour">
                         <div className="container_hour">
-                            <label htmlFor="">Inicio</label>
-                            <input type="time" {...register("hora_inicio")}/>
+                            <label htmlFor="start-time">Inicio</label>
+                            <input id="start-time" type="time" {...register("hora_inicio")}/>
                         </div>
                         <div className="container_hour">
-                            <label htmlFor="">Fim</label>
-                            <input type="time" {...register("hora_fim")}/>
+                            <label htmlFor="finish-time">Fim</label>
+                            <input id="start-time" type="time" {...register("hora_fim")}/>
                         </div>
                     </div>
 
@@ -200,8 +203,8 @@ export function FormUpdate() {
                 <div className="selecteds">
 
                     <div className="container_select">
-                        <label htmlFor="">Tipo evento</label>
-                        <select {...register("tipo_evento")} id="">
+                        <label htmlFor="type-event">Tipo evento</label>
+                        <select {...register("tipo_evento")} id="type-event">
 
                             {typeEvent.map((option, index) => (
                                 <option value={option} key={index}>{option}</option>
@@ -211,8 +214,8 @@ export function FormUpdate() {
                     </div>
 
                     <div className="container_select">
-                        <label htmlFor="">Categoria</label>
-                        <select {...register("tipo_categoria")}  id="">
+                        <label htmlFor="category">Categoria</label>
+                        <select {...register("tipo_categoria")}  id="category">
 
                         {categories.map((option, index) => (
                             <option value={option} key={index}>{option}</option>

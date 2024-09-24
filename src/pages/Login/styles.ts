@@ -1,11 +1,18 @@
 import styled from "styled-components"
 
-export const ContainerForm = styled.div`
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+export const ContainerLogin = styled.div`
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
+    @media (max-width: 480px) {
+        display: block;
+    }
+`
+
+export const ContainerForm = styled.div`
     color: var(--text-color-black);
 
     width: 95%;
@@ -13,7 +20,7 @@ export const ContainerForm = styled.div`
 
     border-radius: 24px;
     background-color: white;
-
+    margin: 0 auto;
     padding: 50px 40px;
 
     .header_form {
@@ -38,7 +45,7 @@ export const ContainerForm = styled.div`
     }
 
     @media (max-width: 480px) {
-        padding: 0;
+        padding: 80px 15px;
     }
 `
 

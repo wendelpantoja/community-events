@@ -98,8 +98,9 @@ export function CreateEvent() {
                     </ContainerFile> 
 
                     <div className="container_title">
-                        <label htmlFor="">Título do evento</label>
+                        <label htmlFor="title">Título do evento</label>
                         <input 
+                            id="title"
                             className='title' 
                             type="text"
                             placeholder='Digite o título do evento'
@@ -108,9 +109,9 @@ export function CreateEvent() {
                     </div>
                     
                     <div className="container_description">
-                        <label htmlFor="">Descrição do evento</label>
+                        <label htmlFor="description">Descrição do evento</label>
                         <textarea 
-                            id="" 
+                            id="description" 
                             placeholder='Descrição do evento'
                             {...register("descricao")}
                         />
@@ -118,16 +119,18 @@ export function CreateEvent() {
 
                     <div className="container_date_hour">
                         <div className="container_date">
-                            <label htmlFor="">Início do evento</label>
+                            <label htmlFor="init-event">Início do evento</label>
                             <input 
+                                id="init-event"
                                 type="date" 
                                 {...register("data_inicio")}
                             />
                         </div>
 
                         <div className="container_date">
-                            <label htmlFor="">Fim do evento</label>
-                            <input 
+                            <label htmlFor="finish-event">Fim do evento</label>
+                            <input
+                                id="finish-event" 
                                 type="date" 
                                 {...register("data_fim")}
                             />
@@ -136,12 +139,12 @@ export function CreateEvent() {
 
                     <div className="container_date_hour">
                         <div className="container_hour">
-                            <label htmlFor="">Horário de início</label>
-                            <input type="time" {...register("hora_inicio")}/>
+                            <label htmlFor="start-event">Horário de início</label>
+                            <input id="start-event" type="time" {...register("hora_inicio")}/>
                         </div>
                         <div className="container_hour">
-                            <label htmlFor="">Horário de encerramento </label>
-                            <input type="time" {...register("hora_fim")}/>
+                            <label htmlFor="finish-event">Horário de encerramento </label>
+                            <input id="finish-event" type="time" {...register("hora_fim")}/>
                         </div>
                     </div>
 
@@ -150,8 +153,8 @@ export function CreateEvent() {
                 <div className="selecteds">
 
                     <div className="container_select">
-                        <label htmlFor="">Tipo de evento</label>
-                        <select {...register("tipo_evento")} id="">
+                        <label htmlFor="type-event">Tipo de evento</label>
+                        <select itemID="type-event" {...register("tipo_evento")} id="type-event">
 
                             {typeEvent.map((option, index) => (
                                 <option value={option} key={index}>{option}</option>
@@ -161,8 +164,8 @@ export function CreateEvent() {
                     </div>
 
                     <div className="container_select">
-                        <label htmlFor="">Categoria</label>
-                        <select {...register("tipo_categoria")}  id="">
+                        <label htmlFor="category">Categoria</label>
+                        <select {...register("tipo_categoria")}  id="category">
 
                         {categories.map((option, index) => (
                             <option value={option} key={index}>{option}</option>

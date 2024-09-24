@@ -1,6 +1,6 @@
 import { useForm } from "react-hook-form";
 import { Input } from "../../components/Input";
-import { Button, ContainerForm, Form } from "./styles";
+import { Button, ContainerForm, ContainerLogin, Form } from "./styles";
 import { CreateUserFormDataLogin, createUserFormLogin } from "./validationZod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { FirebaseError } from "firebase/app"
@@ -33,43 +33,45 @@ export function Login() {
     }
 
     return (
-        <ContainerForm>
-            <div className="header_form">
-                <div className="text_login">
-                    <i className='bx bx-log-in-circle'></i>
-                    <h2>Faça seu login</h2>
+        <ContainerLogin>
+            <ContainerForm>
+                <div className="header_form">
+                    <div className="text_login">
+                        <i className='bx bx-log-in-circle'></i>
+                        <h2>Faça seu login</h2>
+                    </div>
+                    <p>Entre com suas informações de cadastro.</p>
                 </div>
-                <p>Entre com suas informações de cadastro.</p>
-            </div>
-            <Form onSubmit={handleSubmit(handleUser)}>
-                <div className="container_inputs">
-                    <Input 
-                        textLabel="E-mail"
-                        type="text"
-                        placeholder="Digite seu e-mail"
-                        register={register}
-                        registerName="email"
-                    />
-                    { errors.email && <span>{ errors.email.message }</span> }
-                    <Input 
-                        textLabel="Senha"
-                        type="password"
-                        placeholder="Digite sua senha"
-                        register={register}
-                        registerName="password"
-                    />
-                    { errors.password && <span>{ errors.password.message }</span> }
-                </div>
-                <Button type="submit">
-                    {
-                        auth.handleSpinState 
-                            ? <HandleSpin typeColor="spin_violet"/> 
-                            : "Entrar"
-                    }
-                </Button>
-                <p>Ainda não tem uma conta? <Link to="/register">Registre-se</Link></p>
-                <Link to="/">voltar para home</Link>
-            </Form>
-        </ContainerForm>
+                <Form onSubmit={handleSubmit(handleUser)}>
+                    <div className="container_inputs">
+                        <Input 
+                            textLabel="E-mail"
+                            type="text"
+                            placeholder="Digite seu e-mail"
+                            register={register}
+                            registerName="email"
+                        />
+                        { errors.email && <span>{ errors.email.message }</span> }
+                        <Input 
+                            textLabel="Senha"
+                            type="password"
+                            placeholder="Digite sua senha"
+                            register={register}
+                            registerName="password"
+                        />
+                        { errors.password && <span>{ errors.password.message }</span> }
+                    </div>
+                    <Button type="submit">
+                        {
+                            auth.handleSpinState 
+                                ? <HandleSpin typeColor="spin_violet"/> 
+                                : "Entrar"
+                        }
+                    </Button>
+                    <p>Ainda não tem uma conta? <Link to="/register">Registre-se</Link></p>
+                    <Link to="/">voltar para home</Link>
+                </Form>
+            </ContainerForm>
+        </ContainerLogin>
     )
 }
