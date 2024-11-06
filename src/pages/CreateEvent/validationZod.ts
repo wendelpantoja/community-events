@@ -4,8 +4,8 @@ export const createEventZod = z.object({
     titulo: z.string()
     .nonempty("O title é obrigatório"),
     descricao: z.string(),
-    data_inicio: z.coerce.string(),
-    data_fim: z.coerce.string(),
+    data_inicio: z.date(),
+    data_fim: z.date(),
     hora_inicio: z.coerce.string(),
     hora_fim: z.coerce.string(),
     tipo_evento: z.string(),
