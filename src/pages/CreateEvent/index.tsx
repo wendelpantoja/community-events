@@ -1,25 +1,28 @@
 import { ContainerFile, ContainerForm, Label } from "./styles";
-import { Controller, useForm } from "react-hook-form";
+import { useForm } from "react-hook-form";
 import { useState } from "react";
 import { useEvent } from "../../context/EventProvider/useEvent";
 import { HandleSpin } from "../../components/Spin";
 // import { useAuth } from "../../context/AuthProvider/useAuth";
 // import { db } from "../../services/fireBaseConfig";
 import { TypeEvent } from "./validationZod";
-import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
+import { TextFieldComponent } from "../../components/TextFieldComponent";
+import { DateFieldComponent } from "../../components/DateFieldComponent";
+import { TimeFieldComponent } from "../../components/TimeFieldComponent";
+import { SelectComponent } from "../../components/SelectComponent";
 
-const typeEvent = [
-    "Online",
-    "Híbrido",
-    "Presencial"
-]
+// const typeEvent = [
+//     "Online",
+//     "Híbrido",
+//     "Presencial"
+// ]
 
-const categories = [
-    "Saúde",
-    "Tecnologia",
-    "Desenvolvimento",
-]
+// const categories = [
+//     "Saúde",
+//     "Tecnologia",
+//     "Desenvolvimento",
+// ]
 
 // interface Event extends TypeEvent {
 //     url_imagem?: string | unknown;
@@ -43,7 +46,7 @@ export function CreateEvent() {
     // const user = useAuth()
     const { handleSpin } = useEvent()
 
-    const { register, handleSubmit, control } = useForm<TypeEvent>();
+    const { handleSubmit, control } = useForm<TypeEvent>();
     const [preview, setPreview] = useState('')
     const [nameImagem, setNameImagem] = useState<File>()
 
@@ -110,53 +113,40 @@ export function CreateEvent() {
 
                 </ContainerFile> 
 
-                    {/* <div className="container_title">
-                        <label htmlFor="">Título do evento</label>
-                        <input 
-                            className='title' 
-                            type="text"
-                            placeholder='Digite o título do evento'
-                            {...register("titulo")}
-                        />
-                    </div> */}
+                <div className="container_title">
+                    <label htmlFor="title">Título do evento</label>
+                    <TextFieldComponent 
+                        id="title"
+                        label="Digite o título do evento"
+                        variant="outlined"
+                    />
+                </div>
                     
                 <div className="container_description">
-                    <label htmlFor="">Descrição do evento</label>
-                    <textarea 
-                        id="" 
-                        placeholder='Descrição do evento'
-                        {...register("descricao")}
+                    <label htmlFor="description">Descrição do evento</label>
+                    <TextFieldComponent 
+                        id="description"
+                        label="Digite a descrição do evento"
+                        variant="outlined"
                     />
                 </div>
 
                 <div className="container_date_hour">
                     <div className="container_date">
                         <label htmlFor="">Início do evento</label>
-                        <Controller 
+                        <DateFieldComponent 
+                            label="dd/mm/aaaa"
                             control={control}
                             name="data_inicio"
-                            render={({ field: { onChange, onBlur, value } }) => (
-                                <DatePicker 
-                                    onChange={onChange}
-                                    onBlur={onBlur}
-                                    selected={value}
-                                />
-                            )}
                         />
                     </div>
 
                     <div className="container_date">
                         <label htmlFor="data-fim">Fim do evento</label>
-                        <Controller 
+                        <DateFieldComponent 
+                            label="dd/mm/aaaa"
                             control={control}
                             name="data_fim"
-                            render={({ field }) => (
-                                <DatePicker
-                                    id="data-fim" 
-                                    onChange={(date) => field.onChange(date) }
-                                    selected={field.value}
-                                />
-                            )}
                         />
                     </div>
                 </div>
@@ -164,11 +154,19 @@ export function CreateEvent() {
                 <div className="container_date_hour">
                     <div className="container_hour">
                         <label htmlFor="">Horário de início</label>
-                        <input type="time" {...register("hora_inicio")}/>
+                        <TimeFieldComponent 
+                            label="time"
+                            control={control}
+                            name="hora_inicio"
+                        />
                     </div>
                     <div className="container_hour">
                         <label htmlFor="">Horário de encerramento </label>
-                        <input type="time" {...register("hora_fim")}/>
+                        <TimeFieldComponent 
+                            label="time"
+                            control={control}
+                            name="hora_fim"
+                        />
                     </div>
                 </div>
 
@@ -176,24 +174,22 @@ export function CreateEvent() {
 
                     <div className="container_select">
                         <label htmlFor="">Tipo de evento</label>
-                        <select {...register("tipo_evento")} id="">
-
-                            {typeEvent.map((option, index) => (
-                                <option value={option} key={index}>{option}</option>
-                            ))}
-
-                        </select>
+                        <SelectComponent 
+                            label="Tipo evento"
+                            control={control}
+                            name="tipo_evento"
+                            idLabel="tipo-evento"
+                        />
                     </div>
 
                     <div className="container_select">
-                        <label htmlFor="">Categoria</label>
-                        <select {...register("tipo_categoria")}  id="">
-
-                        {categories.map((option, index) => (
-                            <option value={option} key={index}>{option}</option>
-                        ))}
-
-                        </select>
+                        <label htmlFor="">Tipo Categoria</label>
+                        <SelectComponent 
+                            label="Tipo categoria"
+                            control={control}
+                            name="tipo_categoria"
+                            idLabel="tipo-categoria"
+                        />
                     </div>
 
                 </div>

@@ -147,20 +147,6 @@ export const ContainerForm = styled.div`
                 font-size: var(--small-font-size);
                 font-weight: var(--font-medium);
             }
-
-            input {
-                width: 100%;
-                height: 40px;
-                border: 1px solid lightgray;
-                border-radius: 10px;
-                padding: 10px;
-                margin-top: 5px;
-                cursor: pointer;
-                outline-color: var(--violet-color);
-            }
-            input:focus {
-                outline: 1px solid var(--violet-color);
-            }
         }
     }
 
