@@ -48,9 +48,57 @@ export const ContainerForm = styled.div`
         margin-bottom: 30px;
     }
 
+    #component-error-text {
+        color: red;
+    }
+
     .container_title {
         width: 100%;
-        margin-top: 25px;
+        margin-top: 30px;
+
+        .MuiFormControl-root {
+            height: 40px;
+            margin-top: 8px;
+        }
+
+        .MuiFormControl-root
+        .MuiFormLabel-root {
+            font-size: 14px;
+            left: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-family: "Montserrat", sans-serif;
+        }
+
+        .MuiFormControl-root
+        .MuiInputBase-root {
+            height: 100%;
+        }
+
+        .MuiFormControl-root
+        .MuiFormLabel-root.Mui-focused {
+            color: transparent;
+            position: static;
+        }
+
+        .MuiFormControl-root
+        .css-113d811-MuiFormLabel-root-MuiInputLabel-root {
+            position: static;
+        }
+
+        .MuiInputBase-input {
+            font-family: "Montserrat", sans-serif;
+            color: black;
+        }
+
+        .MuiOutlinedInput-notchedOutline
+        .css-w1u3ce {
+            max-width: 0;
+        }
+
+        .MuiInputBase-root.Mui-focused .MuiOutlinedInput-notchedOutline {
+            border-color: var(--violet-color);
+        }
 
         label {
             font-size: var(--small-font-size);
@@ -77,25 +125,55 @@ export const ContainerForm = styled.div`
     }
 
     .container_description {
-        margin-top: 25px;
+        margin-top: 30px;
 
         label {
             font-size: var(--small-font-size);
             font-weight: var(--font-medium);
         }
 
-        textarea {
-            width: 100%;
-            height: 200px;
-            font-size: var(--p-font-size);
-            border: 1px solid lightgray;
-            border-radius: 10px;
-            padding: 10px;
-            resize: none;
-            margin-top: 5px;
+        .MuiFormControl-root {
+            height: 40px;
+            margin-top: 8px;
         }
-        textarea:focus {
-            outline: 1px solid var(--violet-color);
+
+        .MuiFormControl-root
+        .MuiFormLabel-root {
+            font-size: 14px;
+            left: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-family: "Montserrat", sans-serif;
+        }
+
+        .MuiFormControl-root
+        .MuiInputBase-root {
+            height: 100%;
+        }
+
+        .MuiFormControl-root
+        .MuiFormLabel-root.Mui-focused {
+            color: transparent;
+            position: static;
+        }
+
+        .MuiFormControl-root
+        .css-113d811-MuiFormLabel-root-MuiInputLabel-root {
+            position: static;
+        }
+
+        .MuiInputBase-input {
+            font-family: "Montserrat", sans-serif;
+            color: black;
+        }
+
+        .MuiOutlinedInput-notchedOutline
+        .css-w1u3ce {
+            max-width: 0;
+        }
+
+        .MuiInputBase-root.Mui-focused .MuiOutlinedInput-notchedOutline {
+            border-color: var(--violet-color);
         }
     }
 
@@ -106,46 +184,112 @@ export const ContainerForm = styled.div`
         align-items: center;
         gap: 50px;
 
-        margin-top: 25px;
+        margin-top: 30px;
 
         .container_date {
             width: 100%;
+
             label {
                 font-size: var(--small-font-size);
                 font-weight: var(--font-medium);
             }
 
-            .react-datepicker-wrapper {
-                width: 100%;
-            }
-            /* .react-datepicker-wrapper
-            .react-datepicker__input-container {
-                width: 100%;
-            } */
-            .react-datepicker-wrapper
-            .react-datepicker__input-container input {
-                width: 100%;
+            .MuiFormControl-root {
                 height: 40px;
-                border: 1px solid lightgray;
-                border-radius: 10px;
-                padding: 10px;
-                margin-top: 5px;
-                cursor: pointer;
-                &:focus {
-                    outline: 1px solid var(--violet-color);
-                }
+                margin-top: 8px;
             }
-            /* .react-datepicker-wrapper
-            .react-datepicker__input-container input:focus-within {
-                border: none;
-            } */
+
+            .MuiFormControl-root
+            .MuiFormLabel-root {
+                font-size: 14px;
+                left: 15px;
+                top: 50%;
+                transform: translateY(-50%);
+                font-family: "Montserrat", sans-serif;
+            }
+
+            .MuiFormControl-root
+            .MuiInputBase-root {
+                height: 100%;
+            }
+
+            .MuiFormControl-root
+            .MuiFormLabel-root.Mui-focused {
+                color: transparent;
+                position: static;
+            }
+
+            .MuiFormControl-root
+            .css-113d811-MuiFormLabel-root-MuiInputLabel-root {
+                position: static;
+            }
+
+            .MuiInputBase-input {
+                font-family: "Montserrat", sans-serif;
+                color: black;
+                text-transform: lowercase;
+            }
+
+            .MuiOutlinedInput-notchedOutline
+            .css-w1u3ce {
+                max-width: 0;
+            }
+
+            .MuiInputBase-root.Mui-focused .MuiOutlinedInput-notchedOutline {
+                border-color: var(--violet-color);
+            }
         }
+
         .container_hour {
             width: 100%;
 
             label {
                 font-size: var(--small-font-size);
                 font-weight: var(--font-medium);
+            }
+
+            .MuiFormControl-root {
+                height: 40px;
+                margin-top: 8px;
+            }
+
+            .MuiFormControl-root
+            .MuiFormLabel-root {
+                font-size: 14px;
+                left: 15px;
+                top: 50%;
+                transform: translateY(-50%);
+                font-family: "Montserrat", sans-serif;
+            }
+
+            .MuiFormControl-root
+            .MuiInputBase-root {
+                height: 100%;
+            }
+
+            .MuiFormControl-root
+            .MuiFormLabel-root.Mui-focused {
+                color: transparent;
+                position: static;
+            }
+
+            .MuiFormControl-root
+            .css-113d811-MuiFormLabel-root-MuiInputLabel-root {
+                position: static;
+            }
+
+            .MuiInputBase-input {
+                font-family: "Montserrat", sans-serif;
+                color: black;
+            }
+
+            .MuiOutlinedInput-notchedOutline
+            .css-w1u3ce {
+                max-width: 0;
+            }
+
+            .MuiInputBase-root.Mui-focused .MuiOutlinedInput-notchedOutline {
+                border-color: var(--violet-color);
             }
         }
     }
@@ -160,7 +304,7 @@ export const ContainerForm = styled.div`
         justify-content: center;
         gap: 50px;
 
-        margin-top: 25px;
+        margin-top: 30px;
         margin-bottom: 50px;
 
         .container_select {
@@ -171,21 +315,48 @@ export const ContainerForm = styled.div`
                 font-weight: var(--font-medium);
             }
 
-            select {
-                width: 100%;
+            .MuiFormControl-root {
                 height: 40px;
-                
-                border: 1px solid lightgray;
-                border-radius: 10px;
-
-                cursor: pointer;
-
-                outline: none;
-
-                margin-top: 5px;
+                margin-top: 8px;
             }
-            select:focus {
-                outline: 1px solid var(--violet-color);
+
+            .MuiFormControl-root
+            .MuiFormLabel-root {
+                font-size: 14px;
+                left: 15px;
+                top: 50%;
+                transform: translateY(-50%);
+                font-family: "Montserrat", sans-serif;
+            }
+
+            .MuiFormControl-root
+            .MuiInputBase-root {
+                height: 100%;
+            }
+
+            .MuiFormControl-root
+            .MuiFormLabel-root.Mui-focused {
+                color: transparent;
+                position: static;
+            }
+
+            .MuiFormControl-root
+            .css-113d811-MuiFormLabel-root-MuiInputLabel-root {
+                position: static;
+            }
+
+            .MuiInputBase-input {
+                font-family: "Montserrat", sans-serif;
+                color: black;
+            }
+
+            .MuiOutlinedInput-notchedOutline
+            .css-w1u3ce {
+                max-width: 0;
+            }
+
+            .MuiInputBase-root.Mui-focused .MuiOutlinedInput-notchedOutline {
+                border-color: var(--violet-color);
             }
         }
 

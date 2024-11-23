@@ -5,24 +5,25 @@ import { useEvent } from "../../context/EventProvider/useEvent";
 import { HandleSpin } from "../../components/Spin";
 // import { useAuth } from "../../context/AuthProvider/useAuth";
 // import { db } from "../../services/fireBaseConfig";
-import { TypeEvent } from "./validationZod";
-import "react-datepicker/dist/react-datepicker.css";
+import { createEventZod, TypeEvent } from "./validationZod";
 import { TextFieldComponent } from "../../components/TextFieldComponent";
 import { DateFieldComponent } from "../../components/DateFieldComponent";
 import { TimeFieldComponent } from "../../components/TimeFieldComponent";
 import { SelectComponent } from "../../components/SelectComponent";
+import { zodResolver } from "@hookform/resolvers/zod";
 
-// const typeEvent = [
-//     "Online",
-//     "Híbrido",
-//     "Presencial"
-// ]
 
-// const categories = [
-//     "Saúde",
-//     "Tecnologia",
-//     "Desenvolvimento",
-// ]
+const typeEvent = [
+    "Online",
+    "Híbrido",
+    "Presencial"
+]
+
+const categories = [
+    "Saúde",
+    "Tecnologia",
+    "Desenvolvimento",
+]
 
 // interface Event extends TypeEvent {
 //     url_imagem?: string | unknown;
@@ -46,7 +47,20 @@ export function CreateEvent() {
     // const user = useAuth()
     const { handleSpin } = useEvent()
 
-    const { handleSubmit, control } = useForm<TypeEvent>();
+    const { handleSubmit, control, formState: { errors } } = useForm<TypeEvent>({
+        mode: "all",
+        defaultValues: {
+            titulo: "",
+            descricao: "",
+            data_inicio: "",
+            data_fim: "",
+            hora_inicio: "",
+            hora_fim: "",
+            tipo_evento: "",
+            tipo_categoria: "",
+        }, 
+        resolver: zodResolver(createEventZod)
+    });
     const [preview, setPreview] = useState('')
     const [nameImagem, setNameImagem] = useState<File>()
 
@@ -119,6 +133,9 @@ export function CreateEvent() {
                         id="title"
                         label="Digite o título do evento"
                         variant="outlined"
+                        name="titulo"
+                        control={control}
+                        error={errors.titulo?.message}
                     />
                 </div>
                     
@@ -128,6 +145,9 @@ export function CreateEvent() {
                         id="description"
                         label="Digite a descrição do evento"
                         variant="outlined"
+                        name="descricao"
+                        control={control}
+                        error={errors.descricao?.message}
                     />
                 </div>
 
@@ -135,18 +155,20 @@ export function CreateEvent() {
                     <div className="container_date">
                         <label htmlFor="">Início do evento</label>
                         <DateFieldComponent 
-                            label="dd/mm/aaaa"
+                            label="dd/mm/yyyy"
                             control={control}
                             name="data_inicio"
+                            error={errors.data_inicio?.message}
                         />
                     </div>
 
                     <div className="container_date">
                         <label htmlFor="data-fim">Fim do evento</label>
                         <DateFieldComponent 
-                            label="dd/mm/aaaa"
+                            label="dd/mm/yyyy"
                             control={control}
                             name="data_fim"
+                            error={errors.data_fim?.message}
                         />
                     </div>
                 </div>
@@ -155,17 +177,19 @@ export function CreateEvent() {
                     <div className="container_hour">
                         <label htmlFor="">Horário de início</label>
                         <TimeFieldComponent 
-                            label="time"
+                            label="hh:mm aa"
                             control={control}
                             name="hora_inicio"
+                            error={errors.hora_inicio?.message}
                         />
                     </div>
                     <div className="container_hour">
                         <label htmlFor="">Horário de encerramento </label>
                         <TimeFieldComponent 
-                            label="time"
+                            label="hh:mm aa"
                             control={control}
                             name="hora_fim"
+                            error={errors.hora_fim?.message}
                         />
                     </div>
                 </div>
@@ -179,6 +203,8 @@ export function CreateEvent() {
                             control={control}
                             name="tipo_evento"
                             idLabel="tipo-evento"
+                            error={errors.tipo_evento?.message}
+                            arrayMenuItem={typeEvent}
                         />
                     </div>
 
@@ -189,6 +215,8 @@ export function CreateEvent() {
                             control={control}
                             name="tipo_categoria"
                             idLabel="tipo-categoria"
+                            error={errors.tipo_categoria?.message}
+                            arrayMenuItem={categories}
                         />
                     </div>
 
