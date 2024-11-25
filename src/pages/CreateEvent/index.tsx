@@ -136,6 +136,7 @@ export function CreateEvent() {
                         name="titulo"
                         control={control}
                         error={errors.titulo?.message}
+                        multiline={false}
                     />
                 </div>
                     
@@ -148,6 +149,8 @@ export function CreateEvent() {
                         name="descricao"
                         control={control}
                         error={errors.descricao?.message}
+                        multiline={true}
+                        rows={8}
                     />
                 </div>
 

@@ -11,9 +11,11 @@ type TextFieldProps = {
     name: "titulo" | "descricao";
     control: Control<TypeEvent>;
     error?: string;
+    multiline: boolean;
+    rows?: number;
 }
 
-export function TextFieldComponent({ id, label, variant, name, control, error }:TextFieldProps) {
+export function TextFieldComponent({ id, label, variant, name, control, error, multiline, rows }:TextFieldProps) {
     return (
         <FormControl fullWidth>
             <Controller 
@@ -29,6 +31,8 @@ export function TextFieldComponent({ id, label, variant, name, control, error }:
                         onBlur={onBlur}
                         value={value}
                         ref={ref}
+                        multiline={multiline}
+                        rows={rows ? rows : 0}
                     /> 
                 )}
             />

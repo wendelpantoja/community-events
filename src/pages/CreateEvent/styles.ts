@@ -77,8 +77,7 @@ export const ContainerForm = styled.div`
 
         .MuiFormControl-root
         .MuiFormLabel-root.Mui-focused {
-            color: transparent;
-            position: static;
+            display: none;
         }
 
         .MuiFormControl-root
@@ -133,16 +132,12 @@ export const ContainerForm = styled.div`
         }
 
         .MuiFormControl-root {
-            height: 40px;
             margin-top: 8px;
         }
 
         .MuiFormControl-root
         .MuiFormLabel-root {
             font-size: 14px;
-            left: 15px;
-            top: 50%;
-            transform: translateY(-50%);
             font-family: "Montserrat", sans-serif;
         }
 
@@ -153,8 +148,7 @@ export const ContainerForm = styled.div`
 
         .MuiFormControl-root
         .MuiFormLabel-root.Mui-focused {
-            color: transparent;
-            position: static;
+            display: none;
         }
 
         .MuiFormControl-root
@@ -215,8 +209,7 @@ export const ContainerForm = styled.div`
 
             .MuiFormControl-root
             .MuiFormLabel-root.Mui-focused {
-                color: transparent;
-                position: static;
+                display: none;
             }
 
             .MuiFormControl-root
@@ -269,8 +262,7 @@ export const ContainerForm = styled.div`
 
             .MuiFormControl-root
             .MuiFormLabel-root.Mui-focused {
-                color: transparent;
-                position: static;
+                display: none;
             }
 
             .MuiFormControl-root
@@ -336,8 +328,7 @@ export const ContainerForm = styled.div`
 
             .MuiFormControl-root
             .MuiFormLabel-root.Mui-focused {
-                color: transparent;
-                position: static;
+                display: none;
             }
 
             .MuiFormControl-root
