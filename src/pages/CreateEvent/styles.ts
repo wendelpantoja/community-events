@@ -154,6 +154,7 @@ export const ContainerForm = styled.div`
         .MuiFormControl-root
         .css-113d811-MuiFormLabel-root-MuiInputLabel-root {
             position: static;
+            display: none;
         }
 
         .MuiInputBase-input {
