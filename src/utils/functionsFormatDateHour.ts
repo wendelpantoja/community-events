@@ -7,7 +7,7 @@ export function formatDate(date: Date) {
 }
 
 export function formatHour(hour: Date) {
-    const newFormatHour = format(new Date(hour), "H:mm")
+    const newFormatHour = format(new Date(hour), "HH:mm")
     
     return newFormatHour
 }
