@@ -48,6 +48,7 @@ export const updateEventZod = z.object({
     hora_fim: z.coerce.date(errorTimeGlobal),
     tipo_evento: z.string().nonempty("Por favor, selecione o tipo do evento!"),
     tipo_categoria: z.string().nonempty("Por favor, selecione uma categoria"),
+    local: z.string().nonempty("Por favor, digite o local do evento!")
 })
 
 

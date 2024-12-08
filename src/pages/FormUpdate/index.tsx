@@ -64,6 +64,7 @@ export function FormUpdate() {
                     hora_fim: new Date(event?.data().hora_fim),
                     tipo_evento: event?.data().tipo_evento,
                     tipo_categoria: event?.data().tipo_categoria,
+                    local: event?.data().local
                 }
         },
         resolver: zodResolver(updateEventZod)
@@ -246,6 +247,19 @@ export function FormUpdate() {
                             arrayMenuItem={categories}
                         />
                     </div>
+                </div>
+
+                <div className="container_local">
+                    <label htmlFor="local">Local do Evento</label>
+                    <TextFieldComponent 
+                        id="local"
+                        label="Rua, bairro, numero..."
+                        variant="outlined"
+                        name="local"
+                        control={control}
+                        error={errors.titulo?.message}
+                        multiline={false}
+                    />
                 </div>
 
                 <div className="container_button">

@@ -298,7 +298,7 @@ export const ContainerForm = styled.div`
         gap: 50px;
 
         margin-top: 30px;
-        margin-bottom: 50px;
+        margin-bottom: 30px;
 
         .container_select {
             width: 100%;
@@ -355,9 +355,74 @@ export const ContainerForm = styled.div`
 
     }
 
+    .container_local {
+        width: 100%;
+
+        .MuiFormControl-root {
+            height: 40px;
+            margin-top: 8px;
+        }
+
+        .MuiFormControl-root
+        .MuiFormLabel-root {
+            font-size: 14px;
+            left: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-family: "Montserrat", sans-serif;
+        }
+
+        .MuiFormControl-root
+        .MuiInputBase-root {
+            height: 100%;
+        }
+
+        .MuiFormControl-root
+        .MuiFormLabel-root.Mui-focused {
+            display: none;
+        }
+
+        .MuiFormControl-root
+        .css-113d811-MuiFormLabel-root-MuiInputLabel-root {
+            position: static;
+        }
+
+        .MuiInputBase-input {
+            font-family: "Montserrat", sans-serif;
+            color: black;
+        }
+
+        .MuiOutlinedInput-notchedOutline
+        .css-w1u3ce {
+            max-width: 0;
+        }
+
+        .MuiInputBase-root.Mui-focused .MuiOutlinedInput-notchedOutline {
+            border-color: var(--violet-color);
+        }
+
+        label {
+            font-size: var(--small-font-size);
+            font-weight: var(--font-medium);
+        }
+
+        .local {
+            width: 100%;
+            height: 44px;
+            border: 1px solid lightgray;
+            border-radius: 10px;
+            font-size: var(--small-font-size);
+            padding: 10px;
+            margin-top: 5px;
+        }
+        .local:focus {
+            outline: 1px solid var(--violet-color);
+        }
+    }
+
     .container_button {
         text-align: center;
-
+        margin-top: 50px;
         button {
             width: 200px;
             height: 50px;

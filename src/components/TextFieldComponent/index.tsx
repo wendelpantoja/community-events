@@ -9,7 +9,7 @@ type TextFieldProps = {
     id: string;
     label: string;
     variant: TextFieldVariants;
-    name: "titulo" | "descricao";
+    name: "titulo" | "descricao" | "local";
     control: Control<TypeUpdateEvent | TypeEvent>;
     error?: string;
     multiline: boolean;

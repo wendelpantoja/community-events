@@ -45,6 +45,7 @@ export function CreateEvent() {
             hora_fim: undefined,
             tipo_evento: "",
             tipo_categoria: "",
+            local: "",
         }, 
         resolver: zodResolver(createEventZod)
     });
@@ -203,6 +204,19 @@ export function CreateEvent() {
                         />
                     </div>
 
+                </div>
+
+                <div className="container_local">
+                    <label htmlFor="local">Local do Evento</label>
+                    <TextFieldComponent 
+                        id="local"
+                        label="Rua, bairro, numero..."
+                        variant="outlined"
+                        name="local"
+                        control={control}
+                        error={errors.titulo?.message}
+                        multiline={false}
+                    />
                 </div>
 
                 <div className="container_button">

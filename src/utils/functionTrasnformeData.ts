@@ -10,6 +10,7 @@ export function transformData(data: TypeEvent) {
         hora_fim: new Date(data.hora_fim).toString(),
         tipo_evento: data.tipo_evento,
         tipo_categoria: data.tipo_categoria,
+        local: data.local
     }
     
     return newData

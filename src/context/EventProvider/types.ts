@@ -10,7 +10,8 @@ export interface EventProps {
     hora_inicio: Date | string;
     hora_fim: Date | string;
     tipo_evento: string;
-    tipo_categoria: string
+    tipo_categoria: string;
+    local: string;
 }
 
 export interface EventUpdate {
