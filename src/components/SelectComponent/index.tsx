@@ -1,14 +1,15 @@
 import MenuItem from '@mui/material/MenuItem';
 import Select from '@mui/material/Select';
 import { Control, Controller } from 'react-hook-form';
-import { TypeEvent } from '../../pages/CreateEvent/validationZod';
 import FormControl from '@mui/material/FormControl';
 import InputLabel from '@mui/material/InputLabel';
 import { FormHelperText } from '@mui/material';
+import { TypeUpdateEvent } from '../../pages/FormUpdate/validationZod';
+import { TypeEvent } from '../../pages/CreateEvent/validationZod';
 
 type SelectProps = {
     label: string;
-    control: Control<TypeEvent>;
+    control: Control<TypeUpdateEvent | TypeEvent>;
     name: "tipo_evento" | "tipo_categoria";
     idLabel: string;
     error?: string;
@@ -28,8 +29,8 @@ export function SelectComponent({ label, control, name, idLabel, error, arrayMen
                         <Select
                             labelId={idLabel}
                             id={idLabel}
-                            value={value}
-                            label={label}
+                            label={value === "" ? label : ""}
+                            value={value ? value : ""} 
                             onBlur={onBlur}
                             onChange={onChange}
                             ref={ref}

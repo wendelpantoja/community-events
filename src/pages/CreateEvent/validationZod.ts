@@ -1,5 +1,4 @@
 import { z } from "zod";
-import { formatDate, formatHour } from "../../utils/functionsFormatDateHour";
 
 const errorDateGlobal = {
     required_error: "Por favor, selecione uma data!",
@@ -26,10 +25,10 @@ export const createEventZod = z.object({
     .nonempty("Por favor, digite um título para o evento!"),
     descricao: z.string()
     .nonempty("Por favor, digite uma descrição para o evento!"),
-    data_inicio: z.date(errorDateGlobal).transform((val) => formatDate(val)),
-    data_fim: z.date(errorDateGlobal).transform((val) => formatDate(val)),
-    hora_inicio: z.date(errorTimeGlobal).transform((val) => formatHour(val)),
-    hora_fim: z.date(errorTimeGlobal).transform((val) => formatHour(val)),
+    data_inicio: z.coerce.date(errorDateGlobal),
+    data_fim: z.coerce.date(errorDateGlobal),
+    hora_inicio: z.coerce.date(errorTimeGlobal),
+    hora_fim: z.coerce.date(errorTimeGlobal),
     tipo_evento: z.string().nonempty("Por favor, selecione o tipo do evento!"),
     tipo_categoria: z.string().nonempty("Por favor, selecione uma categoria"),
 })

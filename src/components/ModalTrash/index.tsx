@@ -20,7 +20,7 @@ export function ModalTrash({ idEvent, nameEvent, setIsModal }: ModalProps) {
         <Modal>
             <div className="container_modal">
                 <div className="header_modal">
-                    <p>Deletar produto?</p>
+                    <p>Deletar evento?</p>
                     <i className='bx bx-x' onClick={() => setIsModal(false)}></i>
                 </div>
 

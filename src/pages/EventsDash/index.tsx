@@ -1,10 +1,10 @@
-import { Card } from "../../components/Card";
 import { ContainerCardsDash } from "./styles";
 import { useAuth } from "../../context/AuthProvider/useAuth";
 import { useEffect, useState } from "react";
 import { DocumentData } from "firebase/firestore";
 import { useEvent } from "../../context/EventProvider/useEvent";
 import { db } from "../../services/fireBaseConfig";
+import { Card } from "../../components/Card";
 
 export function EventsDash() {
     const { user } = useAuth()
@@ -31,7 +31,7 @@ export function EventsDash() {
                 </div>
                 <div className="container_cards">
                     {eventsUser && <Card dataUser={eventsUser} />}
-                    {eventsUser?.length === 0 && <h2>Nenhum evento cadastrado</h2> }
+                    {eventsUser?.length === 0 && <h2>Nenhum evento cadastrado</h2>}
                 </div>
             </ContainerCardsDash>
         </>

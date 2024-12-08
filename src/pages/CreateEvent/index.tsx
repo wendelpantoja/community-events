@@ -3,15 +3,15 @@ import { useForm } from "react-hook-form";
 import { useState } from "react";
 import { useEvent } from "../../context/EventProvider/useEvent";
 import { HandleSpin } from "../../components/Spin";
-// import { useAuth } from "../../context/AuthProvider/useAuth";
-// import { db } from "../../services/fireBaseConfig";
+import { useAuth } from "../../context/AuthProvider/useAuth";
+import { db } from "../../services/fireBaseConfig";
 import { createEventZod, TypeEvent } from "./validationZod";
 import { TextFieldComponent } from "../../components/TextFieldComponent";
 import { DateFieldComponent } from "../../components/DateFieldComponent";
 import { TimeFieldComponent } from "../../components/TimeFieldComponent";
 import { SelectComponent } from "../../components/SelectComponent";
 import { zodResolver } from "@hookform/resolvers/zod";
-
+import { transformData } from "../../utils/functionTrasnformeData";
 
 const typeEvent = [
     "Online",
@@ -25,37 +25,24 @@ const categories = [
     "Desenvolvimento",
 ]
 
-// interface Event extends TypeEvent {
-//     url_imagem?: string | unknown;
-//     // titulo: string;
-//     // descricao: string;
-//     // data_inicio: Date | string;
-//     // data_fim: Date;
-//     // hora_inicio: string;
-//     // hora_fim: string;
-//     // tipo_evento: string;
-//     // tipo_categoria: string
-// }
-
-// class EventObj {
-//     constructor(data: Date) {
-//         this.data = data
-//     }
-// }
-
 export function CreateEvent() {
-    // const user = useAuth()
-    const { handleSpin } = useEvent()
+    const user = useAuth()
+    const { 
+        createEvent,
+        createUrlImage,
+        handleSpin,
+        setHandleSpinEvent,
+    } = useEvent()
 
-    const { handleSubmit, control, formState: { errors } } = useForm<TypeEvent>({
+    const { handleSubmit, control, formState: { errors }, reset } = useForm<TypeEvent>({
         mode: "all",
         defaultValues: {
             titulo: "",
             descricao: "",
-            data_inicio: "",
-            data_fim: "",
-            hora_inicio: "",
-            hora_fim: "",
+            data_inicio: undefined,
+            data_fim: undefined,
+            hora_inicio: undefined,
+            hora_fim: undefined,
             tipo_evento: "",
             tipo_categoria: "",
         }, 
@@ -65,33 +52,26 @@ export function CreateEvent() {
     const [nameImagem, setNameImagem] = useState<File>()
 
     async function handleEvent(data: TypeEvent) {
-
-        // if(nameImagem) {
-        //     if(user?.user) {
-        //         setHandleSpinEvent(true)
-        //         const urlImagem = await createUrlImage(nameImagem)
-        //         try {
-        //             await createEvent(db, "Events", {
-        //                 user_id: user?.user?.uid, 
-        //                 url_imagem: urlImagem,
-        //                 ...data
-        //             })
-        //             setPreview('')
-        //             reset()   
-        //         } catch (error) {
-        //             console.log(error)
-        //         } finally {
-        //             setHandleSpinEvent(false)
-        //         }
-        //     }
-        // }
-        // if(startDate) {
-        //     const event = new EventObj(startDate)
-
-        //     console.log(event)
-        // }
-        console.log(nameImagem)
-        console.log(data)
+        const newData = transformData(data)
+        if(nameImagem) {
+            if(user?.user) {
+                setHandleSpinEvent(true)
+                const urlImagem = await createUrlImage(nameImagem)
+                try {
+                    await createEvent(db, "Events", {
+                        user_id: user?.user?.uid, 
+                        url_imagem: urlImagem,
+                        ...newData
+                    })
+                    setPreview('')
+                    reset()   
+                } catch (error) {
+                    console.log(error)
+                } finally {
+                    setHandleSpinEvent(false)
+                }
+            }
+        }
     }
 
     function handleOnChange(event: React.ChangeEvent<HTMLInputElement>) {
