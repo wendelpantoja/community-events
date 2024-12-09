@@ -27,7 +27,7 @@ export function Event() {
             }
         }
         handleEvent()
-    }, [params])
+    }, [params, getEvent])
 
     return (
         <>
@@ -65,7 +65,7 @@ export function Event() {
 
                                 <div className=" local">
                                     <i className='bx bx-map'></i>
-                                    <p>Universidade Federal do Pará - Cametá-PA - Brasil</p>
+                                    <p>{dataEvent?.local}</p>
                                 </div>
                             </div>
 

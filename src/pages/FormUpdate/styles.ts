@@ -298,7 +298,7 @@ export const ContainerForm = styled.div`
         gap: 50px;
 
         margin-top: 30px;
-        margin-bottom: 50px;
+        margin-bottom: 30px;
 
         .container_select {
             width: 100%;
