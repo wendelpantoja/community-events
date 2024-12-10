@@ -5,12 +5,13 @@ export interface EventProps {
     url_imagem: string | unknown;
     titulo: string;
     descricao: string;
-    data_inicio: string;
-    data_fim: string;
-    hora_inicio: string;
-    hora_fim: string;
+    data_inicio: Date | string;
+    data_fim: Date | string;
+    hora_inicio: Date | string;
+    hora_fim: Date | string;
     tipo_evento: string;
-    tipo_categoria: string
+    tipo_categoria: string;
+    local: string;
 }
 
 export interface EventUpdate {

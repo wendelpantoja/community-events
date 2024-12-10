@@ -92,5 +92,9 @@ export const ContainerDash = styled.div`
         border-radius: 10px;       
         border: 3px solid var(--white-color);  
     }
+
+    @media (max-width: 420px) {
+        padding: 20px 13px;
+    }
     
 `

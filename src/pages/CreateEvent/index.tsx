@@ -1,10 +1,17 @@
-import { ContainerContent, ContainerFile, Label } from "./styles";
-import { useAuth } from "../../context/AuthProvider/useAuth";
-import { db } from "../../services/fireBaseConfig";
+import { ContainerFile, ContainerForm, Label } from "./styles";
 import { useForm } from "react-hook-form";
 import { useState } from "react";
 import { useEvent } from "../../context/EventProvider/useEvent";
 import { HandleSpin } from "../../components/Spin";
+import { useAuth } from "../../context/AuthProvider/useAuth";
+import { db } from "../../services/fireBaseConfig";
+import { createEventZod, TypeEvent } from "./validationZod";
+import { TextFieldComponent } from "../../components/TextFieldComponent";
+import { DateFieldComponent } from "../../components/DateFieldComponent";
+import { TimeFieldComponent } from "../../components/TimeFieldComponent";
+import { SelectComponent } from "../../components/SelectComponent";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { transformData } from "../../utils/functionTrasnformeData";
 
 const typeEvent = [
     "Online",
@@ -18,28 +25,35 @@ const categories = [
     "Desenvolvimento",
 ]
 
-interface Event {
-    url_imagem?: string | unknown;
-    titulo: string;
-    descricao: string;
-    data_inicio: string;
-    data_fim: string;
-    hora_inicio: string;
-    hora_fim: string;
-    tipo_evento: string;
-    tipo_categoria: string
-}
-
 export function CreateEvent() {
     const user = useAuth()
-    const { handleSpin, createEvent, createUrlImage, setHandleSpinEvent } = useEvent()
+    const { 
+        createEvent,
+        createUrlImage,
+        handleSpin,
+        setHandleSpinEvent,
+    } = useEvent()
 
-    const { register, handleSubmit, reset } = useForm<Event>();
+    const { handleSubmit, control, formState: { errors }, reset } = useForm<TypeEvent>({
+        mode: "all",
+        defaultValues: {
+            titulo: "",
+            descricao: "",
+            data_inicio: undefined,
+            data_fim: undefined,
+            hora_inicio: undefined,
+            hora_fim: undefined,
+            tipo_evento: "",
+            tipo_categoria: "",
+            local: "",
+        }, 
+        resolver: zodResolver(createEventZod)
+    });
     const [preview, setPreview] = useState('')
     const [nameImagem, setNameImagem] = useState<File>()
 
-    async function handleEvent(data: Event) {
-
+    async function handleEvent(data: TypeEvent) {
+        const newData = transformData(data)
         if(nameImagem) {
             if(user?.user) {
                 setHandleSpinEvent(true)
@@ -48,7 +62,7 @@ export function CreateEvent() {
                     await createEvent(db, "Events", {
                         user_id: user?.user?.uid, 
                         url_imagem: urlImagem,
-                        ...data
+                        ...newData
                     })
                     setPreview('')
                     reset()   
@@ -59,7 +73,6 @@ export function CreateEvent() {
                 }
             }
         }
-
     }
 
     function handleOnChange(event: React.ChangeEvent<HTMLInputElement>) {
@@ -74,29 +87,28 @@ export function CreateEvent() {
     }
 
     return (
-        <ContainerContent>
+        <ContainerForm>
 
             <h2>Crie um evento</h2>
 
             <form onSubmit={handleSubmit(handleEvent)}>
-
-                <div className="container_inputs">
                     
-                    <ContainerFile>
+                <ContainerFile>
 
-                        <Label htmlFor="file">
-                            {preview != '' && <img className="preview_image" src={preview} alt="" />}
-                            {preview === '' && <i className='bx bx-cloud-upload'></i>}
-                        </Label>
+                    <Label htmlFor="file">
+                        {preview != '' && <img className="preview_image" src={preview} alt="" />}
+                        {preview === '' && <i className='bx bx-cloud-upload'></i>}
+                    </Label>
 
-                        <input 
-                            id="file"
-                            type="file" 
-                            onChange={handleOnChange}
-                        />
+                    <input 
+                        id="file"
+                        type="file" 
+                        onChange={handleOnChange}
+                    />
 
-                    </ContainerFile> 
+                </ContainerFile> 
 
+<<<<<<< HEAD
                     <div className="container_title">
                         <label htmlFor="title">Título do evento</label>
                         <input 
@@ -135,8 +147,58 @@ export function CreateEvent() {
                                 {...register("data_fim")}
                             />
                         </div>
+=======
+                <div className="container_title">
+                    <label htmlFor="title" id="label">Título do evento</label>
+                    <TextFieldComponent 
+                        id="title"
+                        label="Digite o título do evento"
+                        variant="outlined"
+                        name="titulo"
+                        control={control}
+                        error={errors.titulo?.message}
+                        multiline={false}
+                    />
+                </div>
+                    
+                <div className="container_description">
+                    <label htmlFor="description" id="label">Descrição do evento</label>
+                    <TextFieldComponent 
+                        id="description"
+                        label="Digite a descrição do evento"
+                        variant="outlined"
+                        name="descricao"
+                        control={control}
+                        error={errors.descricao?.message}
+                        multiline={true}
+                        rows={8}
+                    />
+                </div>
+
+                <div className="container_date_hour">
+                    <div className="container_date">
+                        <label htmlFor="" id="label">Início do evento</label>
+                        <DateFieldComponent 
+                            label="dd/mm/yyyy"
+                            control={control}
+                            name="data_inicio"
+                            error={errors.data_inicio?.message}
+                        />
                     </div>
 
+                    <div className="container_date">
+                        <label htmlFor="data-fim" id="label">Fim do evento</label>
+                        <DateFieldComponent 
+                            label="dd/mm/yyyy"
+                            control={control}
+                            name="data_fim"
+                            error={errors.data_fim?.message}
+                        />
+>>>>>>> release/0.2
+                    </div>
+                </div>
+
+<<<<<<< HEAD
                     <div className="container_date_hour">
                         <div className="container_hour">
                             <label htmlFor="start-event">Horário de início</label>
@@ -146,13 +208,33 @@ export function CreateEvent() {
                             <label htmlFor="finish-event">Horário de encerramento </label>
                             <input id="finish-event" type="time" {...register("hora_fim")}/>
                         </div>
+=======
+                <div className="container_date_hour">
+                    <div className="container_hour">
+                        <label htmlFor="" id="label">Horário de início</label>
+                        <TimeFieldComponent 
+                            label="hh:mm aa"
+                            control={control}
+                            name="hora_inicio"
+                            error={errors.hora_inicio?.message}
+                        />
                     </div>
-
+                    <div className="container_hour">
+                        <label htmlFor="" id="label">Horário de encerramento </label>
+                        <TimeFieldComponent 
+                            label="hh:mm aa"
+                            control={control}
+                            name="hora_fim"
+                            error={errors.hora_fim?.message}
+                        />
+>>>>>>> release/0.2
+                    </div>
                 </div>
 
                 <div className="selecteds">
 
                     <div className="container_select">
+<<<<<<< HEAD
                         <label htmlFor="type-event">Tipo de evento</label>
                         <select itemID="type-event" {...register("tipo_evento")} id="type-event">
 
@@ -172,8 +254,44 @@ export function CreateEvent() {
                         ))}
 
                         </select>
+=======
+                        <label htmlFor="" id="label">Tipo de evento</label>
+                        <SelectComponent 
+                            label="Tipo evento"
+                            control={control}
+                            name="tipo_evento"
+                            idLabel="tipo-evento"
+                            error={errors.tipo_evento?.message}
+                            arrayMenuItem={typeEvent}
+                        />
                     </div>
 
+                    <div className="container_select">
+                        <label htmlFor="" id="label">Tipo Categoria</label>
+                        <SelectComponent 
+                            label="Tipo categoria"
+                            control={control}
+                            name="tipo_categoria"
+                            idLabel="tipo-categoria"
+                            error={errors.tipo_categoria?.message}
+                            arrayMenuItem={categories}
+                        />
+>>>>>>> release/0.2
+                    </div>
+
+                </div>
+
+                <div className="container_local">
+                    <label htmlFor="local" id="label">Local do Evento</label>
+                    <TextFieldComponent 
+                        id="local"
+                        label="Rua, bairro, numero..."
+                        variant="outlined"
+                        name="local"
+                        control={control}
+                        error={errors.titulo?.message}
+                        multiline={false}
+                    />
                 </div>
 
                 <div className="container_button">
@@ -183,6 +301,6 @@ export function CreateEvent() {
                     </button>
                 </div>
             </form>
-        </ContainerContent>
+        </ContainerForm>
     )
 }

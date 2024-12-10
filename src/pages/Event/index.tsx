@@ -6,19 +6,20 @@ import { useEffect, useState } from "react";
 import { useEvent } from "../../context/EventProvider/useEvent";
 import { db } from "../../services/fireBaseConfig";
 import { DocumentData } from "firebase/firestore";
+import { formatDate, formatHour } from "../../utils/functionsFormatDateHour";
 
 
 export function Event() {
     const { getEvent } = useEvent()
-    const [dataEvent, setDataEvent] = useState<DocumentData>()
+    const [dataEvent, setDataEvent] = useState<DocumentData | null>()
     
     const params = useParams()
 
     useEffect(() => {
         async function handleEvent() {
             try {
-                if(params.id) {
-                    const event = await getEvent(db, "Events", params.id)
+                if(params?.id) {
+                    const event = await getEvent(db, "Events", params?.id)
 
                     setDataEvent(event?.data())
                 }
@@ -27,7 +28,7 @@ export function Event() {
             }
         }
         handleEvent()
-    }, [params])
+    }, [params, getEvent])
 
     return (
         <>
@@ -60,12 +61,12 @@ export function Event() {
 
                                 <div className="date_hour">
                                     <i className='bx bx-calendar'></i>
-                                    <p>{dataEvent?.data_inicio} a {dataEvent?.data_fim} - {dataEvent?.hora_inicio} - {dataEvent?.hora_fim}</p>
+                                    <p>{formatDate(dataEvent?.data_inicio)} a {formatDate(dataEvent?.data_fim)} - {formatHour(dataEvent?.hora_inicio)} - {formatHour(dataEvent?.hora_fim)}</p>
                                 </div>
 
                                 <div className=" local">
                                     <i className='bx bx-map'></i>
-                                    <p>Universidade Federal do Pará - Cametá-PA - Brasil</p>
+                                    <p>{dataEvent?.local}</p>
                                 </div>
                             </div>
 

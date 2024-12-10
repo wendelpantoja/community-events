@@ -4,6 +4,7 @@ import { useEvent } from "../../context/EventProvider/useEvent";
 import { Link, useNavigate } from "react-router-dom";
 import { ModalTrash } from "../ModalTrash";
 import { useState } from "react";
+import { formatDate } from "../../utils/functionsFormatDateHour";
 
 type CardType = {
   data?: DocumentData;
@@ -63,7 +64,7 @@ export function Card({ data, dataUser }: CardType) {
                           {event?.data().tipo_categoria}
                         </div>
 
-                        <p>{event?.data().data_inicio}</p>
+                        <p>{formatDate(event?.data().data_inicio)}</p>
 
                         <div className="container_title">
                           <p>{event?.data().titulo}</p>
@@ -103,7 +104,7 @@ export function Card({ data, dataUser }: CardType) {
                     {data?.data().tipo_categoria}
                   </div>
 
-                  <p>{data?.data().data_inicio}</p>
+                  <p>{formatDate(data?.data().data_inicio)}</p>
 
                   <div className="container_title">
                       <p>{data?.data().titulo}</p>

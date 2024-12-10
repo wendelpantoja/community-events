@@ -1,11 +1,18 @@
-import { ContainerContent, ContainerFile, Label } from "./styles";
+import { ContainerForm, ContainerFile, Label } from "./styles";
 import { db } from "../../services/fireBaseConfig";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useEvent } from "../../context/EventProvider/useEvent";
 import { useForm } from "react-hook-form";
-import { useAuth } from "../../context/AuthProvider/useAuth";
 import { HandleSpin } from "../../components/Spin";
 import { useNavigate } from "react-router-dom";
+import { TextFieldComponent } from "../../components/TextFieldComponent";
+import { DateFieldComponent } from "../../components/DateFieldComponent";
+import { TimeFieldComponent } from "../../components/TimeFieldComponent";
+import { SelectComponent } from "../../components/SelectComponent";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { TypeUpdateEvent, updateEventZod } from "./validationZod";
+import { useAuth } from "../../context/AuthProvider/useAuth";
+import { transformData } from "../../utils/functionTrasnformeData";
 
 const typeEvent = [
     "Online",
@@ -19,11 +26,11 @@ const categories = [
     "Desenvolvimento",
 ]
 
-interface Event {
+export interface Event {
     url_imagem?: string | unknown;
     titulo: string;
     descricao: string;
-    data_inicio: string;
+    data_inicio: Date;
     data_fim: string;
     hora_inicio: string;
     hora_fim: string;
@@ -34,39 +41,39 @@ interface Event {
 
 export function FormUpdate() {
     const user = useAuth()
-    const { 
-        idEvent, 
-        getEvent, 
+    const {  
+        idEvent,
         createUrlImage,
         handleSpin,
         setHandleSpinEvent,
-        updateEvent
+        updateEvent,
+        getEvent
     } = useEvent()
-
-    const { register, handleSubmit, reset, setValue } = useForm<Event>();
     const [preview, setPreview] = useState("")
+    const { control, handleSubmit, reset, formState: { errors } } = useForm<TypeUpdateEvent>({
+        mode: "all",
+        defaultValues: async () => {
+                const event = await getEvent(db, "Events", idEvent ? idEvent : "")
+                setPreview(event?.data()?.url_imagem)
+                return {
+                    titulo: event?.data().titulo,
+                    descricao: event?.data().descricao,
+                    data_inicio: new Date(event?.data().data_inicio),
+                    data_fim: new Date(event?.data().data_fim),
+                    hora_inicio: new Date(event?.data().hora_inicio),
+                    hora_fim: new Date(event?.data().hora_fim),
+                    tipo_evento: event?.data().tipo_evento,
+                    tipo_categoria: event?.data().tipo_categoria,
+                    local: event?.data().local
+                }
+        },
+        resolver: zodResolver(updateEventZod)
+    });
     const [nameImagem, setNameImagem] = useState<File | null>(null)
     const navigate = useNavigate()
 
-    useEffect(() => {
-        async function handleUpdate() {
-            if(idEvent) {
-                const event = await getEvent(db, "Events", idEvent)
-                setPreview(event?.data()?.url_imagem)
-                setValue("titulo", event?.data().titulo)
-                setValue("descricao", event?.data().descricao)
-                setValue("data_inicio", event?.data().data_inicio)
-                setValue("data_fim", event?.data().data_fim)
-                setValue("hora_inicio", event?.data().hora_inicio)
-                setValue("hora_fim", event?.data().hora_fim)
-                setValue("tipo_evento", event?.data().tipo_evento)
-                setValue("tipo_categoria", event?.data().tipo_categoria)
-            }
-        }
-        handleUpdate()
-    }, [])
-
-    async function onSubmit(data: Event) {
+    async function onSubmit(data: TypeUpdateEvent) {
+        const newData = transformData(data)
         if(nameImagem === null) {
             if(user?.user) {
                 if(idEvent) {
@@ -76,7 +83,7 @@ export function FormUpdate() {
                         await updateEvent(db, "Events", idEvent, {
                             user_id: user?.user?.uid,
                             url_imagem: preview,
-                            ...data
+                            ...newData
                         })
                         setPreview("")
                         reset()
@@ -124,29 +131,28 @@ export function FormUpdate() {
     }
     
     return (
-        <ContainerContent>
+        <ContainerForm>
 
             <h2>Crie um evento</h2>
 
             <form onSubmit={handleSubmit(onSubmit)}>
-
-                <div className="container_inputs">
                     
-                    <ContainerFile>
+                <ContainerFile>
 
-                        <Label htmlFor="file">
-                            {preview != '' && <img className="preview_image" src={preview} alt="" />}
-                            {preview === '' && <i className='bx bx-cloud-upload'></i>}
-                        </Label>
+                    <Label htmlFor="file">
+                        {preview != '' && <img className="preview_image" src={preview} alt="" />}
+                        {preview === '' && <i className='bx bx-cloud-upload'></i>}
+                    </Label>
 
-                        <input 
-                            id="file"
-                            type="file" 
-                            onChange={handleOnChange}
-                        />
+                    <input 
+                        id="file"
+                        type="file" 
+                        onChange={handleOnChange}
+                    />
 
-                    </ContainerFile> 
+                </ContainerFile> 
 
+<<<<<<< HEAD
                     <div className="container_title">
                         <label htmlFor="title">Título do evento</label>
                         <input 
@@ -185,8 +191,58 @@ export function FormUpdate() {
                                 {...register("data_fim")}
                             />
                         </div>
+=======
+                <div className="container_title">
+                    <label htmlFor="title" id="label">Título do evento</label>
+                    <TextFieldComponent 
+                        id="title"
+                        label="Digite o título do evento"
+                        variant="outlined"
+                        name="titulo"
+                        control={control}
+                        error={errors.titulo?.message}
+                        multiline={false}
+                    />
+                </div>
+                    
+                <div className="container_description">
+                    <label htmlFor="description" id="label">Descrição do evento</label>
+                    <TextFieldComponent 
+                        id="description"
+                        label="Digite a descrição do evento"
+                        variant="outlined"
+                        name="descricao"
+                        control={control}
+                        error={errors.descricao?.message}
+                        multiline={true}
+                        rows={8}
+                    />
+                </div>
+
+                <div className="container_date_hour">
+                    <div className="container_date">
+                        <label htmlFor="" id="label">Início do evento</label>
+                        <DateFieldComponent 
+                            label="dd/mm/yyyy"
+                            control={control}
+                            name="data_inicio"
+                            error={errors.data_inicio?.message}
+                        />
                     </div>
 
+                    <div className="container_date">
+                        <label htmlFor="data-fim" id="label">Fim do evento</label>
+                        <DateFieldComponent 
+                            label="dd/mm/yyyy"
+                            control={control}
+                            name="data_fim"
+                            error={errors.data_fim?.message}
+                        />
+>>>>>>> release/0.2
+                    </div>
+                </div>
+
+<<<<<<< HEAD
                     <div className="container_date_hour">
                         <div className="container_hour">
                             <label htmlFor="start-time">Inicio</label>
@@ -196,13 +252,33 @@ export function FormUpdate() {
                             <label htmlFor="finish-time">Fim</label>
                             <input id="start-time" type="time" {...register("hora_fim")}/>
                         </div>
+=======
+                <div className="container_date_hour">
+                    <div className="container_hour">
+                        <label htmlFor="" id="label">Horário de início</label>
+                        <TimeFieldComponent 
+                            label="hh:mm aa"
+                            control={control}
+                            name="hora_inicio"
+                            error={errors.hora_inicio?.message}
+                        />
                     </div>
-
+                    <div className="container_hour">
+                        <label htmlFor="" id="label">Horário de encerramento </label>
+                        <TimeFieldComponent 
+                            label="hh:mm aa"
+                            control={control}
+                            name="hora_fim"
+                            error={errors.hora_fim?.message}
+                        />
+>>>>>>> release/0.2
+                    </div>
                 </div>
 
                 <div className="selecteds">
 
                     <div className="container_select">
+<<<<<<< HEAD
                         <label htmlFor="type-event">Tipo evento</label>
                         <select {...register("tipo_evento")} id="type-event">
 
@@ -222,8 +298,43 @@ export function FormUpdate() {
                         ))}
 
                         </select>
+=======
+                        <label htmlFor="" id="label">Tipo de evento</label>
+                        <SelectComponent 
+                            label="Tipo evento"
+                            control={control}
+                            name="tipo_evento"
+                            idLabel="tipo-evento"
+                            error={errors.tipo_evento?.message}
+                            arrayMenuItem={typeEvent}
+                        />
                     </div>
 
+                    <div className="container_select">
+                        <label htmlFor="" id="label">Tipo Categoria</label>
+                        <SelectComponent 
+                            label="Tipo categoria"
+                            control={control}
+                            name="tipo_categoria"
+                            idLabel="tipo-categoria"
+                            error={errors.tipo_categoria?.message}
+                            arrayMenuItem={categories}
+                        />
+>>>>>>> release/0.2
+                    </div>
+                </div>
+
+                <div className="container_local">
+                    <label htmlFor="local" id="label">Local do Evento</label>
+                    <TextFieldComponent 
+                        id="local"
+                        label="Rua, bairro, numero..."
+                        variant="outlined"
+                        name="local"
+                        control={control}
+                        error={errors.titulo?.message}
+                        multiline={false}
+                    />
                 </div>
 
                 <div className="container_button">
@@ -233,6 +344,6 @@ export function FormUpdate() {
                     </button>
                 </div>
             </form>
-        </ContainerContent>
+        </ContainerForm>
     )
 }
