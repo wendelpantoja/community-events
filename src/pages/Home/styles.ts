@@ -153,8 +153,8 @@ export const Services = styled.section`
 
         text-align: center;
 
-        margin-top: 30px;
-        margin-bottom: 100px;
+        margin-top: 64px;
+        margin-bottom: 50px;
     }
 
     .container_cards {
@@ -198,6 +198,9 @@ export const Services = styled.section`
 
     // =========== MEDIA TABLET ===========
     @media (max-width: 942px) {
+        h2 {
+            font-size: 24px;
+        }
         & {
             margin-top: 200px;
         }
@@ -231,7 +234,7 @@ export const Differential = styled.div`
     border-radius: 10px;
 
     padding: 120px 30px;
-    margin-top: 130px;
+    margin-top: 64px;
 
     .container_differ {
         display: flex;
@@ -279,13 +282,14 @@ export const Differential = styled.div`
             margin-bottom: 20px;
         }
         h4 {
-            font-weight: var(--font-medium);
+            font-weight: var(--font-regular);
             line-height: var(--small-line-height);
         }
     }
 
     // ========== MEDIA TABLET ==========
     @media (max-width: 942px) {
+        padding: 120px 20px;
         & {
             gap: 150px;
         }
@@ -296,6 +300,9 @@ export const Differential = styled.div`
         .container_img img {
             width: 230px;
             height: 300px;
+        }
+        .container_text {
+            max-width: none;
         }
     }
 
@@ -360,6 +367,7 @@ export const Start = styled.div`
 
     // ========== MEDIA TABLET ===========
     @media (max-width: 942px) {
+        padding: 0 20px;
         .button_start {
             width: 130px;
             height: 45px;
@@ -372,7 +380,7 @@ export const Start = styled.div`
             text-align: center;
             flex-direction: column;
             justify-content: center;
-            gap: 60px;
+            gap: 48px;
         }
     }
 `

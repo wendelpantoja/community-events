@@ -31,7 +31,11 @@ export function EventsDash() {
                 </div>
                 <div className="container_cards">
                     {eventsUser && <Card dataUser={eventsUser} />}
+<<<<<<< HEAD
+                    {eventsUser?.length === 0 && <h4>Nenhum evento cadastrado</h4> }
+=======
                     {eventsUser?.length === 0 && <h2>Nenhum evento cadastrado</h2>}
+>>>>>>> release/0.2
                 </div>
             </ContainerCardsDash>
         </>

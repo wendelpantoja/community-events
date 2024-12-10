@@ -1,6 +1,6 @@
 import { useForm } from "react-hook-form";
 import { Input } from "../../components/Input";
-import { Button, ContainerForm, Form } from "./styles";
+import { Button, ContainerForm, ContainerRegister, Form } from "./styles";
 import { CreateUserFormDataRegister, createUserFormRegister } from "./validationZod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useAuth } from "../../context/AuthProvider/useAuth";
@@ -38,73 +38,75 @@ export function Register() {
         }
     }
     return(
-        <ContainerForm>
+        <ContainerRegister>
+            <ContainerForm>
 
-            <div className="header_form">
-                <h2>Crie sua conta</h2>
-            </div>
-
-            <Form onSubmit={handleSubmit(getUser)}>
-
-                <div className="container_inputs">
-                    <Input 
-                        textLabel="Nome"
-                        type="text"
-                        placeholder="Digite seu nome"
-                        register={register}
-                        registerName="nome"
-                    />
-                    { errors.nome && <span>{ errors.nome.message }</span> }
-
-                    <Input 
-                        textLabel="Sobrenome"
-                        type="text"
-                        placeholder="Digite seu sobrenome"
-                        register={register}
-                        registerName="sobrenome"
-                    />
-
-                    <Input 
-                        textLabel="E-mail"
-                        type="text"
-                        placeholder="Digite seu e-mail"
-                        register={register}
-                        registerName="email"
-                    />
-                    { errors.email && <span>{ errors.email.message }</span> }
-
-                    <Input 
-                        textLabel="Senha"
-                        type="password"
-                        placeholder="Digite sua senha"
-                        register={register}
-                        registerName="password"
-                    />
-                    { errors.password && <span>{ errors.password.message }</span> }
-
-                    <Input 
-                        textLabel="Confirme sua senha"
-                        type="password"
-                        placeholder="Digite sua senha"
-                        register={register}
-                        registerName="passwordConfirme"
-                    />
-                    { errors.password && <span>{ errors.password.message }</span> }
+                <div className="header_form">
+                    <h2>Crie sua conta</h2>
                 </div>
 
-                <Button type="submit">
-                    {
-                        auth.handleSpinState 
-                            ? <HandleSpin typeColor="spin_violet"/>  
-                            : "Cadastrar"
-                    }
-                </Button>
+                <Form onSubmit={handleSubmit(getUser)}>
 
-                <p>Já tem uma conta? <Link to="/login">Faça login</Link></p>
+                    <div className="container_inputs">
+                        <Input 
+                            textLabel="Nome"
+                            type="text"
+                            placeholder="Digite seu nome"
+                            register={register}
+                            registerName="nome"
+                        />
+                        { errors.nome && <span>{ errors.nome.message }</span> }
 
-                <Link to="/">voltar para home</Link>
+                        <Input 
+                            textLabel="Sobrenome"
+                            type="text"
+                            placeholder="Digite seu sobrenome"
+                            register={register}
+                            registerName="sobrenome"
+                        />
 
-            </Form>
-        </ContainerForm>
+                        <Input 
+                            textLabel="E-mail"
+                            type="text"
+                            placeholder="Digite seu e-mail"
+                            register={register}
+                            registerName="email"
+                        />
+                        { errors.email && <span>{ errors.email.message }</span> }
+
+                        <Input 
+                            textLabel="Senha"
+                            type="password"
+                            placeholder="Digite sua senha"
+                            register={register}
+                            registerName="password"
+                        />
+                        { errors.password && <span>{ errors.password.message }</span> }
+
+                        <Input 
+                            textLabel="Confirme sua senha"
+                            type="password"
+                            placeholder="Digite sua senha"
+                            register={register}
+                            registerName="passwordConfirme"
+                        />
+                        { errors.password && <span>{ errors.password.message }</span> }
+                    </div>
+
+                    <Button type="submit">
+                        {
+                            auth.handleSpinState 
+                                ? <HandleSpin typeColor="spin_violet"/>  
+                                : "Cadastrar"
+                        }
+                    </Button>
+
+                    <p>Já tem uma conta? <Link to="/login">Faça login</Link></p>
+
+                    <Link to="/">voltar para home</Link>
+
+                </Form>
+                </ContainerForm>
+        </ContainerRegister>
     )
 }

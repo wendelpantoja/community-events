@@ -3,8 +3,6 @@ import { Container } from "../../styles/GlobalStyles";
 import { Differential, Introduction, Services, Start } from "./styles";
 import { Footer } from "../../components/Footer";
 
-
-
 export function Home() {
 
     return( 
@@ -36,14 +34,14 @@ export function Home() {
 
                         <div className="container_photos">
 
-                            <img src="src/assets/img/img-intro-01.jpg" alt="" />
-                            <img src="src/assets/img/img-intro-01.jpg" alt="" />
+                            <img src="/assets/img/img-intro-01.jpg" alt="" />
+                            <img src="/assets/img/img-intro-01.jpg" alt="" />
 
-                            <img src="src/assets/img/img-intro-02.jpg" alt="" />
-                            <img src="src/assets/img/img-intro-02.jpg" alt="" />
+                            <img src="/assets/img/img-intro-02.jpg" alt="" />
+                            <img src="/assets/img/img-intro-02.jpg" alt="" />
 
-                            <img src="src/assets/img/img-intro-03.jpg" alt="" />
-                            <img src="src/assets/img/img-intro-03.jpg" alt="" />
+                            <img src="/assets/img/img-intro-03.jpg" alt="" />
+                            <img src="/assets/img/img-intro-03.jpg" alt="" />
 
                         </div>
 
@@ -89,8 +87,8 @@ export function Home() {
                     <div className="container_differ differ01">
 
                         <div className="container_img img01">
-                            <img src="src/assets/img/img-differ-01.jpg" alt="" />
-                            <img src="src/assets/img/img-differ-01.jpg" alt="" />
+                            <img src="/assets/img/img-differ-01.jpg" alt="" />
+                            <img src="/assets/img/img-differ-01.jpg" alt="" />
                         </div>
 
                         <div className="container_text">
@@ -114,8 +112,8 @@ export function Home() {
                         </div>
 
                         <div className="container_img img02">
-                            <img src="src/assets/img/img-differ-02.jpg" alt="" />
-                            <img src="src/assets/img/img-differ-02.jpg" alt="" />
+                            <img src="/assets/img/img-differ-02.jpg" alt="" />
+                            <img src="/assets/img/img-differ-02.jpg" alt="" />
                         </div>
 
                     </div>

@@ -40,7 +40,7 @@ export const GlobalStyled = createGlobalStyle`
     --icon-font-size: 25px;
     --h3-font-size: 20px;
     --h4-font-size: 18px;
-    --p-font--size: 16px;
+    --normal-font--size: 16px;
     --small-font-size: 14px;
     --smaller-font-size: 12px;
 
@@ -125,7 +125,7 @@ span {
 @media (max-width: 942px) {
     :root {
         --h1-font-size: 32px;
-        --h2-font-size: 22px;
+        --h2-font-size: 24px;
         --icon-font-size: 25px;
         --h3-font-size: 18px;
         --h4-font-size: 16px;
