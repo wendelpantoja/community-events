@@ -52,70 +52,87 @@ export const ContainerForm = styled.div`
         color: red;
     }
 
+    #label {
+        position: relative;
+        bottom: 8px;
+
+        font-size: var(--small-font-size);
+        font-weight: var(--font-medium);
+    }
+
     .container_title {
         width: 100%;
-        margin-top: 30px;
+        margin-top: 20px;
+    }
 
-        .MuiFormControl-root {
-            height: 40px;
-            margin-top: 8px;
-        }
+    .container_title
+    .MuiFormControl-root {
+        height: 40px;
+    }
+    .container_title
+    .MuiFormControl-root label {
+        font-size: var(--small-font-size);
+        font-weight: var(--font-medium);
+    }
 
-        .MuiFormControl-root
-        .MuiFormLabel-root {
-            font-size: 14px;
-            left: 15px;
-            top: 50%;
-            transform: translateY(-50%);
-            font-family: "Montserrat", sans-serif;
-        }
+    .container_title
+    .MuiFormControl-root
+    .MuiFormLabel-root {
+        font-size: 14px;
+        left: 15px;
+        top: 50%;
+        transform: translateY(-50%);
+        font-family: "Montserrat", sans-serif;
+    }
 
-        .MuiFormControl-root
-        .MuiInputBase-root {
-            height: 100%;
-        }
+    .container_title
+    .MuiFormControl-root
+    .MuiInputBase-root {
+        height: 100%;
+    }
 
-        .MuiFormControl-root
-        .MuiFormLabel-root.Mui-focused {
-            display: none;
-        }
+    .container_title
+    .MuiFormControl-root
+    .MuiFormLabel-root.Mui-focused {
+        display: none;
+    }
 
-        .MuiFormControl-root
-        .css-113d811-MuiFormLabel-root-MuiInputLabel-root {
-            position: static;
-        }
+    .container_title
+    .MuiFormControl-root
+    .css-113d811-MuiFormLabel-root-MuiInputLabel-root {
+        position: static;
+    }
 
-        .MuiInputBase-input {
-            font-family: "Montserrat", sans-serif;
-            color: black;
-        }
+    .container_title
+    .MuiInputBase-input {
+        font-family: "Montserrat", sans-serif;
+        color: black;
+    }
 
-        .MuiOutlinedInput-notchedOutline
-        .css-w1u3ce {
-            max-width: 0;
-        }
+    .container_title
+    .MuiOutlinedInput-notchedOutline
+    .css-w1u3ce {
+        max-width: 0;
+    }
 
-        .MuiInputBase-root.Mui-focused .MuiOutlinedInput-notchedOutline {
-            border-color: var(--violet-color);
-        }
+    .container_title
+    .MuiInputBase-root.Mui-focused .MuiOutlinedInput-notchedOutline {
+        border-color: var(--violet-color);
+    }
 
-        label {
-            font-size: var(--small-font-size);
-            font-weight: var(--font-medium);
-        }
-
-        .title {
-            width: 100%;
-            height: 44px;
-            border: 1px solid lightgray;
-            border-radius: 10px;
-            font-size: var(--small-font-size);
-            padding: 10px;
-            margin-top: 5px;
-        }
-        .title:focus {
-            outline: 1px solid var(--violet-color);
-        }
+    .container_title
+    .title {
+        width: 100%;
+        height: 44px;
+        border: 1px solid lightgray;
+        border-radius: 10px;
+        font-size: var(--small-font-size);
+        padding: 10px;
+        margin-top: 5px;
+    }
+    .container_title
+    .title:focus {
+        outline: 1px solid var(--violet-color);
     }
 
     img {
@@ -124,15 +141,11 @@ export const ContainerForm = styled.div`
     }
 
     .container_description {
-        margin-top: 30px;
+        margin-top: 20px;
 
         label {
             font-size: var(--small-font-size);
             font-weight: var(--font-medium);
-        }
-
-        .MuiFormControl-root {
-            margin-top: 8px;
         }
 
         .MuiFormControl-root
@@ -178,8 +191,7 @@ export const ContainerForm = styled.div`
         display: flex;
         align-items: center;
         gap: 50px;
-
-        margin-top: 30px;
+        margin-top: 20px;
 
         .container_date {
             width: 100%;
@@ -191,7 +203,6 @@ export const ContainerForm = styled.div`
 
             .MuiFormControl-root {
                 height: 40px;
-                margin-top: 8px;
             }
 
             .MuiFormControl-root
@@ -244,7 +255,6 @@ export const ContainerForm = styled.div`
 
             .MuiFormControl-root {
                 height: 40px;
-                margin-top: 8px;
             }
 
             .MuiFormControl-root
@@ -296,9 +306,7 @@ export const ContainerForm = styled.div`
         align-items: center;
         justify-content: center;
         gap: 50px;
-
-        margin-top: 30px;
-        margin-bottom: 30px;
+        margin-top: 20px;
 
         .container_select {
             width: 100%;
@@ -310,7 +318,6 @@ export const ContainerForm = styled.div`
 
             .MuiFormControl-root {
                 height: 40px;
-                margin-top: 8px;
             }
 
             .MuiFormControl-root
@@ -357,10 +364,10 @@ export const ContainerForm = styled.div`
 
     .container_local {
         width: 100%;
+        margin-top: 20px;
 
         .MuiFormControl-root {
             height: 40px;
-            margin-top: 8px;
         }
 
         .MuiFormControl-root
@@ -424,8 +431,8 @@ export const ContainerForm = styled.div`
         text-align: center;
         margin-top: 50px;
         button {
-            width: 200px;
-            height: 50px;
+            width: 100%;
+            height: 48px;
 
             background-color: var(--button-color);
             border: none;
@@ -447,11 +454,17 @@ export const ContainerForm = styled.div`
         padding: 0px;
     }
 
-    @media (max-width: 416px) {
-        .container_inputs
+    @media (max-width: 420px) {
         .container_date_hour {
             flex-direction: column;
-            gap: 10px;
+            gap: 15px;
+            margin-top: 40px;
+        }
+        .selecteds {
+            flex-direction: column;
+            gap: 15px;
+            margin-top: 40px;
+            margin-bottom: 40px;
         }
     }
 `

@@ -18,26 +18,28 @@ type TextFieldProps = {
 
 export function TextFieldComponent({ id, label, variant, name, control, error, multiline, rows }:TextFieldProps) {
     return (
-        <FormControl fullWidth>
-            <Controller 
-                control={control}
-                name={name}
-                render={({ field: { onChange, onBlur, value, ref} }) => (
-                    <TextField 
-                        fullWidth
-                        id={id} 
-                        label={value == "" ? label : ""} 
-                        variant={variant} 
-                        onChange={onChange}
-                        onBlur={onBlur}
-                        value={value}
-                        ref={ref}
-                        multiline={multiline}
-                        rows={rows ? rows : 0}
-                    /> 
-                )}
-            />
+        <>
+            <FormControl fullWidth>
+                <Controller 
+                    control={control}
+                    name={name}
+                    render={({ field: { onChange, onBlur, value, ref} }) => (
+                        <TextField 
+                            fullWidth
+                            id={id} 
+                            label={value == "" ? label : ""} 
+                            variant={variant} 
+                            onChange={onChange}
+                            onBlur={onBlur}
+                            value={value}
+                            ref={ref}
+                            multiline={multiline}
+                            rows={rows ? rows : 0}
+                        /> 
+                    )}
+                />
+            </FormControl>
             {error && <FormHelperText id="component-error-text">{error}</FormHelperText>}
-        </FormControl>
+        </>
     )
 }

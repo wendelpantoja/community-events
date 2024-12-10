@@ -19,32 +19,34 @@ type SelectProps = {
 export function SelectComponent({ label, control, name, idLabel, error, arrayMenuItem }:SelectProps) {
 
   return (
-    <FormControl fullWidth>
-        <Controller 
-            control={control}
-            name={name}
-            render={({field: { onChange, onBlur, value, ref }}) => (
-                    <FormControl fullWidth>
-                        <InputLabel id={idLabel}>{label}</InputLabel>
-                        <Select
-                            labelId={idLabel}
-                            id={idLabel}
-                            label={value === "" ? label : ""}
-                            value={value ? value : ""} 
-                            onBlur={onBlur}
-                            onChange={onChange}
-                            ref={ref}
-                        >
-                        {
-                            arrayMenuItem.map((value, index) => (
-                                <MenuItem key={index} value={value}>{value}</MenuItem>
-                            ))
-                        }
-                        </Select>
-                    </FormControl>
-            )}
-        />
+    <>
+        <FormControl fullWidth>
+            <Controller 
+                control={control}
+                name={name}
+                render={({field: { onChange, onBlur, value, ref }}) => (
+                        <FormControl fullWidth>
+                            <InputLabel id={idLabel}>{label}</InputLabel>
+                            <Select
+                                labelId={idLabel}
+                                id={idLabel}
+                                label={value === "" ? label : ""}
+                                value={value ? value : ""} 
+                                onBlur={onBlur}
+                                onChange={onChange}
+                                ref={ref}
+                            >
+                            {
+                                arrayMenuItem.map((value, index) => (
+                                    <MenuItem key={index} value={value}>{value}</MenuItem>
+                                ))
+                            }
+                            </Select>
+                        </FormControl>
+                )}
+            />
+        </FormControl>
         {error && <FormHelperText id="component-error-text">{error}</FormHelperText>}
-    </FormControl>
+    </>
   );
 }

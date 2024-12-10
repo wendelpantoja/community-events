@@ -109,7 +109,7 @@ export function CreateEvent() {
                 </ContainerFile> 
 
                 <div className="container_title">
-                    <label htmlFor="title">Título do evento</label>
+                    <label htmlFor="title" id="label">Título do evento</label>
                     <TextFieldComponent 
                         id="title"
                         label="Digite o título do evento"
@@ -122,7 +122,7 @@ export function CreateEvent() {
                 </div>
                     
                 <div className="container_description">
-                    <label htmlFor="description">Descrição do evento</label>
+                    <label htmlFor="description" id="label">Descrição do evento</label>
                     <TextFieldComponent 
                         id="description"
                         label="Digite a descrição do evento"
@@ -137,7 +137,7 @@ export function CreateEvent() {
 
                 <div className="container_date_hour">
                     <div className="container_date">
-                        <label htmlFor="">Início do evento</label>
+                        <label htmlFor="" id="label">Início do evento</label>
                         <DateFieldComponent 
                             label="dd/mm/yyyy"
                             control={control}
@@ -147,7 +147,7 @@ export function CreateEvent() {
                     </div>
 
                     <div className="container_date">
-                        <label htmlFor="data-fim">Fim do evento</label>
+                        <label htmlFor="data-fim" id="label">Fim do evento</label>
                         <DateFieldComponent 
                             label="dd/mm/yyyy"
                             control={control}
@@ -159,7 +159,7 @@ export function CreateEvent() {
 
                 <div className="container_date_hour">
                     <div className="container_hour">
-                        <label htmlFor="">Horário de início</label>
+                        <label htmlFor="" id="label">Horário de início</label>
                         <TimeFieldComponent 
                             label="hh:mm aa"
                             control={control}
@@ -168,7 +168,7 @@ export function CreateEvent() {
                         />
                     </div>
                     <div className="container_hour">
-                        <label htmlFor="">Horário de encerramento </label>
+                        <label htmlFor="" id="label">Horário de encerramento </label>
                         <TimeFieldComponent 
                             label="hh:mm aa"
                             control={control}
@@ -181,7 +181,7 @@ export function CreateEvent() {
                 <div className="selecteds">
 
                     <div className="container_select">
-                        <label htmlFor="">Tipo de evento</label>
+                        <label htmlFor="" id="label">Tipo de evento</label>
                         <SelectComponent 
                             label="Tipo evento"
                             control={control}
@@ -193,7 +193,7 @@ export function CreateEvent() {
                     </div>
 
                     <div className="container_select">
-                        <label htmlFor="">Tipo Categoria</label>
+                        <label htmlFor="" id="label">Tipo Categoria</label>
                         <SelectComponent 
                             label="Tipo categoria"
                             control={control}
@@ -207,7 +207,7 @@ export function CreateEvent() {
                 </div>
 
                 <div className="container_local">
-                    <label htmlFor="local">Local do Evento</label>
+                    <label htmlFor="local" id="label">Local do Evento</label>
                     <TextFieldComponent 
                         id="local"
                         label="Rua, bairro, numero..."

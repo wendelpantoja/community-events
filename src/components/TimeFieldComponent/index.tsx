@@ -17,23 +17,25 @@ type TimeFieldProps = {
 export function TimeFieldComponent({ label, control, name, error }:TimeFieldProps) {
 
     return (
-        <FormControl fullWidth>
-            <Controller 
-            control={control}
-            name={name}
-            render={({field: { onChange, onBlur, value, ref }}) => (
-                <LocalizationProvider dateAdapter={AdapterDateFns} adapterLocale={enGB}>
-                        <TimeField
-                            label={label}
-                            value={value}
-                            onBlur={onBlur}
-                            ref={ref}
-                            onChange={onChange}
-                        />
-                </LocalizationProvider>
-            )}
-        />
-        {error && <FormHelperText id="component-error-text">{error}</FormHelperText>}
-        </FormControl>
+        <>
+            <FormControl fullWidth>
+                <Controller 
+                control={control}
+                name={name}
+                render={({field: { onChange, onBlur, value, ref }}) => (
+                    <LocalizationProvider dateAdapter={AdapterDateFns} adapterLocale={enGB}>
+                            <TimeField
+                                label={label}
+                                value={value}
+                                onBlur={onBlur}
+                                ref={ref}
+                                onChange={onChange}
+                            />
+                    </LocalizationProvider>
+                )}
+                />
+            </FormControl>
+            {error && <FormHelperText id="component-error-text">{error}</FormHelperText>}
+        </>
     )
 }
