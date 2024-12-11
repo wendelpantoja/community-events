@@ -152,46 +152,6 @@ export function FormUpdate() {
 
                 </ContainerFile> 
 
-<<<<<<< HEAD
-                    <div className="container_title">
-                        <label htmlFor="title">Título do evento</label>
-                        <input 
-                            id="title"
-                            className='title' 
-                            type="text"
-                            placeholder='Digite o título do evento'
-                            {...register("titulo")}
-                        />
-                    </div>
-                    
-                    <div className="container_description">
-                        <label htmlFor="descriptoin">Descrição do evento</label>
-                        <textarea 
-                            id="description" 
-                            placeholder='Descrição do evento'
-                            {...register("descricao")}
-                        />
-                    </div>
-
-                    <div className="container_date_hour">
-                        <div className="container_date">
-                            <label htmlFor="init-event">Inicio</label>
-                            <input 
-                                id="init-event"
-                                type="date" 
-                                {...register("data_inicio")}
-                            />
-                        </div>
-
-                        <div className="container_date">
-                            <label htmlFor="finish-event">Fim</label>
-                            <input 
-                                id="finish-event"
-                                type="date" 
-                                {...register("data_fim")}
-                            />
-                        </div>
-=======
                 <div className="container_title">
                     <label htmlFor="title" id="label">Título do evento</label>
                     <TextFieldComponent 
@@ -238,21 +198,9 @@ export function FormUpdate() {
                             name="data_fim"
                             error={errors.data_fim?.message}
                         />
->>>>>>> release/0.2
                     </div>
                 </div>
 
-<<<<<<< HEAD
-                    <div className="container_date_hour">
-                        <div className="container_hour">
-                            <label htmlFor="start-time">Inicio</label>
-                            <input id="start-time" type="time" {...register("hora_inicio")}/>
-                        </div>
-                        <div className="container_hour">
-                            <label htmlFor="finish-time">Fim</label>
-                            <input id="start-time" type="time" {...register("hora_fim")}/>
-                        </div>
-=======
                 <div className="container_date_hour">
                     <div className="container_hour">
                         <label htmlFor="" id="label">Horário de início</label>
@@ -271,34 +219,12 @@ export function FormUpdate() {
                             name="hora_fim"
                             error={errors.hora_fim?.message}
                         />
->>>>>>> release/0.2
                     </div>
                 </div>
 
                 <div className="selecteds">
 
                     <div className="container_select">
-<<<<<<< HEAD
-                        <label htmlFor="type-event">Tipo evento</label>
-                        <select {...register("tipo_evento")} id="type-event">
-
-                            {typeEvent.map((option, index) => (
-                                <option value={option} key={index}>{option}</option>
-                            ))}
-
-                        </select>
-                    </div>
-
-                    <div className="container_select">
-                        <label htmlFor="category">Categoria</label>
-                        <select {...register("tipo_categoria")}  id="category">
-
-                        {categories.map((option, index) => (
-                            <option value={option} key={index}>{option}</option>
-                        ))}
-
-                        </select>
-=======
                         <label htmlFor="" id="label">Tipo de evento</label>
                         <SelectComponent 
                             label="Tipo evento"
@@ -320,7 +246,6 @@ export function FormUpdate() {
                             error={errors.tipo_categoria?.message}
                             arrayMenuItem={categories}
                         />
->>>>>>> release/0.2
                     </div>
                 </div>
 
