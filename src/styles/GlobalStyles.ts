@@ -40,7 +40,7 @@ export const GlobalStyled = createGlobalStyle`
     --icon-font-size: 25px;
     --h3-font-size: 20px;
     --h4-font-size: 18px;
-    --normal-font--size: 16px;
+    --p-font-size: 16px;
     --small-font-size: 14px;
     --smaller-font-size: 12px;
 
@@ -97,7 +97,7 @@ h4 {
     font-size: var(--h4-font-size);
 }
 p {
-    font-size: var(--p-font--size);
+    font-size: var(--p-font-size);
 }
 
 span {
@@ -112,7 +112,7 @@ span {
     --icon-font-size: 25px;
     --h3-font-size: 20px;
     --h4-font-size: 18px;
-    --p-font--size: 16px;
+    --p-font-size: 15px;
     --small-font-size: 14px;
 
     --normal-line-height: 48px;
