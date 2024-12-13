@@ -63,7 +63,7 @@ export const Form = styled.form`
 
         span {
             font-size: var(--smaller-font-size);
-            color: var(--text-color-violet);
+            color: red;
         }
 
         i {

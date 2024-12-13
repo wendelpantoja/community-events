@@ -43,11 +43,11 @@ export const ContainerInput = styled.div`
         }
 
         input[type=text] {
-            font-size: var(--small-font-size);
+            font-size: 15px;
             color: var(--black-color-light);
         }
         input[type=password] {
-            font-size: var(--small-font-size);
+            font-size: 15px;
             color: var(--black-color-light);
         }
     }

@@ -1,18 +1,23 @@
 export const errosCode = [
     {
         type: "error",
+        error: "auth/invalid-credential",
+        message: "Verifique seu usuário e senha.",
+    },
+    {
+        type: "error",
         error: "auth/invalid-login-credentials",
-        message: "Usuário ou senha incorretos",
+        message: "Usuário ou senha incorretos.",
     },
     {
         type: "error",
         error: "auth/user-not-found",
-        message: "Usuário não possui uma conta",
+        message: "Usuário não possui uma conta!",
     },
     {
         type: "error",
         error: "auth/wrong-password",
-        message: "Usuário ou senha incorretos",
+        message: "Usuário ou senha incorretos.",
     },
     {
         type: "error",
